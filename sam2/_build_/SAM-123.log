@@ -1,0 +1,123 @@
+Enter func : main
+ Executable name: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+ Enter func : TxaParseArgcArgv
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 0  Len:030, Item: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+   Stored argv[0] at 000a0ed0, value: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+  Ret:00000000 txaReadAndStoreItem
+ Ret:00000000 TxaParseArgcArgv
+ Enter func : TxLibraryInit
+  Enter func : TxFsSetCritErrHandler
+  Return void: TxFsSetCritErrHandler
+  TXH (EXE switch): 1 option: 137 = 'e'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  55 = '7'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  97 = 'a'  value: 0 '---NONE---'
+  ASCII7 set 2: FALSE
+  ASCII7 set 1: FALSE
+  Enter func : TxClaimKeyboard
+  Ret:00000000 TxClaimKeyboard
+ Return void: TxLibraryInit
+ TXH (EXE switch): 1 option: 108 = 'l'  value: 0 '---NONE---'
+ TXH (EXE switch): 1 option:  63 = '?'  value: 0 '---NONE---'
+ GETARGV argument: 0 = 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+
+SAM2  OS/2 1.00 20-09-2005 (c) 2005: Jan van Wijk
+Hello world sample for JvW-Fsys TXW OpenWatcom build environment.
+
+Usage: H:\C\SAM2\_BUILD_\SAM2OS2T.EXE mandatory-params   [optional-params]
+
+  Switch character for EXE switches is '-' or '/'. All single letter
+  switches are case-sensitive, long switchnames like 'query' are not.
+
+ -123[t][s][l][r][dxx] = trace level 123, [t]stamp; [s]creen; No [l]ogging;                                          [r]e-open [d]elay xx ms per line
+
+ -?            = help on executable commandline switches (this text)
+ -7            = Use 7-bit ASCII only (no 'graphic' characters)
+ -a            = switch off usage of ANSI escape characters for color
+ -l:logfile    = start logging immediately to 'logfile.log'
+ Enter func : TxaDropParsedCommand
+ Ret:False    TxaDropParsedCommand
+Ret:00000000 main
+Closing logfile   : 'SAM-123.log'
+Enter func : main
+ Executable name: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+ Enter func : TxaParseArgcArgv
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 0  Len:030, Item: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+   Stored argv[0] at 000a0f60, value: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+  Ret:00000000 txaReadAndStoreItem
+ Ret:00000000 TxaParseArgcArgv
+ Enter func : TxLibraryInit
+  Enter func : TxFsSetCritErrHandler
+  Return void: TxFsSetCritErrHandler
+  TXH (EXE switch): 1 option: 137 = 'e'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  55 = '7'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  97 = 'a'  value: 0 '---NONE---'
+  ASCII7 set 2: FALSE
+  ASCII7 set 1: FALSE
+  Enter func : TxClaimKeyboard
+  Ret:00000000 TxClaimKeyboard
+ Return void: TxLibraryInit
+ TXH (EXE switch): 1 option: 108 = 'l'  value: 0 '---NONE---'
+ TXH (EXE switch): 1 option:  63 = '?'  value: 0 '---NONE---'
+ GETARGV argument: 0 = 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+
+SAM2  OS/2 1.00 20-09-2005 (c) 2005: Jan van Wijk
+Hello world sample for JvW-Fsys TXW OpenWatcom build environment.
+
+Usage: H:\C\SAM2\_BUILD_\SAM2OS2T.EXE mandatory-params   [optional-params]
+
+  Switch character for EXE switches is '-' or '/'. All single letter
+  switches are case-sensitive, long switchnames like 'query' are not.
+
+ -123[t][s][l][r][dxx] = trace level 123, [t]stamp; [s]creen; No [l]ogging;                                          [r]e-open [d]elay xx ms per line
+
+ -?            = help on executable commandline switches (this text)
+ -7            = Use 7-bit ASCII only (no 'graphic' characters)
+ -a            = switch off usage of ANSI escape characters for color
+ -l:logfile    = start logging immediately to 'logfile.log'
+ Enter func : TxaDropParsedCommand
+ Ret:False    TxaDropParsedCommand
+Ret:00000000 main
+Closing logfile   : 'SAM-123.log'
+Enter func : main
+ Executable name: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+ Enter func : TxaParseArgcArgv
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 0  Len:030, Item: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+   Stored argv[0] at 000a0f68, value: 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+  Ret:00000000 txaReadAndStoreItem
+ Ret:00000000 TxaParseArgcArgv
+ Enter func : TxLibraryInit
+  Enter func : TxFsSetCritErrHandler
+  Return void: TxFsSetCritErrHandler
+  TXH (EXE switch): 1 option: 137 = 'e'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  55 = '7'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  97 = 'a'  value: 0 '---NONE---'
+  ASCII7 set 2: FALSE
+  ASCII7 set 1: FALSE
+  Enter func : TxClaimKeyboard
+  Ret:00000000 TxClaimKeyboard
+ Return void: TxLibraryInit
+ TXH (EXE switch): 1 option: 108 = 'l'  value: 0 '---NONE---'
+ TXH (EXE switch): 1 option:  63 = '?'  value: 0 '---NONE---'
+ GETARGV argument: 0 = 'H:\C\SAM2\_BUILD_\SAM2OS2T.EXE'
+
+SAM2  OS/2 1.00 20-09-2005 (c) 2005: Jan van Wijk
+Hello world sample for JvW-Fsys TXW OpenWatcom build environment.
+
+Usage: H:\C\SAM2\_BUILD_\SAM2OS2T.EXE mandatory-params   [optional-params]
+
+  Switch character for EXE switches is '-' or '/'. All single letter
+  switches are case-sensitive, long switchnames like 'query' are not.
+
+ -123[t][s][l][r][dxx] = trace level 123, [t]stamp; [s]creen; No [l]ogging;                                          [r]e-open [d]elay xx ms per line
+
+ -?            = help on executable commandline switches (this text)
+ -7            = Use 7-bit ASCII only (no 'graphic' characters)
+ -a            = switch off usage of ANSI escape characters for color
+ -l:logfile    = start logging immediately to 'logfile.log'
+ Enter func : TxaDropParsedCommand
+ Ret:False    TxaDropParsedCommand
+Ret:00000000 main
+Closing logfile   : 'SAM-123.log'

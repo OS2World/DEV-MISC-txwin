@@ -1,0 +1,6 @@
+This is a cross-platform sample program implementing a simple
+text-viewer with text in a large popup-window and including
+a file-open dialog, simple menu system and help screens
+to be built using OpenWatcom and TxWindows
+
+Build using'build.cmd' ...

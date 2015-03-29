@@ -1,0 +1,129 @@
+#
+# Sample makefile, to build with 32-bit compiler; 12 different targets!
+#
+# JvW 06-07-2003 Renamed to TXT, TX-library test program
+# JvW 06-06-2002 called from subdirectory, compile using sources in ..
+# JvW 10-03-2004 Moved includes to txlib\include, libs to txlib\lib, added Linux
+# JvW 29-09-2005 Minor updates for Open TxWindows release 1.0
+#
+
+# define main component name
+compo   = txt
+
+cc = wcc386
+
+# allow (> 2 times) faster building by using the DLL versions from wmake
+!ifdef __LOADDLL__
+!  loaddll wcc386  wccd386
+!  loaddll wlink   wlinkd
+!  loaddll wlib    wlibd
+!endif
+
+!ifndef tx_version
+tx_version = _txall_
+!endif
+!ifneq tx_version _txall_
+cflags += -DTXOEM -DOEMSV
+!endif
+
+txdir   = ..\..\..\txlib\$(tx_version)\lib
+txinc   = ..\..\..\txlib\include
+
+cflags += -bt=$(target_os) -ef -wx -zc -zp1 -zq
+lnkopt += option map option stack=128K libpath $(txdir)
+postfix =
+comprs  = rem
+
+!ifeq  target_env debug
+cflags += -d2
+#activate next line to remove trace from debug EXE (update txlib makefile too)
+#cflags += -DNOTRACE
+lnkopt += debug all
+postfix = d
+!else
+!ifeq  target_env trace
+postfix = t
+!else
+postfix = r
+#activate next line to remove ALL trace from EXE (not just from TXLIB)
+#cflags += -DNOTRACE
+!endif
+#select optimization for the non-debug (t and r) versions
+cflags += -ormile
+#cflags += -oneasx
+#cflags += -od
+!endif
+
+!ifeq target_os nt
+cflags += -bm -ei
+lnkopt += libpath $(%wintklib)
+bintype = win
+comprs  = upx --best
+!endif
+
+!ifeq target_os os2
+cflags += -bm
+lnkopt += libpath $(%os2tklib)
+bintype = os2
+comprs  = lxlite
+!endif
+
+!ifeq target_os linux
+lnkopt += libpath $(%lintklib)
+bintype = lin
+comprs  = upx --best
+!endif
+
+!ifeq target_os dos
+!ifeq target_sys dos32a
+bintype = dos
+!else
+bintype = dcw
+!endif
+comprs  = upx --best
+!endif
+
+gendep = makefile ..\..\makefile.mif
+
+.EXTENSIONS:
+.EXTENSIONS: .exe .lib .obj .c .h
+
+.c : ..\..
+.h : ..\..;$(txinc)
+
+.c.obj : .AUTODEPEND $(gendep)
+      $(cc) $[*.c $(cflags)
+
+exebase = ..\$(compo)$(bintype)
+exename = $(exebase)$(postfix).exe
+
+all : $(exename) .SYMBOLIC
+
+#list all object files to create a full dependancy list for the exe
+exedeps =                            &
+           $(compo).obj              &
+           txtwin.obj
+
+# add any objects and libraries needed beyond the component itself
+lnkspec =                            &
+ name      $(exename)                &
+ library tx$(bintype)$(postfix).lib  &
+ file      $(compo)                  &
+ file      txtwin
+
+$(exename)   : $(exedeps) $(gendep) $(txdir)\tx$(bintype)$(postfix).lib
+      @%create $(compo).lnk
+      @%append $(compo).lnk system $(target_sys) $(lnkopt)
+      @%append $(compo).lnk $(lnkspec)
+      wlink $(lnkopt) @$(compo).lnk
+!ifeq  target_env debug
+!else
+      - $(comprs)  $^@
+!endif
+
+clean : .SYMBOLIC
+        @if exist $(exename) del $(exename)
+        @if exist *.obj del *.obj
+        @if exist *.lnk del *.lnk
+        @if exist *.err del *.err
+        @if exist *.map del *.map

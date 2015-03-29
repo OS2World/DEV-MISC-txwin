@@ -1,0 +1,6 @@
+This is a cross-platform sample program like
+'Hello World' with text in a popup-window
+and including a scrollbuffer for output
+to be built using OpenWatcom and TxWindows
+
+Build using'build.cmd' ...

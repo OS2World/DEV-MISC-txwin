@@ -1,0 +1,7 @@
+H:\c\sam3\_build_\os2t
+wcc386 ..\..\sam3.c -bt=os2 -ef -wx -zc -zp1 -zq -ormile -bm
+H:\c\sam3\sam3.c(6): Error! E1100: Definition of macro 'SAM_V' not identical to previous definition
+
+Notice any WMAKE errors displayed, press a key to edit logs, if any ...
+_build_\sam3os2t.exe
+        1 file(s) copied.

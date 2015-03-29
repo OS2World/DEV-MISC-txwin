@@ -1,0 +1,623 @@
+Open Watcom Linker Version 1.9
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       14/06/13 12:26:12
+Executable Image: ..\sam2os2t.exe
+creating an OS/2 32-bit executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          0003:00000000        00022220
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_TEXT16                CODE           AUTO           0001:00000000   00000068
+BEGTEXT                CODE           AUTO           0002:00000000   00000007
+_TEXT                  CODE           AUTO           0002:00000010   0000c0c7
+_NULL                  BEGDATA        DGROUP         0003:00000000   00000004
+_AFTERNULL             BEGDATA        DGROUP         0003:00000004   00000000
+CONST                  DATA           DGROUP         0003:00000004   00000028
+CONST2                 DATA           DGROUP         0003:0000002c   00000000
+_DATA                  DATA           DGROUP         0003:0000002c   00001f44
+XIB                    DATA           DGROUP         0003:00001f70   00000000
+XI                     DATA           DGROUP         0003:00001f70   00000036
+XIE                    DATA           DGROUP         0003:00001fa6   00000000
+YIB                    DATA           DGROUP         0003:00001fa6   00000000
+YI                     DATA           DGROUP         0003:00001fa6   00000018
+YIE                    DATA           DGROUP         0003:00001fbe   00000000
+TIB                    DATA           DGROUP         0003:00001fbe   00000000
+TI                     DATA           DGROUP         0003:00001fbe   00000000
+TIE                    DATA           DGROUP         0003:00001fbe   00000000
+DATA                   DATA           DGROUP         0003:00001fbe   00000000
+_BSS                   BSS            DGROUP         0003:00001fc0   0000025c
+stack                  STACK          DGROUP         0003:00002220   00020000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: sam2.obj(H:\c\sam2\sam2.c)
+0002:00000342  main_
+0003:0000002c+ _usagetext
+Module: j:\ow19/lib386/os2\clib3r.lib(stk)
+0002:00000519  __STK
+0002:00000509  __CHK
+0002:00000548* __GRO
+0002:00000538* __STKOVERFLOW_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txtrace.c)
+0003:00000074  _TxTrLevel
+0003:00000078  _TxTrSlowDown
+0003:0000007c  _TxTrLogOnly
+0003:00000080+ _TxTrTstamp
+0003:00000084+ _TxTrIndent
+0002:00000644  TxTraceInitMain_
+0002:000007c8  TxTraceEnter_
+0002:00000805  TxTraceReturn_
+0002:00000868  TxTraceRetBool_
+0002:000008d1  TxTraceRetVoid_
+0002:00000922  TxTraceLeader_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txcon.c)
+0003:000000ca+ _txh_clean
+0003:000000ce+ _txh_raw
+0002:00000a9b  TxSetAscii7Mode_
+0002:00000b04* TxGetAscii7Mode_
+0002:00000b0a  TxSetAnsiMode_
+0002:00000b26* TxGetAnsiMode_
+0002:00000b2c  TxScreenState_
+0002:00000b3b  TxLogfileState_
+0002:00000b4a* TxSetLogMaxSize_
+0002:00000b50* TxSetLogRetain_
+0002:00000b56  TxPrint_
+0002:00000dd3+ TxStripAnsiCodes_
+0002:00000e1a  TxClaimKeyboard_
+0002:00000ed6* TxCancelAbort_
+0002:00000f81+ TxSetPendingAbort_
+0002:0000102f  TxAbort_
+0002:0000110f  TxConfirm_
+0002:00001140* TxwConfirm_
+0002:0000126e* TxMessage_
+0002:000012a4* TxwMessage_
+0003:000000f3  _ansi
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txparse.c)
+0003:00001294  _txacur
+0003:00001298+ _txa1st
+0002:000017fc* TxaOptionLongName_
+0002:00001946  TxaParseArgcArgv_
+0002:00001a6b+ TxaParseNumber_
+0002:00001d8d  txaReadAndStoreItem_
+0002:00002586  TxaNewParseElement_
+0002:000025d4  TxaDropParsedCommand_
+0002:0000289d  TxaGetOption_
+0002:00002989  TxaOptionYes_
+0002:00002a10  TxaOptionStr_
+0002:00002a6f* TxaOptionNum_
+0002:00002ace* TxaOptionBkmg_
+0002:00002c52  TxaGetArgv_
+0002:00002cc9  TxaGetArgc_
+0002:00002cdf* TxaGetOptc_
+0002:00002d9d  txaHandle2Element_
+0002:00002dda+ txaCopyItem_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txparse2.c)
+0002:00003292+ TxaParseCommandString_
+0002:000034ee* TxaSetItem_
+0002:0000365e* TxaReParseCommand_
+0002:00003779* TxaOptionAsString_
+0002:000038ac* TxaOutputVerbosity_
+0002:00003a0b* TxaErrorStrategy_
+0002:00003afe* TxSetNumberRadix_
+0002:00003b61* TxGetNumberRadix_
+0002:00003b6a* TxaParseBool_
+0002:00003c67* TxaGetArgString_
+0002:0000409c* TxaGetComment_
+0002:00004183* TxaMutualX_
+0002:000043ac  TxaShowParsedCommand_
+0002:00004571+ txaParseNextItem_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txwiop.c)
+0002:00004730  TxScreenTerminate_
+0002:00004730  TxScreenInitialize_
+0002:00004733  TxScreenCols_
+0002:00004785* TxScreenRows_
+0002:000047d1  TxSetBrightBgMode_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txlib.c)
+0002:0000484b  TxLibraryInit_
+0002:000049b1  TxLibraryExit_
+0002:000049ce* TxPrintTerminate_
+0002:000049cf+ TxPrintInit_
+0003:0000179c+ _txwanchor
+0003:00001948  _txwa
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txlogfil.c)
+0002:00004b00  TxAppendToLogFile_
+0002:00004c4c  TxSetLogReOpen_
+0002:00004c52  TxCloseReopenLogFile_
+0002:00004c9d  TxQueryLogFile_
+0002:00004cbc* TxQueryLogName_
+0002:00004ccd  TxBuildLogName_
+0002:00004d3e+ TxAutoNumberedFname_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txdisp.c)
+0002:00004e51* TxDisplAscDump_
+0002:00004e9b* TxDisplHexDump_
+0002:00004eb0+ TxDisplayHex_
+0002:0000506b* TxDispLongHex_
+0002:000051eb  TxPrintable_
+0002:00005202* TxPrintSafe_
+0002:0000522a  TxShowTxt_
+Module: j:\ow19/lib386/os2\clib3r.lib(cstart)
+0002:00005262  _cstart_
+Module: j:\ow19/lib386/os2\clib3r.lib(argcv.c)
+0003:00001fc0  __argc
+0003:00001fc4  __argv
+0003:00001fc8  ___argc
+0003:00001fcc  ___argv
+Module: j:\ow19/lib386/os2\clib3r.lib(xmsgo32.c)
+0002:000052c0+ __exit_with_msg_
+0002:00005310  __fatal_runtime_error_
+Module: j:\ow19/lib386/os2\clib3r.lib(maino32.c)
+0003:00001a9c+ ___FirstThreadData
+0003:00001aa0  ___GetThreadPtr
+0003:00001aa4  __AccessFileH
+0003:00001aa8  __ReleaseFileH
+0003:00001aac  __AccessIOB
+0003:00001ab0  __ReleaseIOB
+0003:00001ab4  __AccessNHeap
+0003:00001ab8* __AccessFHeap
+0003:00001abc  __ReleaseNHeap
+0003:00001ac0* __ReleaseFHeap
+0002:00005336  __threadstack_
+0002:0000533d  __threadid_
+0002:00005344  __OS2MainInit_
+0002:000053b3+ __OS2Init_
+0002:000053f1* __OS2Fini_
+0002:000053f9* __shutdown_stack_checking_
+0002:0000540e  __exit_
+0003:00001ac4* __AccessTDList
+0003:00001ac8* __ReleaseTDList
+0003:00001acc+ ___sig_init_rtn
+0003:00001ad0* ___sig_fini_rtn
+0003:00001ad4  __threadstksize
+0003:00001ad8  ___process_fini
+0003:00001fd0  ___Is_DLL
+0003:00001fd4+ ___saved_CS
+Module: j:\ow19/lib386/os2\clib3r.lib(istable.c)
+0002:00005460  __IsTable
+Module: j:\ow19/lib386/os2\clib3r.lib(getenv.c)
+0002:00005570  getenv_
+Module: j:\ow19/lib386/os2\clib3r.lib(strncmp.c)
+0002:00005600  strncmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(atol.c)
+0002:00005630  atol_
+Module: j:\ow19/lib386/os2\clib3r.lib(sprintf.c)
+0002:00005680  sprintf_
+Module: j:\ow19/lib386/os2\clib3r.lib(clocko32.c)
+0002:000056a1  clock_
+Module: j:\ow19/lib386/os2\clib3r.lib(calloc.c)
+0002:000056e0  calloc_
+Module: j:\ow19/lib386/os2\clib3r.lib(vsprintf.c)
+0002:00005720  vsprintf_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txutil.c)
+0002:00005735* TxAreaEmpty_
+0002:00005752  TxAscii827_
+0002:0000577e  TxCopy_
+Module: j:\ow19/lib386/os2\clib3r.lib(printf.c)
+0002:000057b0  printf_
+Module: j:\ow19/lib386/os2\clib3r.lib(iob.c)
+0003:00001b60  ___iob
+0003:00001d68  __fmode
+0003:000020dc  ___OpenStreams
+0003:000020e0  ___ClosedStreams
+Module: j:\ow19/lib386/os2\clib3r.lib(fflush.c)
+0002:000057e0  fflush_
+Module: j:\ow19/lib386/os2\clib3r.lib(fprintf.c)
+0002:000057f0  fprintf_
+Module: j:\ow19/lib386/os2\clib3r.lib(remove.c)
+0002:00005820  remove_
+Module: j:\ow19/lib386/os2\clib3r.lib(kbhitos2.c)
+0002:00005830  kbhit_
+Module: j:\ow19/lib386/os2\clib3r.lib(getchos2.c)
+0002:00005890  getch_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txstrtxt.c)
+0002:00005afb* txTextSearch_
+0002:00005ed6* txFile2Text_
+0002:0000613b  txString2Text_
+0002:000065b3  txFreeText_
+Module: j:\ow19/lib386/os2\clib3r.lib(strcspn.c)
+0002:00006730  strcspn_
+Module: j:\ow19/lib386/os2\clib3r.lib(tolower.c)
+0002:00006780  tolower_
+Module: j:\ow19/lib386/os2\clib3r.lib(sscanf.c)
+0002:000067d0+ vsscanf_
+0002:00006800  sscanf_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txstrnum.c)
+0002:00006854  txIsValidHex_
+0002:0000689d  txIsValidDec_
+0002:000068f2* txHasMcsPrefix_
+Module: j:\ow19/lib386/os2\clib3r.lib(strncpy.c)
+0002:00006a20  strncpy_
+Module: j:\ow19/lib386/os2\clib3r.lib(_istrcc_.asm)
+0002:00006a58  strcasecmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(nfree.c)
+0002:00006a60  _nfree_
+0002:00006a60  free_
+0003:000020e4  ___MiniHeapFreeRover
+Module: j:\ow19/lib386/os2\clib3r.lib(_istrncc.asm)
+0002:00006b68  strncasecmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(thunk)
+0002:00006b82  __TNK
+0002:00006b6e* __TNC
+Module: j:\ow19/lib386/os2\clib3r.lib(far16fun)
+0002:00006bd2  __Far16Func2
+0002:00006c1b* __Far16Func
+0002:00006c69* __Far16Pascal2
+0002:00006cb0* __Far16Pascal
+0002:00006cfc* __Far16Cdecl2
+0002:00006d4a* __Far16Cdecl
+0002:00006d9d  __FlatToFar16
+0002:00006da6* __Far16ToFlat
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txcrite.c)
+0002:00006dc5  TxFsSetCritErrHandler_
+Module: j:\ow19/lib386/os2\clib3r.lib(fclose.c)
+0002:00006e70  __doclose_
+0002:00006f10  __shutdown_stream_
+0002:00006f30  fclose_
+0003:000020e8+ ___RmTmpFileFn
+Module: j:\ow19/lib386/os2\clib3r.lib(_strcmp)
+0002:00006f80  strcmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(fopen.c)
+0002:000070c0+ __open_flags_
+0002:000072d0+ _fsopen_
+0002:00007320  fopen_
+0002:000073b0* freopen_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txfnext.c)
+0002:0000741a  TxFnameExtension_
+0002:00007474  TxStripExtension_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txfexist.c)
+0002:0000751f* TxCreateEmptyFile_
+0002:00007678+ TxFileOpenRead_
+0002:00007812  TxFileExists_
+Module: j:\ow19/lib386/os2\clib3r.lib(memset.c)
+0002:00007840  memset_
+Module: j:\ow19/lib386/os2\clib3r.lib(main2o32.c)
+0002:00007860  __OS2Main
+Module: j:\ow19/lib386/os2\clib3r.lib(segdefns)
+0002:00000003  ___begtext
+0003:00000000* __nullarea
+0003:00001f70  __Start_XI
+0003:00001fa6  __End_XI
+0003:00001fa6  __Start_YI
+0003:00001fbe  __End_YI
+Module: j:\ow19/lib386/os2\clib3r.lib(initargv.c)
+0002:000078d0  __Init_Argv_
+0002:00007920+ _getargv_
+0002:00007ac0  __Fini_Argv_
+Module: j:\ow19/lib386/os2\clib3r.lib(enterdb.c)
+0002:00007ad0  __EnterWVIDEO_
+0003:00001d6c+ ___WD_Present
+Module: j:\ow19/lib386/os2\clib3r.lib(crwdata)
+0003:00001db4  __osmajor
+0003:00001db5  __osminor
+0003:00001d80* __LpDllName
+0003:00001d84* __LpwCmdLine
+0003:00001d88* __LpwPgmName
+0003:00001d8c* __LpwDllName
+0003:00001d78  __LpCmdLine
+0003:00001d7c  __LpPgmName
+0003:00001d70* __dynend
+0003:00001d74  __curbrk
+0003:00001d90* __STACKLOW
+0003:00001d94* __STACKTOP
+0003:00001d98  __ASTACKSIZ
+0003:00001d9c  __ASTACKPTR
+0003:00001da0  __cbyte
+0003:00001da4  __cbyte2
+0003:00001da8* __child
+0003:00001dae  __Envptr
+0003:00001db2* __Envseg
+0003:00001dac* __no87
+0003:00001db6* ___FPE_handler
+Module: j:\ow19/lib386/os2\clib3r.lib(cinit.c)
+0002:00007b00  __CommonInit_
+0003:000020f0  ___hmodule
+Module: j:\ow19/lib386/os2\clib3r.lib(initrtns.c)
+0002:00007b20  __InitRtns
+0002:00007b70  __FiniRtns
+Module: j:\ow19/lib386/os2\clib3r.lib(environ.c)
+0003:000020f4  ___env_mask
+0003:000020f8  _environ
+0003:000020fc* __wenviron
+Module: j:\ow19/lib386/os2\clib3r.lib(mbterm.c)
+0002:00007bd0  _mbterm_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbsnextc.c)
+0002:00007c10  _mbsnextc_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbcupper.c)
+0002:00007c50  _mbctoupper_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbsinc.c)
+0002:00007c70  _mbsinc_
+Module: j:\ow19/lib386/os2\clib3r.lib(nmalloc.c)
+0002:00007ca0  _nmalloc_
+0002:00007ca0  malloc_
+0003:00001dbc  ___nheapbeg
+0003:00001dc0  ___MiniHeapRover
+0003:00001dc4  ___LargestSizeB4MiniHeapRover
+Module: j:\ow19/lib386/os2\clib3r.lib(prtf.c)
+0002:00007da0  __prtf_
+Module: j:\ow19/lib386/os2\clib3r.lib(fprtf.c)
+0002:00008a90  __fprtf_
+Module: j:\ow19/lib386/os2\clib3r.lib(initfile.c)
+0002:00008b80  __InitFiles_
+Module: j:\ow19/lib386/os2\clib3r.lib(ioexit.c)
+0002:00008c80* fcloseall_
+0002:00008c90  __full_io_exit_
+Module: j:\ow19/lib386/os2\clib3r.lib(flush.c)
+0002:00008ca0  __flush_
+Module: j:\ow19/lib386/os2\clib3r.lib(flushall.c)
+0002:00008da0  __flushall_
+0002:00008de0  flushall_
+Module: j:\ow19/lib386/os2\clib3r.lib(unlnkos2.c)
+0002:00008df0  unlink_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txstring.c)
+0002:00008e0a* TxRepl_
+0002:00008e22* TxRepStr_
+0002:00008eae* TxStrip_
+0002:00008eef* TxPClip_
+0002:00008f29* TxStrToUpper_
+0002:00008f47  TxStrToLower_
+Module: j:\ow19/lib386/os2\clib3r.lib(strstr.c)
+0002:00008f60  strstr_
+Module: j:\ow19/lib386/os2\clib3r.lib(fseek.c)
+0002:00009060  fseek_
+Module: j:\ow19/lib386/os2\clib3r.lib(fgets.c)
+0002:00009170  fgets_
+Module: j:\ow19/lib386/os2\clib3r.lib(setbits.c)
+0002:000091e0  __setbits_
+Module: j:\ow19/lib386/os2\clib3r.lib(bits.c)
+0002:00009220  __Bits
+Module: j:\ow19/lib386/os2\clib3r.lib(scnf.c)
+0002:00009d90  __scnf_
+Module: j:\ow19/lib386/os2\clib3r.lib(stricmp.c)
+0002:0000a000  stricmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(mem.c)
+0002:0000a040  __MemAllocator
+0002:0000a0f0  __MemFree
+Module: j:\ow19/lib386/os2\clib3r.lib(strnicmp.c)
+0002:0000a230  strnicmp_
+Module: j:\ow19/lib386/os2\clib3r.lib(itsto32.c)
+0002:0000a280  __init_threadstksize_
+Module: j:\ow19/lib386/os2\clib3r.lib(__lseek.c)
+0002:0000a290  __lseek_
+Module: j:\ow19/lib386/os2\clib3r.lib(_clseos2.c)
+0002:0000a2c0  __close_
+Module: j:\ow19/lib386/os2\clib3r.lib(freefp.c)
+0002:0000a300  __freefp_
+0002:0000a350  __purgefp_
+Module: j:\ow19/lib386/os2\clib3r.lib(comtflag.c)
+0002:0000a380* __set_commode_
+0003:00001dc8  __commode
+Module: j:\ow19/lib386/os2\clib3r.lib(seterrno.c)
+0002:0000a38b  __set_errno_
+0002:0000a399* __set_EDOM_
+0002:0000a3a7* __set_ERANGE_
+0002:0000a3b5* __set_EINVAL_
+0002:0000a3c8  __set_doserrno_
+Module: j:\ow19/lib386/os2\clib3r.lib(openos2.c)
+0002:0000a5a0* open_
+0002:0000a5c0  sopen_
+Module: j:\ow19/lib386/os2\clib3r.lib(chktty.c)
+0002:0000a5f0  __chktty_
+Module: j:\ow19/lib386/os2\clib3r.lib(allocfp.c)
+0002:0000a630  __allocfp_
+Module: j:\ow19/lib386/os2\clib3r.lib(strrchr.c)
+0002:0000a700  strrchr_
+Module: ..\..\..\txlib\_txmin_\lib\txos2t.lib(H:\c\txlib\txosapi.c)
+0002:0000a7d3  TxLargeFileApiOS2_
+Module: j:\ow19/lib386/os2\clib3r.lib(__stos)
+0002:0000aa40  __STOSB
+0002:0000aa77* __STOSD
+Module: j:\ow19/lib386/os2\clib3r.lib(mthrdini.c)
+0002:0000aaf0  __InitThreadData_
+0003:00001ddc  ___ThreadDataSize
+Module: j:\ow19/lib386/os2\clib3r.lib(cmain386.c)
+0002:0000ab10  __CMain
+Module: j:\ow19/lib386/os2\clib3r.lib(dosseg)
+0000:00001234  __DOSseg__
+Module: j:\ow19/lib386/os2\clib3r.lib(histsplt.c)
+0003:00002100  ___historical_splitparms
+Module: j:\ow19/lib386/os2\clib3r.lib(___argc.c)
+0003:00002104  ____Argc
+0003:00002108  ____Argv
+Module: j:\ow19/lib386/os2\clib3r.lib(amblksiz.c)
+0003:00001de0  __amblksiz
+Module: j:\ow19/lib386/os2\clib3r.lib(setenvp.c)
+0002:0000ab50  __setenvp_
+0002:0000ac10  __freeenvp_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbisdbcs.c)
+0003:00002110  ___IsDBCS
+Module: j:\ow19/lib386/os2\clib3r.lib(mbislead.c)
+0002:0000ac60* _ismbblead_
+0003:00002114  ___MBCSIsTable
+Module: j:\ow19/lib386/os2\clib3r.lib(toupper.c)
+0002:0000ac80  toupper_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbinit.c)
+0002:0000acc8  __mbinit_
+0003:00001de4  ___MBCodePage
+Module: j:\ow19/lib386/os2\clib3r.lib(mbdtoupp.c)
+0002:0000adc0  _mbdtoupper_
+Module: j:\ow19/lib386/os2\clib3r.lib(nmemneed.c)
+0002:0000ade0  __nmemneed_
+Module: j:\ow19/lib386/os2\clib3r.lib(grownear.c)
+0002:0000af50  __ExpandDGROUP_
+Module: j:\ow19/lib386/os2\clib3r.lib(wctomb.c)
+0002:0000af70  wctomb_
+Module: j:\ow19/lib386/os2\clib3r.lib(itoa.c)
+0002:0000afa0+ utoa_
+0002:0000aff0  itoa_
+Module: j:\ow19/lib386/os2\clib3r.lib(strupr.c)
+0002:0000b020  strupr_
+Module: j:\ow19/lib386/os2\clib3r.lib(noefgfmt.c)
+0003:00001de8  ___EFG_printf
+0003:00001dec  ___EFG_scanf
+Module: j:\ow19/lib386/os2\clib3r.lib(lltoa.c)
+0002:0000b090  ulltoa_
+0002:0000b100* lltoa_
+Module: j:\ow19/lib386/os2\clib3r.lib(ltoa.c)
+0002:0000b130  ultoa_
+0002:0000b180* ltoa_
+Module: j:\ow19/lib386/os2\clib3r.lib(fputc.c)
+0002:0000b1b0  fputc_
+Module: j:\ow19/lib386/os2\clib3r.lib(ioalloc.c)
+0002:0000b290  __ioalloc_
+Module: j:\ow19/lib386/os2\clib3r.lib(fsync.c)
+0002:0000b330  fsync_
+Module: j:\ow19/lib386/os2\clib3r.lib(qwrit.c)
+0002:0000b360  __qwrite_
+Module: j:\ow19/lib386/os2\clib3r.lib(dosret.c)
+0002:0000b400* _dosretax_
+0002:0000b410* _dosret0_
+0002:0000b420  __set_errno_dos_
+0002:0000b450* __set_errno_dos_reterr_
+Module: j:\ow19/lib386/os2\clib3r.lib(lseek.c)
+0002:0000b460  lseek_
+Module: j:\ow19/lib386/os2\clib3r.lib(tell.c)
+0002:0000b490  tell_
+Module: j:\ow19/lib386/os2\clib3r.lib(fgetc.c)
+0002:0000b4b0+ __fill_buffer_
+0002:0000b5b0  fgetc_
+Module: j:\ow19/lib386/os2\clib3r.lib(mbtowc.c)
+0002:0000b670  mbtowc_
+Module: j:\ow19/lib386/os2\clib3r.lib(fdfs386)
+0002:0000b72c  __FDFS
+Module: j:\ow19/lib386/os2\clib3r.lib(i8m)
+0002:0000b778* __I8M
+0002:0000b778  __U8M
+Module: j:\ow19/lib386/os2\clib3r.lib(iomode.c)
+0002:0000b7a0  __GetIOMode_
+0002:0000b7c0  __SetIOMode_nogrow_
+0003:00001ef4  ___NFiles
+0003:00001ef8  ___init_mode
+0003:00001f48  ___io_mode
+Module: j:\ow19/lib386/os2\clib3r.lib(umaskval.c)
+0003:00001f4c  ___umaskval
+Module: j:\ow19/lib386/os2\clib3r.lib(os2fil64.c)
+0003:00001f50  ___os2_DosOpenL
+0003:00001f54+ ___os2_DosSetFilePtrL
+0003:00001f58+ ___os2_DosSetFileSizeL
+0003:00001f5c+ ___os2_DosSetFileLocksL
+Module: j:\ow19/lib386/os2\clib3r.lib(isattos2.c)
+0002:0000b8d0  isatty_
+Module: j:\ow19/lib386/os2\clib3r.lib(stiomode.c)
+0002:0000b900  __grow_iomode_
+0002:0000b9d0+ __shrink_iomode_
+0002:0000ba50  __SetIOMode_
+Module: j:\ow19/lib386/os2\clib3r.lib(exit.c)
+0002:0000bab2+ __null_int23_exit_
+0002:0000bab3  exit_
+0002:0000bb03* _exit_
+0003:00001f60+ ___int23_exit
+0003:00001f64+ ___FPE_handler_exit
+Module: j:\ow19/lib386/os2\clib3r.lib(clearenv.c)
+0002:0000bb20  clearenv_
+Module: j:\ow19/lib386/os2\clib3r.lib(heapen.c)
+0002:0000bbb0* _heapenable_
+0003:00001f68  ___heap_enabled
+Module: j:\ow19/lib386/os2\clib3r.lib(nheapmin.c)
+0002:0000bbe0  _nheapshrink_
+0002:0000bbe0* _nheapmin_
+0002:0000bbe0* _heapmin_
+0002:0000bbe0* _heapshrink_
+Module: j:\ow19/lib386/os2\clib3r.lib(alphabet.c)
+0003:00000004  ___Alphabet
+Module: j:\ow19/lib386/os2\clib3r.lib(gtcheos2.c)
+0002:0000bcd0  getche_
+Module: j:\ow19/lib386/os2\clib3r.lib(qread.c)
+0002:0000bd00  __qread_
+Module: j:\ow19/lib386/os2\clib3r.lib(nrealloc.c)
+0002:0000bd30* _nrealloc_
+0002:0000bd30  realloc_
+Module: j:\ow19/lib386/os2\clib3r.lib(hdlman.c)
+0002:0000bdb0* __set_handles_
+0002:0000bdc0* _grow_handles_
+0003:00001f6c  ___NHandles
+Module: j:\ow19/lib386/os2\clib3r.lib(iomodtty.c)
+0002:0000be20  __ChkTTYIOMode_
+0002:0000be60* __IOMode_
+Module: j:\ow19/lib386/os2\clib3r.lib(putchos2.c)
+0002:0000be80  putch_
+Module: j:\ow19/lib386/os2\clib3r.lib(nmsize.c)
+0002:0000bed0  _nmsize_
+0002:0000bed0* _msize_
+Module: j:\ow19/lib386/os2\clib3r.lib(nexpand.c)
+0002:0000bee0  _nexpand_
+0002:0000bee0* _expand_
+0002:0000bf20+ __HeapManager_expand_
+
+
+                        +----------------------+
+                        |   Imported Symbols   |
+                        +----------------------+
+
+Symbol                              Module
+======                              ======
+
+DosSleep                            DOSCALLS
+VIO16GETMODE                        VIOCALLS
+VIO16SETSTATE                       VIOCALLS
+DosGetInfoBlocks                    DOSCALLS
+DosWrite                            DOSCALLS
+DosQuerySysInfo                     DOSCALLS
+DosExit                             DOSCALLS
+KBD16PEEK                           KBDCALLS
+KBD16CHARIN                         KBDCALLS
+DosFlatToSel                        DOSCALLS
+DosSelToFlat                        DOSCALLS
+DosOpen                             DOSCALLS
+DosClose                            DOSCALLS
+DosDelete                           DOSCALLS
+DosSetFilePtr                       DOSCALLS
+DosLoadModule                       DOSCALLS
+DosQueryProcAddr                    DOSCALLS
+DosQueryDBCSEnv                     NLS
+DosQueryCp                          DOSCALLS
+DosAllocMem                         DOSCALLS
+DosResetBuffer                      DOSCALLS
+DosQueryModuleHandle                DOSCALLS
+DosQueryHType                       DOSCALLS
+DosSetRelMaxFH                      DOSCALLS
+DosFreeMem                          DOSCALLS
+DosRead                             DOSCALLS
+VIO16WRTTTY                         VIOCALLS
+
+
+                        +--------------------+
+                        |   Libraries Used   |
+                        +--------------------+
+
+..\..\..\txlib\_txmin_\lib\txos2t.lib
+j:\ow19/lib386/os2\clib3r.lib
+j:\toolkit\lib\os2386.lib
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  00020000 (131072.)
+Memory size:  0002e35f (189279.)
+Entry point address: 0002:00005262
+Link time: 00:00.11

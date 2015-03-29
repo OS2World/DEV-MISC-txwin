@@ -1,0 +1,2 @@
+system nt option map option stack=128K libpath ..\..\..\txlib\_txall_\lib libpath j:\ow\lib386\nt
+name ..\sam8wint.exe library txwint.lib file sam8 file sam8win

@@ -1,0 +1,69 @@
+#
+# TXLIB master makefile for MAC OS X (DARWIN), using standard make and gcc
+#
+# JvW 27-05-2007 Initial version, derived from OpenWatcom makefile
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that set the
+#        various environmental variables like 'target_env'
+
+# define main component name
+compo   = txt
+
+cc      = gcc
+cflags  = -Wall
+
+ifndef tx_version
+tx_version = _txall_
+endif
+ifeq ($(tx_version), _txmin_)
+cflags += -DTXOEM
+endif
+
+txdir   = ../../../txlib/$(tx_version)/lib
+txinc   = ../../../txlib/include
+
+
+cflags += -I $(txinc) -I ../..
+lnkopt  = -L$(txdir)
+postfix =
+
+
+ifeq ($(target_env), debug)
+cflags += -g
+#activate next line to remove trace from debug EXE (update dfsee makefile too)
+#cflags += -DNOTRACE
+lnkopt += -X
+postfix = d
+else
+ifeq ($(target_env), trace)
+postfix = t
+else
+postfix = r
+cflags += -DNOTRACE
+endif
+#select optimization for the non-debug (t and r) versions
+cflags += -O2
+endif
+
+bintype = mac
+
+gendep = makefile ../../makefile.osx $(txinc)/txlib.h $(txinc)/txcon.h $(txinc)/txwin.h
+txtdep = ../../txt.h ../../txtver.h ../../txtwin.h
+
+%.o : ../../%.c  $(gendep)
+	$(cc) -c $(cflags) $< -o $@
+
+exename = ../$(compo)$(bintype)$(postfix)
+
+all : $(exename)
+
+#list all object files for the exe
+exeobjs = $(compo).o   txtwin.o
+
+
+$(exename) : $(gendep) $(exeobjs)
+	$(cc) $(lnkopt) -o $(exename) $(exeobjs) -ltx$(bintype)$(postfix)
+
+clean :
+	rm -f *.o b.log
+

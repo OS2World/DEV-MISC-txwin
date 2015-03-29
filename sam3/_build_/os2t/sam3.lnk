@@ -1,0 +1,2 @@
+system os2v2 option map option stack=128K libpath ..\..\..\txlib\_txall_\lib libpath j:\toolkit\lib
+name ..\sam3os2t.exe library txos2t.lib file sam3

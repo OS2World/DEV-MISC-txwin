@@ -1,0 +1,308 @@
+Enter func : main
+ Executable name: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+ Enter func : TxaParseArgcArgv
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 0  Len:030, Item: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+   Stored argv[0] at 00110fd0, value: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+  Ret:00000000 txaReadAndStoreItem
+ Ret:00000000 TxaParseArgcArgv
+ Enter func : TxLibraryInit
+  Enter func : TxFsSetCritErrHandler
+  Return void: TxFsSetCritErrHandler
+  TXH (EXE switch): 1 option: 137 = 'e'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  55 = '7'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  97 = 'a'  value: 0 '---NONE---'
+  ASCII7 set 2: FALSE
+  ASCII7 set 1: FALSE
+  Enter func : TxClaimKeyboard
+  Ret:00000000 TxClaimKeyboard
+  Enter func : TxInputInitialize
+   Mouse opened, reader thread started ...
+  Ret:00000000 TxInputInitialize
+ Return void: TxLibraryInit
+ TXH (EXE switch): 1 option: 108 = 'l'  value: 0 '---NONE---'
+ TXH (EXE switch): 1 option:  63 = '?'  value: 0 '---NONE---'
+ GETARGV argument: 0 = 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+
+SAM3  OS/2 1.00 21-09-2005 (c) 2005: Jan van Wijk
+Popup-window sample for JvW-Fsys TXW OpenWatcom build environment.
+
+Usage: H:\C\SAM3\_BUILD_\SAM3OS2D.EXE mandatory-params   [optional-params]
+
+  Switch character for EXE switches is '-' or '/'. All single letter
+  switches are case-sensitive, long switchnames like 'query' are not.
+
+ -123[t][s][n] = set trace level to 123, Application internal function trace;
+                 [t]imestamp lines; trace to [s]creen too; [n]o tracefile
+
+ -?            = help on executable commandline switches (this text)
+ -7            = Use 7-bit ASCII only (no 'graphic' characters)
+ -a            = switch off usage of ANSI escape characters for color
+ -l:logfile    = start logging immediately to 'logfile.log'
+Enter func : main
+ Executable name: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+ Enter func : TxaParseArgcArgv
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 0  Len:030, Item: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+   Stored argv[0] at 00110fd8, value: 'H:\C\SAM3\_BUILD_\SAM3OS2D.EXE'
+  Ret:00000000 txaReadAndStoreItem
+  Enter func : txaReadAndStoreItem
+   Freeform: NO  Passthrough: YES Args: 1  Len:004, Item: 'test'
+   Stored argv[1] at 00222688, value: 'test'
+  Ret:00000000 txaReadAndStoreItem
+ Ret:00000000 TxaParseArgcArgv
+ Enter func : TxLibraryInit
+  Enter func : TxFsSetCritErrHandler
+  Return void: TxFsSetCritErrHandler
+  TXH (EXE switch): 1 option: 137 = 'e'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  55 = '7'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option:  97 = 'a'  value: 0 '---NONE---'
+  ASCII7 set 2: FALSE
+  ASCII7 set 1: FALSE
+  Enter func : TxClaimKeyboard
+  Ret:00000000 TxClaimKeyboard
+  Enter func : TxInputInitialize
+   Mouse opened, reader thread started ...
+  Ret:00000000 TxInputInitialize
+ Return void: TxLibraryInit
+ TXH (EXE switch): 1 option: 108 = 'l'  value: 0 '---NONE---'
+ TXH (EXE switch): 1 option:  63 = '?'  value: 0 '---NONE---'
+ Enter func : txwInitializeDesktop
+  TXH (EXE switch): 1 option:  87 = 'W'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option: 131 = 'a'  value: 0 '---NONE---'
+  TXH (EXE switch): 1 option: 135 = 'c'  value: 0 '---NONE---'
+  Enter func : txwSetupWindowData
+   row:0  col:0  rows:25  cols:80
+   style:00400700  helpid:0  title:''
+Hexdump at  00096a4c size: 72 bytes, of 'TXWINDOW Setup'
+-00000-  00 00 00 00 4f 00 18 00  00 00 00 00 4f 00 18 00 [....O.......O...]
+-00010-  20 00 20 00 00 07 40 00  00 00 00 00 0f 57 02 00 [ . ...@......W..]
+-00020-  53 54 0f 57 02 00 55 56  00 00 00 00 00 00 00 00 [ST.W..UV........]
+-00030-  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 [................]
+-00040-  00 00 00 00 00 00 00 00                          [........]
+   border - top:  0  left:  0  bot: 24  right: 79
+   client - top:  0  left:  0  bot: 24  right: 79
+  Return void: txwSetupWindowData
+  Enter func : txwCreateWindow
+Hexdump at  00096a4c size: 72 bytes, of 'TXWINDOW Create'
+-00000-  00 00 00 00 4f 00 18 00  00 00 00 00 4f 00 18 00 [....O.......O...]
+-00010-  20 00 20 00 00 07 40 00  00 00 00 00 0f 57 02 00 [ . ...@......W..]
+-00020-  53 54 0f 57 02 00 55 56  00 00 00 00 00 00 00 00 [ST.W..UV........]
+-00030-  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 [................]
+-00040-  00 00 00 00 00 00 00 00                          [........]
+   Enter func : txwSaveWindowContent
+    Saving 25 lines of 80 cells
+    area - top:  0  left:  0  bot: 24  right: 79
+   Ret:00000000 txwSaveWindowContent
+   new window after: 00000000, txwa: 000716f4
+   Creating - hwnd:002227f8, class:  0 = Desktop Frame
+   size of TXWINBASE : 80 bytes
+   size of TXWINDOW  : 72 bytes
+   size of TXRECT    : 8 bytes
+   border: top:0 left:0 bot:24 right:79
+   client: top:0 left:0 bot:24 right:79
+   window - style value: 00400700
+   VISIBLE     window could be visible
+   DISABLED    window is disabled
+   SAVEBITS    save underlying cells
+   SYNCPAINT   paint on invalidate
+   border - top:  0  left:  0  bot: 24  right: 79
+   client - top:  0  left:  0  bot: 24  right: 79
+   parent:00000000 after:00000000 helpid:00000000=0  #windows: 1
+  Ret:002227F8 txwCreateWindow
+  Enter func : txwSendMsg
+   hwnd:002227f8, msg:0a = WM_SETFOCUS, mp1:00000001 = 1 mp2:00000000 = 0  
+   SendMsg - hwnd:002227f8, class:  0 = Desktop Frame
+   Enter func : txwDefWindowProc
+    hwnd:002227f8, msg:0a = WM_SETFOCUS, mp1:00000001 = 1 mp2:00000000 = 0  
+    DefWindowProc - hwnd:002227f8, class:  0 = Desktop Frame
+    QueryWindowUShort 4=Window Flags : 0000 = 0
+    QueryWindowUShort 1=Window ID    : 0000 = 0
+    Enter func : txwGenericWinProc
+     hwnd:002227f8, msg:0a = WM_SETFOCUS, mp1:00000001 = 1 mp2:00000000 = 0  
+     GenericWinProc - hwnd:002227f8, class:  0 = Desktop Frame
+     Enter func : txwIsWindowShowing
+      Enter func : txwIsWindowVisible
+      Ret:True     txwIsWindowVisible
+     Ret:True     txwIsWindowShowing
+     Enter func : txwPaintBorder
+      wnd:002227f8, focus: Yes  Minimized: OFF style:00400700
+      clip   - top:  0  left:  0  bot: 24  right: 79
+      border - top:  0  left:  0  bot: 24  right: 79
+      using line-chars: '            '
+     Return void: txwPaintBorder
+    Ret:00000000 txwGenericWinProc
+   Ret:00000000 txwDefWindowProc
+  Ret:00000000 txwSendMsg
+  Enter func : txwInitStandardDialogs
+   Enter func : txwInitGenericWidgets
+    Enter func : txwRegisterHelpText
+     adding base id : 4294904064 = 0xffff0900
+     Enter func : TxaParseNumber
+      value: '000, Generic Widget help'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '000, Generic Widget help'
+      Ret:True     txIsValidHex
+      Enter func : txIsValidDec
+       num string: '000, Generic Widget help'
+      Ret:True     txIsValidDec
+      Radix-selection DEC!
+     Ret:00000000 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '002 Generic Widget Static text'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '002 Generic Widget Static text'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000002 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '003 Generic Widget Static line'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '003 Generic Widget Static line'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000003 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '005 Generic Widget Entryfield'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '005 Generic Widget Entryfield'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000005 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '006 Generic Widget Texview'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '006 Generic Widget Texview'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000006 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '007 Generic Widget Button'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '007 Generic Widget Button'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000007 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '008 Generic Widget Listbox'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '008 Generic Widget Listbox'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:00000008 TxaParseNumber
+     Enter func : TxaParseNumber
+      value: '999 End of Generic Widget help'  rclass: 0x1
+      value has no prefix ...
+      Enter func : txIsValidHex
+       num string: '999 End of Generic Widget help'
+      Ret:False    txIsValidHex
+      Radix-selection DEC!
+     Ret:000003E7 TxaParseNumber
+    Ret:00000000 txwRegisterHelpText
+   Ret:True     txwInitGenericWidgets
+   Enter func : txwRegisterHelpText
+    adding base id : 4294902016 = 0xffff0100
+    Enter func : TxaParseNumber
+     value: '000 Messagebox'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '000 Messagebox'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000000 TxaParseNumber
+   Ret:00000000 txwRegisterHelpText
+   Enter func : txwRegisterHelpText
+    adding base id : 4294902272 = 0xffff0200
+    Enter func : TxaParseNumber
+     value: '000 Prompt Box'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '000 Prompt Box'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000000 TxaParseNumber
+   Ret:00000000 txwRegisterHelpText
+   Enter func : txwRegisterHelpText
+    adding base id : 4294903040 = 0xffff0500
+    Enter func : TxaParseNumber
+     value: '000 Text Viewer'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '000 Text Viewer'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000000 TxaParseNumber
+   Ret:00000000 txwRegisterHelpText
+   Enter func : txwRegisterHelpText
+    adding base id : 4294903296 = 0xffff0600
+    Enter func : TxaParseNumber
+     value: '000 File Dialog'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '000 File Dialog'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000000 TxaParseNumber
+    Enter func : TxaParseNumber
+     value: '999 End of File Dialog help'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '999 End of File Dialog help'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:000003E7 TxaParseNumber
+   Ret:00000000 txwRegisterHelpText
+   Enter func : txwRegisterHelpText
+    adding base id : 4294903296 = 0xffff0600
+    Enter func : TxaParseNumber
+     value: '000 Standard Message'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '000 Standard Message'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000000 TxaParseNumber
+    Enter func : TxaParseNumber
+     value: '10 Windows and screen size'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '10 Windows and screen size'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:0000000A TxaParseNumber
+    Enter func : TxaParseNumber
+     value: '20 Critical Error, Retry or Fail'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '20 Critical Error, Retry or Fail'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:00000014 TxaParseNumber
+    Enter func : TxaParseNumber
+     value: '999 End of Standard Message help'  rclass: 0x1
+     value has no prefix ...
+     Enter func : txIsValidHex
+      num string: '999 End of Standard Message help'
+     Ret:False    txIsValidHex
+     Radix-selection DEC!
+    Ret:000003E7 TxaParseNumber
+   Ret:00000000 txwRegisterHelpText
+   TXH (EXE switch): 1 option:  70 = 'F'  value: 0 '---NONE---'
+  Ret:True     txwInitStandardDialogs
+  Enter func : txwSetAccelerator
+   hwnd:00000000 key: 0x13b ==> command: fffffffe = 4294967294
+   New table for 512 entries at:002240f8
+  Ret:00000000 txwSetAccelerator
+  TXH (EXE switch): 1 option:  98 = 'b'  value: 0 '---NONE---'
+  Enter func : TxInputDesktopInit
+   keyboard reader thread started ...
+  Ret:00000000 TxInputDesktopInit
+ Ret:002227F8 txwInitializeDesktop
+ GETARGV argument: 1 = 'test'

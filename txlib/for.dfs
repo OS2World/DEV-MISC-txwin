@@ -1,0 +1,5 @@
+say test FOR statement
+for ($i=1; $i <= $_parts; $i++)
+  say "Partition {i2dec($i,2)}" uses filesystem $_p_fsform[$i]
+endfor
+say end test FOR

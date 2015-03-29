@@ -1,0 +1,2 @@
+system linux option map option stack=128K libpath ..\..\..\txlib\_txall_\lib debug all libpath j:\ow19\lib386\linux
+name ..\sam8lind.exe library txlind.lib file sam8 file sam8win

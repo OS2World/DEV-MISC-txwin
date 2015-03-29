@@ -1,0 +1,2 @@
+system os2v2 option map option stack=128K libpath ..\..\..\txlib\_txall_\lib debug all libpath j:\toolkit\lib
+name ..\sam5os2d.exe library txos2d.lib file sam5

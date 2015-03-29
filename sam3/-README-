@@ -1,0 +1,13 @@
+This is a cross-platform sample program like
+'Hello World' with text in a popup-window
+to be built using OpenWatcom and TxWindows
+
+Build using'build.cmd' ...
+
+Trace demo:
+
+        sample -123sd test-see-popup
+
+
+        sample -345sd55 -p test-scroll-off
+

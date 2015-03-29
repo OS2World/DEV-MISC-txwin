@@ -1,0 +1,8 @@
+say Hello pragma script
+;;defaultparam 1 string value
+;;singlestep on
+say Param 1 is now: $1
+;;verbose
+;;singlestep off
+;;prompt 0
+;;error confirm

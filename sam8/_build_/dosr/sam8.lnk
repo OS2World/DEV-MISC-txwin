@@ -1,0 +1,2 @@
+system dos32a option map option stack=128K libpath ..\..\..\txlib\_txall_\lib
+name ..\sam8dosr.exe library txdosr.lib file sam8 file sam8win

@@ -1,0 +1,168 @@
+#
+# TXLIB master makefile, to build with 32-bit compiler; many different targets
+#
+# JvW 06-06-2002 Initial version, derived from WATCOM JvW TEST project
+# JvW 13-04-2003 Updated to use AUTODEPEND for .h includes
+# JvW 15-01-2004 Use consistent r/d/t postfixes for the 3 variants
+# JvW 04-03-2004 Moved includes to ..\include and libs to ..\lib, added Linux
+# JvW 02-12-2004 Moved targets to 2nd level subdir, for OEM/special versions
+# JvW 24-07-2005 Moved LZW and REG modules to DFSee specific (no open source)
+# JvW 24-07-2005 Split some sources to improve modularity (smaller executables)
+# JvW 07-03-2009 Changed reference to wlink.dll to wlinkd.dll (OW 1.8)
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that sets
+#        the various environmental variables like 'target_os' and 'target_env'
+
+# define main component name (not an EXE here but a LIB)
+compo   = tx
+
+cc = wcc386
+
+# allow (> 2 times) faster building by using the DLL versions from wmake
+!ifdef __LOADDLL__
+!  loaddll wcc386  wccd386
+!  loaddll wlink   wlinkd
+!  loaddll wlib    wlibd
+!endif
+
+!ifndef tx_version
+tx_version = _txall_
+!endif
+!ifneq tx_version _txall_
+cflags += -DTXMIN
+!endif
+
+
+txinc   = ..\..\include
+
+cflags += -bt=$(target_os) -ef -wx -zc -zp1 -zq
+libopt += -b -n
+postfix =
+
+
+!ifeq  target_env debug
+cflags += -d2
+#activate next line to remove trace from debug EXE (update dfsee makefile too)
+#cflags += -DNOTRACE
+lnkopt += debug all
+postfix = d
+!else
+cflags += -d1
+lnkopt += option symfile
+!ifeq  target_env trace
+postfix = t
+!else
+postfix = r
+cflags += -DNOTRACE
+!endif
+#select optimization for the non-debug (t and r) versions
+!ifeq target_os linux
+cflags += -ormile
+!else
+cflags += -oneasx
+!endif
+!endif
+
+!ifeq target_os nt
+cflags += -bm -ei
+lnkopt += libpath $(%wintklib)
+bintype = win
+!endif
+
+!ifeq target_os os2
+cflags += -bm
+lnkopt += libpath $(%os2tklib)
+bintype = os2
+!endif
+
+!ifeq target_os linux
+lnkopt += libpath $(%lintklib)
+bintype = lin
+!endif
+
+!ifeq target_os dos
+!ifeq target_sys dos32a
+bintype = dos
+!else
+cflags += -DCAUSEWAY
+bintype = dcw
+!endif
+!endif
+
+gendep = makefile ..\..\makefile.mif
+
+.EXTENSIONS:
+.EXTENSIONS: .exe .lib .obj .c .h
+
+.c : ..\..
+.h : ..\..;$(txinc)
+
+.c.obj : .AUTODEPEND $(gendep)
+      $(cc) $[*.c $(cflags)
+
+libbase = ..\lib\$(compo)$(bintype)
+libname = $(libbase)$(postfix).lib
+
+all : $(libname) .SYMBOLIC
+
+#list all object files to create a full dependancy list for the lib
+libdeps = &
+ txlib.obj    txparse.obj  txparse2.obj txboot.obj   txcrc32.obj  &
+ txcon.obj    txcon2.obj   txcon3.obj   txafail.obj  txcrclvm.obj &
+ txextcmd.obj txlogfil.obj                                        &
+ txscript.obj txslexpr.obj txslvars.obj                           &
+ txfsys.obj   txunico.obj  txfiles.obj  txwildc.obj  txcrite.obj  &
+ txfexist.obj txfpath.obj  txmpath.obj  txtname.obj  txwiop.obj   &
+ txstdcmd.obj txtrace.obj  txtrace2.obj txtree.obj   txutil.obj   &
+ txstring.obj txosver.obj  txstrlst.obj txstrtxt.obj txstrnum.obj &
+ txfsattr.obj txosapi.obj  txstrsiz.obj txswap.obj   txdisp.obj   &
+ txfmtmix.obj txmemstr.obj txfname.obj  txfnext.obj
+
+# list all objects to be part of the library
+libspec = &
+ +txlib       +txparse     +txparse2    +txboot      +txcrc32     &
+ +txcon       +txcon2      +txcon3      +txafail     +txcrclvm    &
+ +txextcmd    +txlogfil                                           &
+ +txscript    +txslexpr    +txslvars                              &
+ +txfsys      +txunico     +txfiles     +txwildc     +txcrite     &
+ +txfexist    +txfpath     +txmpath     +txtname     +txwiop      &
+ +txstdcmd    +txtrace     +txtrace2    +txtree      +txutil      &
+ +txstring    +txosver     +txstrlst    +txstrtxt    +txstrnum    &
+ +txfsattr    +txosapi     +txstrsiz    +txswap      +txdisp      &
+ +txfmtmix    +txmemstr    +txfname     +txfnext
+
+# define the windowing stuff conditionally
+!ifeq tx_version txmin
+windeps=
+winspec=
+!else
+windeps= &
+ txwdraw.obj txwdraw2.obj txwhelp.obj  txwikey.obj  txwind.obj   &
+ txwsbuf.obj txwproc.obj  txwstdlg.obj txwidget.obj txselist.obj &
+ txwutil.obj txwmsg.obj   txwehook.obj txwhexed.obj txm2html.obj
+winspec= &
+ +txwdraw   +txwdraw2    +txwhelp     +txwikey     +txwind      &
+ +txwsbuf   +txwproc     +txwstdlg    +txwidget    +txselist    &
+ +txwutil   +txwmsg      +txwehook    +txwhexed    +txm2html
+!endif
+
+$(libname) : $(gendep)      $(libdeps) $(windeps)
+      @%create $(compo).lbc
+      @%append $(compo).lbc $(libname)
+      @%append $(compo).lbc $(libspec) $(winspec)
+      wlib $(libopt) @$(compo).lbc
+
+clean : .SYMBOLIC
+        @if exist $(libname) del $(libname)
+        @if exist *.obj del *.obj
+        @if exist *.lbc del *.lbc
+        @if exist *.err del *.err
+        @if exist *.lst del *.lst
+        @if exist *.map del *.map
+
+mostlyclean : .SYMBOLIC
+        @if exist *.obj del *.obj
+        @if exist *.lbc del *.lbc
+        @if exist *.err del *.err
+        @if exist *.lst del *.lst
+        @if exist *.map del *.map

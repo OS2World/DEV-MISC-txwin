@@ -1,0 +1,22 @@
+say test BREAK statement in WHILE
+$x=1
+while $x <= 3
+  say Start outer loop, X=$x
+
+  $i=1
+  while $i <= $_parts
+    say "Partition {i2dec($i,2)}" uses filesystem $_p_fsform[$i]
+
+    if (($i == 2) && ($x == 2))
+      say Breaking out of inner loop
+      break
+    endif
+
+    $i++
+  endwhile
+
+  say End outer loop, X=$x
+
+  $x++
+endwhile
+say end test BREAK

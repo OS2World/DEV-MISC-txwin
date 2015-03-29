@@ -1,0 +1,8 @@
+say test LOOP statement
+$i=1
+loop
+  say "Partition {right($i,2)} has the {left($_p_fsform[$i],8)} filesystem"
+  exit when $i >= $_parts
+  $i++
+endloop
+say end test LOOP

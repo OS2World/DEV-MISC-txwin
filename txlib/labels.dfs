@@ -1,0 +1,28 @@
+say test BREAK with LABELS statements
+
+for ($x = 1; $x <= 5; $x++)
+  say Start outer loop, X=$x
+
+  for ($i=1; $i <= $_parts; $i++)
+
+    if $i == 5
+      if $x == 2
+        say Breaking out of inner loop
+        break
+      elseif $x == 4
+        say try to break out of outer loop
+        break outer
+      endif
+    elseif $i == 3
+      ;skip every 3rd one ...
+      continue
+    endif
+
+    say "Partition {i2dec($i,2)}" uses filesystem $_p_fsform[$i]
+
+  endfor
+
+  say End outer loop, X=$x
+endfor outer
+
+say end test LABELS

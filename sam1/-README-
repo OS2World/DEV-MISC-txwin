@@ -1,0 +1,4 @@
+This is a minimal cross-platform sample program
+like 'Hello World' to be built using OpenWatcom
+
+Build using'build.cmd' ...

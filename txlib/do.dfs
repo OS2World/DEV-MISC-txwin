@@ -1,0 +1,7 @@
+say test DO statement
+$i=1
+do
+  say "Partition {right($i,2)} has the {left($_p_fsform[$i],8)} filesystem"
+  $i++
+until $i > $_parts ;loop over partitions
+say end test DO

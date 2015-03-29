@@ -1,0 +1,2 @@
+system nt option map option stack=128K libpath ..\..\..\txlib\_txall_\lib libpath c:\watcom\lib386\nt
+name ..\sam4wint.exe library txwint.lib file sam4

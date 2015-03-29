@@ -1,0 +1,11 @@
+WHILE  (condition)                    Like Perl or 'C' but not using a {} block  but an explicit end
+  statement-list                                                                                    
+ENDWHILE                              () parenthesis on conditions optional                         
+                                                                                                    
+FOR (init;condition;iterator)         Loop can be exited                                            
+  statement-list                      using 'break'                                                 
+ENDFOR
+
+DO
+  statement-list
+UNTIL (condition)

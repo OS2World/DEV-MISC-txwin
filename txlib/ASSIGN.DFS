@@ -1,0 +1,4 @@
+;reproduce assignment bug when comment present
+$a=5
+$b=7 ;with comment
+

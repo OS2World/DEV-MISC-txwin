@@ -1,0 +1,86 @@
+#
+# TXLIB master makefile for MAC OS X (DARWIN), using standard make and gcc
+#
+# JvW 27-05-2007 Initial version, derived from OpenWatcom makefile
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that set the
+#        various environmental variables like 'tx_version'
+
+# define main component name (not an EXE here but a LIB)
+compo   = tx
+
+cc      = gcc
+cflags  = -Wall -funsigned-char -m32
+
+txinc   = ../../include
+
+ifndef tx_version
+tx_version = _txall_
+endif
+ifeq ($(tx_version), _txmin_)
+cflags += -DTXMIN
+endif
+
+
+cflags += -I $(txinc) -I ../..
+libopt += -static
+postfix =
+
+
+ifeq ($(target_env), debug)
+cflags += -g
+#activate next line to remove trace from debug EXE (update dfsee makefile too)
+#cflags += -DNOTRACE
+lnkopt += -Sn
+postfix = d
+else
+ifeq ($(target_env), trace)
+postfix = t
+else
+postfix = r
+cflags += -DNOTRACE
+endif
+#select optimization for the non-debug (t and r) versions
+cflags += -O2
+endif
+
+bintype = mac
+
+gendep = makefile ../../makefile.osx $(txinc)/txlib.h $(txinc)/txcon.h $(txinc)/txwin.h
+
+
+%.o : ../../%.c  $(gendep)
+	$(cc) -c $(cflags) $< -o $@
+
+libname = ../lib/lib$(compo)$(bintype)$(postfix).a
+
+all : $(libname)
+
+#list all object files for the lib
+libobjs = \
+ txlib.o    txparse.o  txparse2.o txboot.o   txcrc32.o  \
+ txcon.o    txcon2.o   txcon3.o   txkbosx.o  txcrclvm.o \
+ txextcmd.o txlogfil.o txscript.o txslexpr.o txslvars.o txafail.o  \
+ txfsys.o   txunico.o  txfiles.o  txwildc.o  txcrite.o  \
+ txfexist.o txfpath.o  txmpath.o  txtname.o  txwiop.o   \
+ txstdcmd.o txtrace.o  txtrace2.o txtree.o   txutil.o   \
+ txstring.o txosver.o  txstrlst.o txstrtxt.o txstrnum.o \
+ txfsattr.o txosapi.o  txstrsiz.o txswap.o   txdisp.o   \
+ txfmtmix.o txmemstr.o txfname.o  txfnext.o  txm2html.o
+
+# define the windowing stuff conditionally
+ifeq ($(tx_version),_txmin_)
+winobjs=
+else
+winobjs= \
+ txwdraw.o  txwdraw2.o txwhelp.o  txwikey.o  txwind.o   \
+ txwsbuf.o  txwproc.o  txwstdlg.o txwidget.o txselist.o \
+ txwutil.o  txwmsg.o   txwehook.o txwhexed.o
+endif
+
+$(libname) : $(gendep) $(libobjs) $(winobjs)
+	libtool $(libopt) -o $(libname) $(libobjs) $(winobjs)
+
+clean :
+	rm -f *.o
+

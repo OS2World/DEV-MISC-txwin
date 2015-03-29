@@ -1,0 +1,21 @@
+H:\c\sam8\_build_\os2t
+wcc386 ..\..\sam8win.c -bt=os2 -ef -wx -zc -zp1 -zq -ormile -bm
+wlink option map option stack=128K libpath ..\..\..\txlib\_txall_\lib libpath j:\toolkit\lib @sam8.lnk
+Open Watcom Linker Version 1.9
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+loading object files
+searching libraries
+creating map file
+creating an OS/2 32-bit executable
+lxlite  ..\sam8os2t.exe
+Ú[ lxLite ]ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂ[ Version 1.3.3 ]¿
+Ã Copyright 1996,97 by FRIENDS software     Ã    All rights   ´
+Ã Copyright 2001,03 by Max Alekseyev        À     reserved    Ù
+Ã Current directory ..\
+À Processing file sam8os2t.exe À Backing up  sam8os2t.exe ... À Saving file sam8os2t.exe ... Ã                sam8os2t.exe initial:  446940 final:  267343 gain: 40.2%
+Ã´Total gain: 179597 bytes
+À´Done
+_build_\sam8os2t.exe
+        1 file(s) copied.
