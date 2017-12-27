@@ -1,0 +1,20 @@
+TxWindows version 5 distribution (Open source)
+
+Includes the library, sources and samples.
+
+Unzip the 'txwcsam.zip' and 'txwinlib' ZIP files from the archive
+to the ROOT of any drive with enough space (roughly 200Mb)
+
+Unzip the 'txwtools.zip' either to that same dirctory (and add to PATH)
+or unzip it in a 'tools' directory already in the PATH.
+
+Then update the '\c\setenvtx.cmd' script to match the driveletter.
+(or call it with the correct parameters to do that)
+
+When using an seperate OS2 toolkit (not from Openwatcom)
+you need to set the TOOLKIT environment variable before
+calling the setenvtx.cmd script.
+
+
+Jan van Wijk
+Fsys Software

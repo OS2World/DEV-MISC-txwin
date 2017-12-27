@@ -1,5 +1,0 @@
-This is a minimal cross-platform sample program
-like 'Hello World' to be built using OpenWatcom
-and using minimal Txlibrary stuff (trace)
-
-Build using'build.cmd' ...

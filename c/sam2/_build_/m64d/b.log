@@ -1,0 +1,2 @@
+gcc -c -Wall -Wno-invalid-source-encoding -funsigned-char -DTXMIN -DOEMSV -I ../../../txlib/include -I ../.. -g -m64 ../../sam2.c -o sam2.o
+gcc -L../../../txlib/_txmin_/lib -arch x86_64 -o ../sam2m64d sam2.o -ltxm64d

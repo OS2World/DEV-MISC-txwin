@@ -1,0 +1,856 @@
+H:\c\txlib\_txall_\os2d
+H:\c\txlib\_txall_\dosd
+wcc386 ..\..\txlib.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse2.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txboot.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrc32.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon2.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon3.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txafail.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrclvm.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txextcmd.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txlogfil.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txscript.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslexpr.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslvars.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsys.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txunico.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfiles.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwildc.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrite.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfpath.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmpath.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtname.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwiop.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtimer.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstdcmd.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace2.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtree.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txutil.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstring.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosver.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrlst.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrtxt.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrnum.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsattr.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosapi.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrsiz.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txswap.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txdisp.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfmtmix.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmemstr.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfname.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfnext.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwdraw.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwdraw2.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwhelp.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwikey.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwind.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwsbuf.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwproc.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwstdlg.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwidget.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txselist.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwutil.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwmsg.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwehook.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwhexed.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txm2html.c -bt=dos -ef -wx -zc -zp1 -zq -d2
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\dosr
+wcc386 ..\..\txlib.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txparse.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txparse2.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txboot.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrc32.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon2.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon3.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txafail.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrclvm.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txextcmd.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txlogfil.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txscript.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txslexpr.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txslvars.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfsys.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txunico.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfiles.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwildc.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrite.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfpath.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txmpath.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtname.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwiop.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtimer.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstdcmd.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtrace.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtrace2.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtree.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txutil.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstring.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txosver.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrlst.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrtxt.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrnum.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfsattr.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txosapi.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrsiz.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txswap.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txdisp.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfmtmix.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txmemstr.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfname.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfnext.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwdraw.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwdraw2.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwhelp.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwikey.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwind.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwsbuf.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwproc.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwstdlg.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwidget.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txselist.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwutil.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwmsg.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwehook.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwhexed.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txm2html.c -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\lind
+wcc386 ..\..\txlib.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse2.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txboot.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrc32.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon2.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon3.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txafail.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrclvm.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txextcmd.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txlogfil.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txscript.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslexpr.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslvars.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsys.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txunico.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfiles.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwildc.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrite.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfpath.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmpath.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtname.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwiop.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtimer.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstdcmd.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace2.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtree.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txutil.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstring.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosver.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrlst.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrtxt.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrnum.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsattr.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosapi.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrsiz.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txswap.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txdisp.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfmtmix.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmemstr.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfname.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfnext.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwdraw.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwdraw2.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwhelp.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwikey.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwind.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwsbuf.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwproc.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwstdlg.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwidget.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txselist.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwutil.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwmsg.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwehook.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwhexed.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txm2html.c -bt=linux -ef -wx -zc -zp1 -zq -d2
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\linr
+wcc386 ..\..\txlib.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txparse.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txparse2.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txboot.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrc32.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon2.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon3.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txafail.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrclvm.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txextcmd.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txlogfil.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txscript.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txslexpr.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txslvars.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfsys.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txunico.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfiles.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwildc.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrite.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfpath.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txmpath.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtname.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwiop.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtimer.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstdcmd.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtrace.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtrace2.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtree.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txutil.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstring.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txosver.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrlst.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrtxt.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrnum.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfsattr.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txosapi.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrsiz.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txswap.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txdisp.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfmtmix.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txmemstr.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfname.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfnext.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwdraw.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwdraw2.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwhelp.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwikey.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwind.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwsbuf.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwproc.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwstdlg.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwidget.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txselist.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwutil.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwmsg.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwehook.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwhexed.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txm2html.c -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\os2r
+wcc386 ..\..\txlib.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txparse.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txparse2.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txboot.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrc32.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon2.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon3.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txafail.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrclvm.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txextcmd.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txlogfil.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txscript.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txslexpr.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txslvars.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfsys.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txunico.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfiles.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwildc.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrite.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfpath.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txmpath.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtname.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwiop.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtimer.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstdcmd.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtrace.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtrace2.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtree.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txutil.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstring.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txosver.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrlst.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrtxt.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrnum.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfsattr.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txosapi.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrsiz.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txswap.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txdisp.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfmtmix.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txmemstr.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfname.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfnext.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwdraw.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwdraw2.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwhelp.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwikey.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwind.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwsbuf.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwproc.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwstdlg.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwidget.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txselist.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwutil.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwmsg.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwehook.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwhexed.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txm2html.c -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\wind
+wcc386 ..\..\txlib.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txparse.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txparse2.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txboot.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrc32.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon2.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon3.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txafail.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrclvm.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txextcmd.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txlogfil.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txscript.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txslexpr.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txslvars.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfsys.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txunico.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfiles.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwildc.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrite.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfpath.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txmpath.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtname.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwiop.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtimer.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstdcmd.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtrace.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtrace2.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtree.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txutil.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstring.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txosver.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrlst.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrtxt.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrnum.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfsattr.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txosapi.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrsiz.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txswap.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txdisp.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfmtmix.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txmemstr.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfname.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfnext.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwdraw.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwdraw2.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwhelp.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwikey.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwind.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwsbuf.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwproc.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwstdlg.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwidget.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txselist.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwutil.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwmsg.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwehook.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwhexed.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txm2html.c -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txall_\winr
+wcc386 ..\..\txlib.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txparse.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txparse2.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txboot.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrc32.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon2.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon3.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txafail.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrclvm.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txextcmd.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txlogfil.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txscript.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txslexpr.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txslvars.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfsys.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txunico.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfiles.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwildc.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrite.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfpath.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txmpath.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtname.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwiop.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtimer.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstdcmd.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtrace.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtrace2.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtree.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txutil.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstring.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txosver.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrlst.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrtxt.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrnum.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfsattr.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txosapi.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrsiz.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txswap.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txdisp.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfmtmix.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txmemstr.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfname.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfnext.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwdraw.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwdraw2.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwhelp.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwikey.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwind.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwsbuf.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwproc.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwstdlg.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwidget.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txselist.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwutil.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwmsg.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwehook.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwhexed.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txm2html.c -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\dosr
+wcc386 ..\..\txlib.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txparse.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txparse2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txboot.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcon3.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txafail.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txscript.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txslvars.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfsys.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txunico.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfiles.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwildc.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txcrite.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfpath.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txmpath.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtname.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txwiop.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtimer.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtrace.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txtree.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txutil.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstring.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txosver.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txosapi.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txswap.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txdisp.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfname.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wcc386 ..\..\txfnext.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\winr
+wcc386 ..\..\txlib.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txparse.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txparse2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txboot.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcon3.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txafail.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txscript.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txslvars.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfsys.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txunico.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfiles.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwildc.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txcrite.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfpath.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txmpath.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtname.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txwiop.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtimer.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtrace.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txtree.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txutil.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstring.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txosver.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txosapi.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txswap.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txdisp.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfname.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wcc386 ..\..\txfnext.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm -ei
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\linr
+wcc386 ..\..\txlib.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txparse.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txparse2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txboot.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcon3.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txafail.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txscript.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txslvars.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfsys.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txunico.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfiles.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwildc.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txcrite.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfpath.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txmpath.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtname.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txwiop.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtimer.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtrace.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txtree.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txutil.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstring.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txosver.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txosapi.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txswap.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txdisp.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfname.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wcc386 ..\..\txfnext.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -ormile
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\os2r
+wcc386 ..\..\txlib.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txparse.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txparse2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txboot.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcon3.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txafail.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txscript.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txslvars.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfsys.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txunico.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfiles.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwildc.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txcrite.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfpath.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txmpath.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtname.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txwiop.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtimer.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtrace.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txtree.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txutil.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstring.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txosver.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txosapi.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txswap.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txdisp.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfname.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wcc386 ..\..\txfnext.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d1 -DNOTRACE -oneasx -bm
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\dosd
+wcc386 ..\..\txlib.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txboot.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon3.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txafail.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txscript.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslvars.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsys.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txunico.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfiles.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwildc.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrite.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfpath.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmpath.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtname.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwiop.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtimer.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtree.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txutil.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstring.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosver.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosapi.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txswap.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txdisp.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfname.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfnext.c -DTXMIN -bt=dos -ef -wx -zc -zp1 -zq -d2
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\wind
+wcc386 ..\..\txlib.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txparse.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txparse2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txboot.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcon3.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txafail.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txscript.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txslvars.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfsys.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txunico.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfiles.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwildc.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txcrite.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfpath.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txmpath.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtname.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txwiop.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtimer.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtrace.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txtree.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txutil.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstring.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txosver.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txosapi.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txswap.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txdisp.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfname.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wcc386 ..\..\txfnext.c -DTXMIN -bt=nt -ef -wx -zc -zp1 -zq -d2 -bm -ei
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\lind
+wcc386 ..\..\txlib.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txparse2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txboot.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcon3.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txafail.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txscript.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txslvars.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsys.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txunico.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfiles.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwildc.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txcrite.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfpath.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmpath.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtname.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txwiop.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtimer.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txtree.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txutil.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstring.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosver.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txosapi.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txswap.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txdisp.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfname.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wcc386 ..\..\txfnext.c -DTXMIN -bt=linux -ef -wx -zc -zp1 -zq -d2
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.
+H:\c\txlib\_txmin_\os2d
+wcc386 ..\..\txlib.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txparse.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txparse2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txboot.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcrc32.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcon.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcon2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcon3.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txafail.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcrclvm.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txextcmd.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txlogfil.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txscript.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txslexpr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txslvars.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfsys.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txunico.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfiles.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txwildc.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txcrite.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfpath.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txmpath.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txtname.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txwiop.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txtimer.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstdcmd.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txtrace.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txtrace2.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txtree.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txutil.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstring.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txosver.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstrlst.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstrtxt.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstrnum.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfsattr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txosapi.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txstrsiz.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txswap.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txdisp.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfmtmix.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txmemstr.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfname.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wcc386 ..\..\txfnext.c -DTXMIN -bt=os2 -ef -wx -zc -zp1 -zq -d2 -bm
+wlib -b -n @tx.lbc
+Open Watcom Library Manager Version 1.9
+Portions Copyright (c) 1984-2002 Sybase, Inc. All Rights Reserved.
+Source code is available under the Sybase Open Watcom Public License.
+See http://www.openwatcom.org/ for details.

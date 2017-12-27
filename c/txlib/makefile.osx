@@ -1,0 +1,90 @@
+#
+# TXLIB master makefile for MAC OS X (DARWIN), using standard make and gcc (actually LLVM/CLANG)
+#
+# JvW 27-05-2007 Initial version, derived from OpenWatcom makefile
+# JvW 28-08-2017 Update to remove trace version, and introduce seperate 32 and 64 bit versions
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that set the
+#        various environmental variables like 'tx_version'
+
+# define main component name (not an EXE here but a LIB)
+compo   = tx
+
+cc      = gcc
+cflags  = -Wall -Wno-invalid-source-encoding -funsigned-char
+
+txinc   = ../../include
+tx      = ../..
+
+ifndef tx_version
+tx_version = _txall_
+endif
+ifeq ($(tx_version), _txmin_)
+cflags += -DTXMIN
+endif
+
+cflags += -I $(txinc) -I ../..
+libopt += -static
+postfix =
+
+
+ifeq ($(target_env), debug)
+cflags += -g
+#activate next line to remove trace from debug LIB (update dfsee makefile too)
+#cflags += -DNOTRACE
+lnkopt += -Sn
+postfix = d
+else
+postfix = r
+#activate next line to remove trace from retail LIB (update dfsee makefile too)
+#cflags += -DNOTRACE
+#select optimization for the release version
+cflags += -O2
+endif
+
+
+ifeq ($(target_arch), 64bit)
+bintype = m64
+cflags += -m64
+else
+bintype = mac
+cflags += -m32
+endif
+
+gendep = makefile $(tx)/makefile.osx $(tx)/txvers.h $(tx)/txtpriv.h $(tx)/txwpriv.h $(tx)/txwdraw.h \
+                  $(txinc)/txlib.h $(txinc)/txcon.h $(txinc)/txwin.h
+
+%.o : ../../%.c  $(gendep)
+	$(cc) -c $(cflags) $< -o $@
+
+libname = ../lib/lib$(compo)$(bintype)$(postfix).a
+
+all : $(libname)
+
+#list all object files for the lib
+libobjs = \
+ txlib.o    txparse.o  txparse2.o txboot.o   txcrc32.o  \
+ txcon.o    txcon2.o   txcon3.o   txkbosx.o  txcrclvm.o \
+ txextcmd.o txlogfil.o txscript.o txslexpr.o txslvars.o txafail.o  \
+ txfsys.o   txunico.o  txfiles.o  txwildc.o  txcrite.o  \
+ txfpath.o  txmpath.o  txtname.o  txwiop.o   txtimer.o  \
+ txstdcmd.o txtrace.o  txtrace2.o txtree.o   txutil.o   \
+ txstring.o txosver.o  txstrlst.o txstrtxt.o txstrnum.o \
+ txfsattr.o txosapi.o  txstrsiz.o txswap.o   txdisp.o   \
+ txfmtmix.o txmemstr.o txfname.o  txfnext.o  txm2html.o
+
+# define the windowing stuff conditionally
+ifeq ($(tx_version),_txmin_)
+winobjs=
+else
+winobjs= \
+ txwdraw.o  txwdraw2.o txwhelp.o  txwikey.o  txwind.o   \
+ txwsbuf.o  txwproc.o  txwstdlg.o txwidget.o txselist.o \
+ txwutil.o  txwmsg.o   txwehook.o txwhexed.o
+endif
+
+$(libname) : $(gendep) $(libobjs) $(winobjs)
+	libtool $(libopt) -o $(libname) $(libobjs) $(winobjs)
+
+clean :
+	rm -f *.o

@@ -1,0 +1,3 @@
+gcc -c -Wall -Wno-invalid-source-encoding -funsigned-char -I ../../../txlib/include -I ../.. -O2 -m64 ../../txt.c -o txt.o
+gcc -c -Wall -Wno-invalid-source-encoding -funsigned-char -I ../../../txlib/include -I ../.. -O2 -m64 ../../txtwin.c -o txtwin.o
+gcc -L../../../txlib/_txall_/lib -arch x86_64 -o ../txtm64r txt.o txtwin.o -ltxm64r

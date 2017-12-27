@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		F337C30D1F54671400B3BA57 /* sam2.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.c.c; path = sam2.c; sourceTree = "<group>"; tabWidth = 3; };
+		F337C3101F5474C400B3BA57 /* txvers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = txvers.h; path = ../txlib/txvers.h; sourceTree = "<group>"; };
+		F337C3111F5474C400B3BA57 /* txcon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txcon.c; path = ../txlib/txcon.c; sourceTree = "<group>"; };
+		F337C3121F5474C400B3BA57 /* txstdcmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txstdcmd.c; path = ../txlib/txstdcmd.c; sourceTree = "<group>"; };
+		F337C3131F5474C400B3BA57 /* txutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txutil.c; path = ../txlib/txutil.c; sourceTree = "<group>"; };
+		F337C3141F5474C400B3BA57 /* txlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txlib.c; path = ../txlib/txlib.c; sourceTree = "<group>"; };
+		F337C3151F5474C400B3BA57 /* txtimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txtimer.c; path = ../txlib/txtimer.c; sourceTree = "<group>"; };
+		F337C3161F5474C400B3BA57 /* txtrace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txtrace.c; path = ../txlib/txtrace.c; sourceTree = "<group>"; };
+		F337C3171F5474C400B3BA57 /* txosapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txosapi.c; path = ../txlib/txosapi.c; sourceTree = "<group>"; };
+		F337C3181F5474C400B3BA57 /* txunico.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txunico.c; path = ../txlib/txunico.c; sourceTree = "<group>"; };
+		F337C3191F5474C400B3BA57 /* txparse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txparse.c; path = ../txlib/txparse.c; sourceTree = "<group>"; };
+		F337C31A1F5474C400B3BA57 /* txfnext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txfnext.c; path = ../txlib/txfnext.c; sourceTree = "<group>"; };
+		F337C31B1F5474C400B3BA57 /* txtree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txtree.c; path = ../txlib/txtree.c; sourceTree = "<group>"; };
+		F337C31C1F5474C400B3BA57 /* txfsys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txfsys.c; path = ../txlib/txfsys.c; sourceTree = "<group>"; };
+		F337C31D1F5474C400B3BA57 /* txparse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txparse2.c; path = ../txlib/txparse2.c; sourceTree = "<group>"; };
+		F337C31E1F5474C400B3BA57 /* txfiles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txfiles.c; path = ../txlib/txfiles.c; sourceTree = "<group>"; };
+		F337C31F1F5474C400B3BA57 /* txdisp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txdisp.c; path = ../txlib/txdisp.c; sourceTree = "<group>"; };
+		F337C3201F5474C400B3BA57 /* txosver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txosver.c; path = ../txlib/txosver.c; sourceTree = "<group>"; };
+		F337C3211F5474C400B3BA57 /* txstrsiz.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txstrsiz.c; path = ../txlib/txstrsiz.c; sourceTree = "<group>"; };
+		F337C3221F5474C400B3BA57 /* txmpath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txmpath.c; path = ../txlib/txmpath.c; sourceTree = "<group>"; };
+		F337C3231F5474C400B3BA57 /* txfsattr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txfsattr.c; path = ../txlib/txfsattr.c; sourceTree = "<group>"; };
+		F337C3251F5477B200B3BA57 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../txlib/include; sourceTree = "<group>"; };
+		F337C32A1F54811400B3BA57 /* sam2-doc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sam2-doc"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F337C3351F6813A400B3BA57 /* txextcmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = txextcmd.c; path = ../txlib/txextcmd.c; sourceTree = "<group>"; };
+		F337C3371F68181900B3BA57 /* makefile.osx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = makefile.osx; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F337C3271F54811400B3BA57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F337C3021F54658300B3BA57 = {
+			isa = PBXGroup;
+			children = (
+				F337C3371F68181900B3BA57 /* makefile.osx */,
+				F337C30E1F54739000B3BA57 /* TxLib */,
+				F337C30D1F54671400B3BA57 /* sam2.c */,
+				F337C32B1F54811400B3BA57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F337C30E1F54739000B3BA57 /* TxLib */ = {
+			isa = PBXGroup;
+			children = (
+				F337C3351F6813A400B3BA57 /* txextcmd.c */,
+				F337C3251F5477B200B3BA57 /* include */,
+				F337C3101F5474C400B3BA57 /* txvers.h */,
+				F337C3111F5474C400B3BA57 /* txcon.c */,
+				F337C3121F5474C400B3BA57 /* txstdcmd.c */,
+				F337C3131F5474C400B3BA57 /* txutil.c */,
+				F337C3141F5474C400B3BA57 /* txlib.c */,
+				F337C3151F5474C400B3BA57 /* txtimer.c */,
+				F337C3161F5474C400B3BA57 /* txtrace.c */,
+				F337C3171F5474C400B3BA57 /* txosapi.c */,
+				F337C3181F5474C400B3BA57 /* txunico.c */,
+				F337C3191F5474C400B3BA57 /* txparse.c */,
+				F337C31A1F5474C400B3BA57 /* txfnext.c */,
+				F337C31B1F5474C400B3BA57 /* txtree.c */,
+				F337C31C1F5474C400B3BA57 /* txfsys.c */,
+				F337C31D1F5474C400B3BA57 /* txparse2.c */,
+				F337C31E1F5474C400B3BA57 /* txfiles.c */,
+				F337C31F1F5474C400B3BA57 /* txdisp.c */,
+				F337C3201F5474C400B3BA57 /* txosver.c */,
+				F337C3211F5474C400B3BA57 /* txstrsiz.c */,
+				F337C3221F5474C400B3BA57 /* txmpath.c */,
+				F337C3231F5474C400B3BA57 /* txfsattr.c */,
+			);
+			name = TxLib;
+			sourceTree = "<group>";
+		};
+		F337C32B1F54811400B3BA57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F337C32A1F54811400B3BA57 /* sam2-doc */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		F337C3071F54658400B3BA57 /* sam2-debug */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = F337C30A1F54658400B3BA57 /* Build configuration list for PBXLegacyTarget "sam2-debug" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = "sam2-debug";
+			passBuildSettingsInEnvironment = 1;
+			productName = "sam2-debug";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		F337C3291F54811400B3BA57 /* sam2-doc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F337C32F1F54811400B3BA57 /* Build configuration list for PBXNativeTarget "sam2-doc" */;
+			buildPhases = (
+				F337C3261F54811400B3BA57 /* Sources */,
+				F337C3271F54811400B3BA57 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sam2-doc";
+			productName = "sam2-doc";
+			productReference = F337C32A1F54811400B3BA57 /* sam2-doc */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F337C3031F54658300B3BA57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Fsys Software";
+				TargetAttributes = {
+					F337C3071F54658400B3BA57 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RXP6Z7MYP5;
+						ProvisioningStyle = Automatic;
+					};
+					F337C3291F54811400B3BA57 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RXP6Z7MYP5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F337C3061F54658300B3BA57 /* Build configuration list for PBXProject "sam2-debug" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F337C3021F54658300B3BA57;
+			productRefGroup = F337C32B1F54811400B3BA57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F337C3071F54658400B3BA57 /* sam2-debug */,
+				F337C3291F54811400B3BA57 /* sam2-doc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F337C3261F54811400B3BA57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F337C3081F54658400B3BA57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		F337C3091F54658400B3BA57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		F337C30B1F54658400B3BA57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = RXP6Z7MYP5;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F337C30C1F54658400B3BA57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = RXP6Z7MYP5;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F337C3301F54811400B3BA57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = RXP6Z7MYP5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F337C3311F54811400B3BA57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = RXP6Z7MYP5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F337C3061F54658300B3BA57 /* Build configuration list for PBXProject "sam2-debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F337C3081F54658400B3BA57 /* Debug */,
+				F337C3091F54658400B3BA57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F337C30A1F54658400B3BA57 /* Build configuration list for PBXLegacyTarget "sam2-debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F337C30B1F54658400B3BA57 /* Debug */,
+				F337C30C1F54658400B3BA57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F337C32F1F54811400B3BA57 /* Build configuration list for PBXNativeTarget "sam2-doc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F337C3301F54811400B3BA57 /* Debug */,
+				F337C3311F54811400B3BA57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F337C3031F54658300B3BA57 /* Project object */;
+}

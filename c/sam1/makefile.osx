@@ -1,0 +1,70 @@
+#
+# DFSee master makefile for MAC OS X (DARWIN), using standard make and gcc
+#
+# JvW 27-08-2017 Initial version, derived from DFS OSX makefile, added lib dependency
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that set the
+#	 various environmental variables like 'target_env'
+
+# define main component name
+compo   = sam1
+
+cc      = gcc
+cflags  = -Wall -Wno-invalid-source-encoding -funsigned-char -m64
+
+ifndef tx_version
+tx_version = _txall_
+endif
+ifeq ($(tx_version), _txmin_)
+cflags += -DTXMIN -DOEMSV
+endif
+
+txdir   = ../../../txlib/$(tx_version)/lib
+txinc   = ../../../txlib/include
+
+cflags += -I $(txinc) -I ../..
+lnkopt  = -L$(txdir)  -arch x86_64
+postfix =
+
+
+ifeq ($(target_env), debug)
+cflags += -g
+#activate next line to remove trace from debug EXE (update dfsee makefile too)
+#cflags += -DNOTRACE
+postfix = d
+dismfix = d
+else
+dismfix = r
+ifeq ($(target_env), trace)
+postfix = t
+else
+postfix = r
+#cflags += -DNOTRACE
+endif
+#select optimization for the non-debug (t and r) versions
+cflags += -O2
+endif
+
+bintype = mac
+
+gendep = makefile ../../makefile.osx			    \
+	 $(txinc)/txlib.h $(txinc)/txcon.h $(txinc)/txwin.h \
+	 $(txdir)/libtx$(bintype)$(postfix).a
+
+%.o : ../../%.c  $(gendep)
+	$(cc) -c $(cflags) $< -o $@
+
+exename = ../$(compo)$(bintype)$(postfix)
+
+all : $(exename)
+
+#list all object files for the exe
+exeobjs  = $(compo).o
+
+
+$(exename) : $(gendep) $(exeobjs)
+	$(cc) $(lnkopt) -o $(exename) $(exeobjs)
+
+clean :
+	rm -f *.o b.log
+
