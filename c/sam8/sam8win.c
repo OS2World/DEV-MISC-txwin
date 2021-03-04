@@ -63,7 +63,7 @@ static  char       *mainwinhelp[] =
    " It lists (function) key assignments specific to SAMPLE, the generic",
    " assignments are listed with the TxWindows help information (F1).",
    "",
-   "       F3         Quit TXTest completely",
+   "       F3         Quit the SAMPLE-8 program completely",
    "       F4         Save current screen-buffer to a file (samest.log)",
    "       F5         Start generic test dialog",
    "       F6         Show a simple message-box",
@@ -238,7 +238,7 @@ static  char       *confirmhelp[] =
    "",
    " This is to inform you that the menu item you have choosen is",
    " not fully implemented yet. This is most likely a program bug,",
-   " but it could be a 'work in progress' if the TXTest version you",
+   " but it could be a 'work in progress' if the SAMPLE version you",
    " are using is a BETA or PREVIEW one ...",
    "",
    "", "", "", "", "", "", "", "", "", "", "", "",
@@ -261,7 +261,7 @@ static  char       *confirmhelp[] =
    " is not optimal for the operating system detected, or that the",
    " operating environment is not configured optimally.",
    "",
-   " Use the recommended TXTest version or make changes to your",
+   " Use the recommended SAMPLE version or make changes to your",
    " operating system configuration as instructed for the best",
    " results and maximum reliability.",
    "",
@@ -319,18 +319,23 @@ static  char stattxt[] =
 
 TXSitem(mmsp,0            ,0,TXSF_DISABLED | TXSF_SEPARATOR,     0,""    ,"");
 
-TXSitem(mm11,SAMC_OPEN    ,0,0             , 1,"Open logfile"              ,"Open a logfile for screen output");
-TXSitem(mm12,SAMC_SAVE    ,0,0             , 1,"Save screen   F4"          ,"Save screenbuffer to a file");
-TXSitem(mm13,SAMC_RUNS    ,0,0             , 1,"Run script"                ,"Run a SAMest script");
-TXSitem(mm14,SAMC_EXIT    ,0,0             , 2,"Exit      Alt-F4"          ,"Exit the TXTest program");
-static TXS_ITEM *mm1[] = {&mm11, &mm12, &mm13, &mmsp, &mm14};
-TXSlist(tstmm1,5,5,mm1);
+TXSitem(mm11,SAMC_OPEN    ,0,0             , 1,"Open logfile"                  ,"Open a logfile to capture all screen output in a file");
+TXSitem(mm15,SAMC_CYTRACE ,0,0             , 1,"Trace to 9 cyclic files  ..."  ,"Functional trace program-flow to 9 one-MB cyclic files");
+TXSitem(mm12,SAMC_SAVE    ,0,0             , 1,"Save screen   F4"              ,"Save screenbuffer to a file   ");
+TXSitem(mm13,SAMC_RUNS    ,0,0             , 1,"Run script"                    ,"Run a SAMPLE script           ");
+TXSitem(mm14,SAMC_EXIT    ,0,0             , 2,"Exit      Alt-F4"              ,"Exit the SAMPLE program       ");
+static TXS_ITEM *mm1[] =
+{
+   &mm11, &mm15, &mmsp,
+   &mm12, &mm13, &mmsp,
+   &mm14};
+TXSlist(tstmm1,7,7,mm1);
 
 
-TXSitem(mm91,SAMC_CMDHELP ,0,0             , 1,"Application commands"      ,"One line descriptions for each SAM commands");
-TXSitem(mm92,SAMC_SW_HELP ,0,TXSF_MARK_STD , 1,"Exe startup switches"      ,"One line descriptions for each executable switch");
-TXSitem(mm93,SAMC_UIHELP  ,0,0             , 1,"User interface"            ,"Help on the application and TxWin user interface");
-TXSitem(mm94,SAMC_ABOUT   ,0,0             , 1,"About ...         F11"     ,"Show version details and copyright");
+TXSitem(mm91,SAMC_CMDHELP ,0,0             , 1,"Application commands"          ,"One line descriptions for each SAM commands     ");
+TXSitem(mm92,SAMC_SW_HELP ,0,0             , 1,"Exe startup switches"          ,"One line descriptions for each executable switch");
+TXSitem(mm93,SAMC_UIHELP  ,0,0             , 1,"User interface"                ,"Help on the application and TxWin user interface");
+TXSitem(mm94,SAMC_ABOUT   ,0,0             , 1,"About ...         F11"         ,"Show version details and copyright              ");
 static TXS_ITEM *mm9[] =
 {
    &mm91, &mm92, &mm93, &mmsp,
@@ -340,8 +345,8 @@ TXSlist(tstmm9,5,5,mm9);
 
 
 
-TXSmenu(tmenu1,&tstmm1,SAMM_FILE   ,0    , 1,'f'," File "                ,"Menu with file items");
-TXSmenu(tmenu9,&tstmm9,SAMM_HELP   ,0    , 1,'h'," Help "                ,"Menu with help items");
+TXSmenu(tmenu1,&tstmm1,SAMM_FILE   ,0    , 1,'f'," File "                      ,"Menu with file items");
+TXSmenu(tmenu9,&tstmm9,SAMM_HELP   ,0    , 1,'h'," Help "                      ,"Menu with help items");
 static TXS_MENUBAR mainmenu =
 {
    2,                                           // number of menus presnt
@@ -357,8 +362,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 // SAMPLE window procedure, for entry-field, includes automatic value-echo
@@ -366,8 +371,8 @@ static ULONG samEntryWindowProc                 // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -581,12 +586,11 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc = NO_ERROR;
-   TXLN                s1,s2;
    ULONG               flag = 0;
 
    ENTER();
@@ -597,15 +601,20 @@ static ULONG samStdWindowProc                   // RET   result
       switch (msg)
       {
          case TXWM_COMMAND:
-            switch (mp1)                        // unique command code
+            switch ((ULONG) mp1)                // unique command code
             {
+               case SAMC_OPEN:    samLogDialog(  (sama->logAuto) ? "sam8-^" : "sample8",
+                    SAMC_OPEN,    FALSE, "Append to, or start a new logfile ...");     break;
+               case SAMC_CYTRACE: samLogDialog(  (sama->logAuto) ? "samtr^" : "samtrace",
+                    SAMC_CYTRACE, FALSE, "Start cyclic TRACE to 9 one-MB files ...");  break;
+
                case SAMM_FILE:
                case SAMM_HELP:
                case SAMM_DEFAULT:
                   {
                      ULONG menuopen;
 
-                     switch (mp1)
+                     switch ((ULONG) mp1)
                      {
                         case SAMM_FILE: menuopen = 'f';  break;
                         case SAMM_HELP: menuopen = 'h';  break;
@@ -617,7 +626,7 @@ static ULONG samStdWindowProc                   // RET   result
                      sama->menuOwner = hwnd;
 
                      flag = TXMN_MAIN_MENU;     // signal main-menu will be up
-                     if (mp1 == SAMM_AUTOMENU)  // automatic menu after command
+                     if ((ULONG) mp1 == SAMM_AUTOMENU)  // automatic menu after command
                      {                          // completion, do not drop yet!
                         flag |= TXMN_DELAY_AUTODROP;
                         TRACES(("MenuBar - delayed autodrop\n"));
@@ -628,7 +637,7 @@ static ULONG samStdWindowProc                   // RET   result
                         flag |= TXMN_NO_AUTODROP;
                      }
 
-                     txwSendMsg( sama->sbwindow, TXWM_STATUS, 0, cSchemeColor);
+                     txwSendMsg( sama->sbwindow, TXWM_STATUS, 0, (TXWMPARAM) cSchemeColor);
 
                      if (txwMenuBar( TXHWND_DESKTOP, hwnd, NULL,
                                      menuopen, SAMM_BAR,
@@ -639,58 +648,15 @@ static ULONG samStdWindowProc                   // RET   result
                   }
                   break;
 
-               case SAMC_OPEN:
-                  samBEGINWORK();               // signal work starting
-
-                  strcpy( s1, "samlog");
-                  if (txwSaveAsFileDialog( s1, NULL, NULL, 0, NULL,
-                      " Specify file for logging (append) ", s1))
-                  {
-                     TxAppendToLogFile( s1, TRUE);
-                  }
-                  samENDWORK();                 // signal work done
-                  break;
-
                case SAMC_SAVE:
                   samExecCmd( "scrfile samtest");
                   break;
 
                case SAMC_RUNS:
-                  samBEGINWORK();               // signal work starting
-                  strcpy( s1, "*.sam");
-                  #if defined (DEV32)
-                     strcat( s1, ";*.cmd");     // add REXX scripts for OS/2
-                  #endif
-
-                  if (txwOpenFileDialog( s1, NULL, NULL, 0, NULL,
-                      " Select a TxTest script file ", s1))
-                  {
-                     TXLN               descr;
-
-                     sprintf( s2, "run %s ", s1);
-
-                     TxsValidateScript( s1, NULL, s1, NULL); // get description
-                     if (strlen( s1) != 0)
-                     {
-                        sprintf( descr, "Parameters enclosed in [] are "
-                                 "optional, others are mandatory.\n%s", s1);
-                     }
-                     else
-                     {
-                        strcpy( descr, "Specify any parameters needed by "
-                                "the script or just leave blank ...");
-                     }
-                     strcpy( s1, "");           // default same as current
-                     if (txwPromptBox( TXHWND_DESKTOP, TXHWND_DESKTOP, NULL, descr,
-                           " Specify parameter(s) for the script ", SAMC_RUNS,
-                           TXPB_MOVEABLE | TXPB_HCENTER | TXPB_VCENTER,
-                           50, s1) != TXDID_CANCEL)
-                     {
-                        strcat( s2, s1);
-                     }
-                     samExecCmd( s2);
-                  }
-                  samENDWORK();                 // signal work done
+                  samBEGINWORK();
+                  TxCancelAbort();
+                  rc = samMultiCommand("run", 0, TRUE, TRUE, TRUE);
+                  samENDWORK();
                   break;
 
                case SAMC_EXIT:
@@ -713,15 +679,15 @@ static ULONG samStdWindowProc                   // RET   result
                   samBEGINWORK();               // signal work starting
                   txwViewText( TXHWND_DESKTOP, 0, 0,
                               "SAMPLE application command summary",
-                               cmdhelptxt);
+                               samGenericHelp);
                   samENDWORK();                 // signal work done
                   break;
 
                case SAMC_SW_HELP:
                   samBEGINWORK();               // signal work starting
                   txwViewText( TXHWND_DESKTOP, 0, 0,
-                              "SAMPLE executable switches summary",
-                               switchhelp);
+                              "SAMPLE (TX library) switches summary",
+                               TxGetSwitchhelp());
                   samENDWORK();                 // signal work done
                   break;
 
@@ -745,7 +711,7 @@ static ULONG samStdWindowProc                   // RET   result
             break;
 
          case TXWM_CHAR:
-            if (txwIsAccelCandidate(mp2))       // menu will be closed, allow
+            if (txwIsAccelCandidate((ULONG) mp2)) // menu will be closed, allow
             {                                   // automenu to restart it.
                samBEGINWORK();
                samENDWORK();                    // signal work done
@@ -771,8 +737,8 @@ static ULONG samEntryWindowProc                 // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
@@ -789,12 +755,12 @@ static ULONG samEntryWindowProc                 // RET   result
       switch (msg)
       {
          case TXWM_CHAR:
-            switch (mp2)
+            switch ((ULONG) mp2)
             {
                case TXk_ENTER:                  // execute as SAMPLE command
-                  txwSendMsg( sama->sbwindow, TXWM_CHAR, 0, TXc_END);
+                  txwSendMsg( sama->sbwindow, TXWM_CHAR, 0, (TXWMPARAM) TXc_END);
                case TXc_ENTER:                  // execute, no auto-scroll
-                  txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, FALSE, 0);
+                  txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, (TXWMPARAM) FALSE, 0);
 
                   TxPrint("\n");
                   TxCancelAbort();              // reset pending abort status
@@ -807,7 +773,7 @@ static ULONG samEntryWindowProc                 // RET   result
                   {
                      rc = txwDefWindowProc( hwnd, msg, mp1, mp2);
 
-                     txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, TRUE, 0);
+                     txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, (TXWMPARAM) TRUE, 0);
 
                      #if defined (DEV32)
                         txwInvalidateAll();     // avoid VIO64K bug
@@ -827,13 +793,13 @@ static ULONG samEntryWindowProc                 // RET   result
                case TXc_END   :
                case TXa_COMMA :
                case TXa_DOT   :
-                  switch (mp2)                  // translate some Ctrl-xxx
+                  switch ((ULONG) mp2)          // translate some Ctrl-xxx
                   {                             // to normal movement keys
-                     case TXc_UP    : key = TXk_UP;     break;
-                     case TXc_DOWN  : key = TXk_DOWN;   break;
-                     default:         key = mp2;        break;
+                     case TXc_UP    : key = TXk_UP;      break;
+                     case TXc_DOWN  : key = TXk_DOWN;    break;
+                     default:         key = (ULONG) mp2; break;
                   }
-                  txwSendMsg( sama->sbwindow, msg, mp1, key);
+                  txwSendMsg( sama->sbwindow, msg, mp1, (TXWMPARAM) key);
                   break;
 
                case TXa_LEFT:                   // avoid left/right movemement
@@ -849,13 +815,11 @@ static ULONG samEntryWindowProc                 // RET   result
          case TXWM_SETFOCUS:
             if ((BOOL) mp1 == TRUE)             // Entryfield got focus ?
             {
-               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER,
-                   (ULONG) stattxt, 0);         // Fkey help
+               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (TXWMPARAM) stattxt, 0); // Fkey help
             }
             else
             {
-               txwPostMsg( TXHWND_DESKTOP,
-                           TXWM_SETFOOTER, 0, 0); // reset Fkey help
+               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, 0, 0); // reset Fkey help
             }
             break;
 
@@ -871,4 +835,230 @@ static ULONG samEntryWindowProc                 // RET   result
    RETURN( rc);
 }                                               // end 'samEntryWindowProc'
 /*---------------------------------------------------------------------------*/
+
+
+/*========================== LOGFILE DIALOG =====================================================*/
+// Implements a logfile dialog based on standard file-open plus some extra widgets
+static TXTM        descr1;                      // Description line 1
+static TXTM        descr2;                      // Description line 2
+static TXLN        logo1;                       // Output field user message
+static BOOL        logc1;                       // Log-reopen at each line
+
+/*
+  Specify a filename on a WRITABLE volume/driveletter for logging
+  All new screen output will be APPENDED to the specified file.")
+
+  Create logfile for the session, or use Cancel/Esc for no logging
+
+[ ] Close and re-open the logfile after writing each line (slow!)
+*/
+#define   LOGDIALOGWIDGETS 4
+static TXWIDGET  samLogFileWidgets[LOGDIALOGWIDGETS] = // order determines TAB-order!
+{
+   {0,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( descr1)},
+   {1,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( descr2)},
+   {3,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( logo1)},
+
+   {5,  0, 1, 65, 0, 7, 0, TXWS_AUTOCHK, 0, TXStdButton( &logc1,
+   "Close and reopen file after writing each line (slow!)")},
+};
+
+static TXGW_DATA samLogFileDlg =
+{
+   LOGDIALOGWIDGETS,                            // number of widgets
+   SAMC_OPEN,                                   // help, widget overrules
+   810,                                         // base window ID
+   NULL,                                        // widget window procedure
+   NULL,                                        // persistent position TXRECT
+   samLogFileWidgets                            // array of widgets
+};
+
+
+/*************************************************************************************************/
+// Present LOG/TRACE options dialog and execute resulting command
+/*************************************************************************************************/
+ULONG samLogDialog
+(
+   char               *logname,                 // IN    default name or NULL
+   ULONG               helpid,                  // IN    specific help-id
+   BOOL                reopen,                  // IN    reopen logfile
+   char               *message                  // IN    extra message or NULL
+)
+{
+   ULONG               rc = NO_ERROR;           // function return
+   TXLN                command;
+   TXLN                fspec;
+
+   ENTER();
+
+   samBEGINWORK();                              // signal work starting
+
+   samLogFileDlg.helpid = helpid;
+   logc1 = reopen;
+
+   strcpy( descr1, "Specify a filename on a WRITABLE volume/driveletter for logging");
+   strcpy( descr2, "All new screen output will be APPENDED to the specified file.");
+
+   if (message && strlen( message))
+   {
+      strcpy( logo1, message);
+   }
+   else
+   {
+      strcpy( logo1, "Start logfile for the session, or use Cancel/Esc for no logging");
+   }
+
+   strcpy( fspec, "*.log");
+   while (txwSaveAsFileDialog( fspec, NULL, logname, helpid, NULL, &samLogFileDlg,
+      " Specify filename for logging this session to ", fspec))
+   {
+      TxRepl( fspec, FS_PALT_SEP, FS_PATH_SEP); // fixup ALT separators
+      if ((fspec[strlen(fspec)-1] != FS_PATH_SEP) && // not a directory ?
+                (strlen(fspec) == TxStrWcnt(fspec))) // and no wildcard ?
+      {
+         if (helpid == SAMC_OPEN)               // regular LOG
+         {
+            sprintf( command, "log \"%s\"", fspec); // allow space/single-quote
+         }
+         else
+         {
+            sprintf( command, "trace \"%s\" -m:999,k -f:9 -t", fspec); // trace
+         }
+         if (logc1)
+         {
+            strcat( command, " -r");            // reopen option
+         }
+         samExecCmd( command);
+         break;
+      }
+      else
+      {
+         TxNamedMessage( TRUE, helpid, " ERROR: Invalid filename ",
+                         "You must specify a filename, not a wildcard or directory ...");
+         strcpy(  fspec, "*.log");
+      }
+   }
+   samENDWORK();                                // signal work done
+   RETURN (rc);
+}                                               // end 'samLogDialog'
+/*-----------------------------------------------------------------------------------------------*/
+
+
+/*========================== RUN SCRIPT =========================================================*/
+static BOOL rsVerbose = FALSE;                  // Verbose
+static BOOL rsStep    = FALSE;                  // SingleStep
+
+/*
+[ ] Verbose, display each script line when executed
+[ ] Single step, confirm before executing each line
+*/
+#define   RUNDIALOGWIDGETS 2
+static TXWIDGET  samRunScriptWidgets[RUNDIALOGWIDGETS] = // order determines TAB-order!
+{
+   {0,  0, 1, 58, 0, 0, 0, TXWS_AUTOCHK, 0, TXStdButton( &rsVerbose,
+                          "Verbose, display each script line when executed")},
+   {1,  0, 1, 58, 0, 0, 0, TXWS_AUTOCHK, 0, TXStdButton( &rsStep,
+                          "Single step, confirm before executing each line")}
+};
+
+static TXGW_DATA samRunScriptDlg =
+{
+   RUNDIALOGWIDGETS,                            // number of widgets
+   SAMC_RUNS,                                   // help, widget overrules
+   810,                                         // base window ID
+   NULL,                                        // widget window procedure
+   NULL,                                        // persistent position TXRECT
+   samRunScriptWidgets                          // array of widgets
+};
+
+/*************************************************************************************************/
+// Present Run-script file-dialog with options and execute resulting command
+/*************************************************************************************************/
+ULONG samRunScriptDialog
+(
+   char               *firstParam,              // IN    path/scriptname, or empty
+   char               *scriptInfo               // OUT   scriptname + parameters
+)
+{
+   ULONG               rc = NO_ERROR;           // function return
+   TXLN                params;
+   TXLN                fspec;
+   TXTM                wildcard;
+   TX1K                dlgText;
+
+   ENTER();
+
+   samBEGINWORK();                              // signal work starting
+
+   // Handle input options when specified
+   if (TxaOptSet('s'))                          // single-step option used
+   {
+      rsStep = TxaOption('s');
+   }
+   if (TxaOptSet('v'))                          // verbose option used
+   {
+      rsVerbose = TxaOption('v');
+   }
+
+   strcpy( wildcard, firstParam);               // Specified (partial) name
+   if (strchr( wildcard, '.') == NULL)          // no extension
+   {
+      strcat( wildcard, "*");                   // add wildcard
+   }
+   TxFnameExtension( wildcard, "sam");          // add default extension
+
+   strcpy( fspec, wildcard);
+   while (txwOpenFileDialog( fspec, NULL, NULL, SAMC_RUNS, NULL,
+         (sama->expertui) ? &samRunScriptDlg : NULL,
+          " Select SAMPLE script file to RUN ", fspec))
+   {
+      TxRepl( fspec, FS_PALT_SEP, FS_PATH_SEP); // fixup ALT separators
+      if ((fspec[strlen(fspec)-1] != FS_PATH_SEP) && // not a directory ?
+                (strlen(fspec) == TxStrWcnt(fspec))) // and no wildcard ?
+      {
+         sprintf(scriptInfo, "%s%s'%s'", (rsVerbose) ? "-v " : "",
+                                         (rsStep)    ? "-s " : "", fspec);
+
+         TxsValidateScript( fspec, NULL, params, NULL); // get description in params
+         if (strstr( params, "no-parameters") == NULL)
+         {
+            if (strlen( params) != 0)
+            {
+               sprintf( dlgText, "%s\n\nParameters enclosed in [] are "
+                        "optional, others are mandatory.\n%s", fspec, params);
+            }
+            else
+            {
+               sprintf( dlgText, "%s\n\nSpecify additional parameters for "
+                        "the script or just leave as is ...", fspec);
+            }
+            // Get the parameters specified on the commandline, for editing
+            TxaGetArgString( TXA_CUR, 2, TXA_ALL, TXMAXLN, params);
+            if (txwPromptBox( TXHWND_DESKTOP, TXHWND_DESKTOP, NULL,
+                  dlgText, " Specify parameter(s) for the script ", SAMC_RUNS,
+                  TXPB_MOVEABLE | TXPB_HCENTER | TXPB_VCENTER,
+                  50, params) != TXDID_CANCEL)
+            {
+               strcat( scriptInfo, " ");
+               strcat( scriptInfo, params);
+            }
+            else                                // ESC on parameter prompt
+            {                                   // cancel script execution
+               strcpy( scriptInfo, "");
+            }
+         }
+         break;
+      }
+      else
+      {
+         TxNamedMessage( TRUE, SAMC_RUNS, " ERROR: Invalid filename ",
+                         "You must specify a script filename, not a wildcard or directory ...");
+         strcpy( fspec, wildcard);
+      }
+   }
+   samENDWORK();                                // signal work done
+   RETURN (rc);
+}                                               // end 'samRunScriptDialog'
+/*-----------------------------------------------------------------------------------------------*/
+
 

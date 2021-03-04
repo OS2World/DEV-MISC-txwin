@@ -39,6 +39,11 @@
 #ifndef    TXT_H
    #define TXT_H
 
+// Long option name constants
+#define TXT_O_LOGAUTO     TXA_O_APP0            // Automatic logfile numbering ON
+#define TXT_O_EXPERT      TXA_O_APP1            // Expert UI mode
+
+
 #define TXT_CMD_FAILED    ((USHORT) 901)        // Generic cmd failure code
 #define TXT_ALLOC_ERROR   ((USHORT) 906)        // memory allocation error
 #define TXT_PENDING       ((USHORT) 907)        // function pending
@@ -62,25 +67,25 @@ typedef struct txtinf                           // information anchor block
    ULONG               sblwidth;                // actual sb linelength
    TXWHANDLE           sbwindow;                // scroll-buffer window
    TXWHANDLE           menuOwner;               // menu handling window
+   BOOL                expertui;                // EXPERT menu/dialog UI (not BASIC)
    BOOL                automenu;                // automatic menu activation
    BOOL                autodrop;                // automatic pulldown drop
    ULONG               menuopen;                // default drop-down menu
    ULONG               worklevel;               // when 0, activate menu
    TXSELIST           *slSchemes;               // selection list, Color schemes
-   #if defined (DOS32)
-      BOOL             win9x;                   // Windows-9x DosBox detected
-   #endif
+   BOOL                logAuto;                 // Automatic logfile numbering from DLG
 } TXTINF;                                       // end of struct "txtinf"
 
 extern  TXTINF     *txta;                       // TXT anchor block
 
-extern  char       *switchhelp[];
-extern  char       *cmdhelptxt[];
+extern  char       *txtSwitchhelp[];
+extern  char       *txtGenericHelp[];
+extern  char       *hostvarhelp[];
 
-#define TXT_PROFILE     "profile.txt"
+#define TXT_PROFILE     "profile.txs"
 
 // scroll to end (output), cancel-abort and execute a new command
-#define txtExecEnd(c) txwSendMsg( hwnd, TXWM_CHAR, 0, TXc_END),              \
+#define txtExecEnd(c) txwSendMsg( hwnd, TXWM_CHAR, 0, (TXWMPARAM) TXc_END),  \
                       TxCancelAbort(),                                       \
                       txtMultiCommand((c), 0, TRUE, TRUE, FALSE)
 
@@ -105,7 +110,7 @@ extern  char       *cmdhelptxt[];
                                     (txta->menuOwner  != 0)  )               \
                              {                                               \
                                 txwPostMsg( txta->menuOwner,                 \
-                                            TXWM_COMMAND, TXTM_DEFAULT, 0);  \
+                                 TXWM_COMMAND, (TXWMPARAM) TXTM_DEFAULT, 0); \
                              }                                               \
                           }                                                  \
                        }

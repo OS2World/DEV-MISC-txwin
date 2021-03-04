@@ -1,0 +1,12 @@
+; Run a series of 'SAY' scripts with different parameters
+; ~ no-parameters when run with script-file-dialog prompting~
+;;defaultparam 1 runsay
+log $1
+run say
+run -s  say
+run -v  say "parameter one"
+run -p- say "parameter one"
+run -p- say one two three
+run -p- -v  say
+run -p- -v  say 1 2 3 "sleep 5"
+q

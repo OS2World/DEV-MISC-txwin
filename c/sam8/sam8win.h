@@ -22,6 +22,7 @@
 
 #define SAMM_FILE      3100
 #define SAMC_OPEN      3110
+#define SAMC_CYTRACE   3115
 #define SAMC_SAVE      3120
 #define SAMC_RUNS      3130
 #define SAMC_EXIT      3140
@@ -42,5 +43,20 @@ ULONG samWindowed
    char               *initial                  // IN    initial SAMPLE cmd
 );
 
+// Present LOG/TRACE options dialog and execute resulting command
+ULONG samLogDialog
+(
+   char               *logname,                 // IN    default name or NULL
+   ULONG               helpid,                  // IN    specific help-id
+   BOOL                reopen,                  // IN    reopen logfile
+   char               *message                  // IN    extra message or NULL
+);
+
+// Present Run-script file-dialog with options and execute resulting command
+ULONG samRunScriptDialog
+(
+   char               *firstParam,              // IN    path/scriptname, or empty
+   char               *scriptInfo               // OUT   scriptname + parameters
+);
 
 #endif

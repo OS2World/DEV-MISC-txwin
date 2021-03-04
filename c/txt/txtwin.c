@@ -90,48 +90,68 @@ static  char       *mainwinhelp[] =
    "#100 TXTst application and desktop window",
    "",
    " Note: To get help on the TxWindows userinterface, press <F1> again",
+   "       To get help on the TXTest menu, scroll down in this helptext",
+   "       or press <F1> twice when the menu is active.",
    "",
-   " This is the built in help text for the TXTst application.",
+   "       For help on windowing and usage for KBD/Mouse, press <F1> twice now",
    "",
-   " It lists (function) key assignments specific to TXTst, the generic",
+   " This is the built in help text for the TXTest application.",
+   "",
+   " It lists (function) key assignments specific to TXTest, the generic",
    " assignments are listed with the TxWindows help information (F1).",
    "",
-   "       F3         Quit TXTest completely",
-   "       F4         Save current screen-buffer to a file (txtest.log)",
-   "       F5         Start generic test dialog",
-   "       F6         Show a simple message-box",
-   "       F7         Present an input dialog",
-   "       F8         Start test dialog for a selection list",
-   "       F10        Activate the MenuBar with pulldown menus",
-   "       F11        Execute command 'about' TXTst version information",
+   "",
+   "                  TXTest application standard keyboard usage",
+   "                  =========================================",
+   "",
+   "       F1         Display the context-sensitive help-screen (like this)",
+   "       F2         Edit current sector, interactive HEXEDIT",
+   "       F3         Quit TXTest completely when on commandline",
+   "       F4         Save current screen-buffer to a file",
+   "       F7         Search for a string in the text output buffer",
+   "       F8         Grep: search or toggle between grep result and text",
+   "",
+   " A few other function keys have been asigned for TxWindows functions:",
+   " (for more details, press <F1> twice, and scroll down a few pages)",
+   "",
+   "    Alt  + F5     Restore window to original size, toggle org<>full",
+   "    Alt  + F7     Move the current (focus) window, using the arrow keys",
+   "    Alt  + F10    Maximize the window, taking up the whole screen",
+   "    Alt  + F12    Cycle screen/window colorscheme, using the arrow keys",
+   "    F12           Collapse scroll-window to just the title-bar",
    "",
    " On large screens (> 80x25), the desktop will have a visible border",
    " around it. This can also be forced using program switches as follows:",
    "",
    "    -f         = force a desktop frame border to be used",
    "    -f:yes     = force a desktop frame",
-   "    -f-        = Do NOT use a frame border around the desktop",
+   "    -f:no      = Do NOT use a frame border around the desktop",
    "",
-   "",
-   "  For help on commands, use '?' in the entry-field or select the",
-   "  'application command help' from the menu and for more detailed",
-   "  information and examples see the TXTst documentation",
-   "",
+   "  For help on commands, use '?', '?\?' and '?\?\?' in the entry-field",
+   "  and see the TXTest documentation for more information and examples",
+   ""
    "", "", "", "", "", "", "", "", "", "", "", "",
    "",
    "#101 Command entry field and output text window",
    "",
-   " Note: To get more generic help on TXTst, press <F1>",
+   " Note: To get more help on the scrollable OUTPUT window, press <F1>",
+   "       To get help on the TXTest menu, scroll up in this helptext",
+   "       or press <F1> twice when the menu is active.",
+   "",
+   "       For help on windowing and usage for KBD/Mouse, press <F1> twice now",
+   "",
+   "",
+   "#120 Command entry field",
    "",
    " T H E   C O M M A N D   E N T R Y   F I E L D",
    " =============================================",
    "",
-   " This is the (normally green) field at the bottom of the TXTst screen.",
+   " This is the (normally green) field at the bottom of the TXTest screen.",
    "",
-   " Commands can be typed here, and will be processed by the TXTst",
+   " Commands can be typed here, and will be processed by the TXTest",
    " application when <Enter> is pressed.",
    "",
-   " The syntax of a (multiple) TXTst command is:",
+   " The syntax of a (multiple) TXTest command is:",
    "",
    "    cmd1 [-options | parameters]#cmd2 [-options | parameters]#cmd3 ...",
    "",
@@ -150,17 +170,13 @@ static  char       *mainwinhelp[] =
    "",
    " Some examples of valid option syntax are:",
    "",
-   "    '-r'     or '-refresh'   or '-r+'        refresh option, value YES",
-   "    '-r:no'  or '-refresh:0' or '-r-'        refresh option, value NO",
+   "    '-r'    or '-refresh'   or '-r+'         refresh option, value YES",
+   "    '-r:no' or '-refresh:0' or '-r-'         refresh option, value NO",
    "    '-s:256' or '-size:0xff' or '-s:33,c'    size option variants",
-   "    '-i:WIN2000' or '-iba:\"eCS GA\"'          for a setboot option ",
+   "    '-i:WIN2000' or '-iba:\"ArcaOS\"'          for a setboot option ",
    "",
    " All parts of the command that are not options, are command parameters",
    " They too can use single or double quotes to allow embedded spaces.",
-   "",
-   " For more details and specific command-options see: DFSCMDS/TXT and",
-   " the usage descriptions for some commands like 'find' and 'create'.",
-   "",
    "",
    " After completing the command it will be saved in the historybuffer.",
    " Older commands can be retrieved from this buffer by using the UP",
@@ -189,7 +205,9 @@ static  char       *mainwinhelp[] =
    " You will notice that the text output window above it has a SINGLE line",
    " border drawn around it to indicate it does NOT have focus.",
    "",
-   " The following keys can be used to edit the entryfield:",
+   "",
+   "                        TXTest commandline entryfield keyboard usage",
+   "                        ============================================",
    "",
    "    Insert              Toggle between Insert and replace mode",
    "    Delete              Delete the character at the cursor position",
@@ -198,29 +216,35 @@ static  char       *mainwinhelp[] =
    "    End                 Move cursor to the end of the entryfield",
    "    Escape              Clear entry-field completely, making it empty",
    "    Ctrl + Backspace    Clear entry-field completely (like Escape)",
-   "    Ctrl + B            Clear entry-field from cursor to begin-of-field",
    "    Ctrl + E            Clear entry-field from cursor to end-of-field",
    "    Ctrl + Right Arrow  Move one word to the right in the field",
    "    Ctrl + Left  Arrow  Move one word to the left  in the field",
-   "    Up                  Recall previous (older)  command from history",
-   "    Down                Recall next     (newer)  command from history",
-   "    Alt  + \\            Show history contents, for recall/completion",
-   "    Alt  + [            Find previous match in history (completion)",
-   "    Alt  + ]            Find next     match in history (completion)",
+   "",
+   " When the field supports a history buffer (like a command field would):",
+   "",
+   "    Ctrl + D            Delete current retrieved line from the history",
+   "    Ctrl + K            Add current line to the history, no execute",
+   "    Up         [prefix] Recall previous (older)  command from history",
+   "    Down       [prefix] Recall next     (newer)  command from history",
+   "    F11        [prefix] Show history contents in a selection popup list",
+   "    Ctrl + O   [prefix] Show history contents in a selection popup list",
+
+   "    When enabled ('set history FILTER') the prefix is the part of the",
+   "    commandline BEFORE the cursor that will be used to FILTER the result",
+   "    of the requested action. Use 'set history' to get full usage info.",
    "",
    "    Other keys are either inserted/replaced in the entryfield content,",
    "    like letters, digits and interpunction, or ignored",
    "",
-   "      completion: All characters in the entryfield upto the cursor are",
-   "                  used in the partial-match. Use Alt + up/down to walk",
-   "                  through commands starting with the same characters",
+   "",
+   "",
    "",
    "",
    "",
    " T H E   O U T P U T   T E X T   W I N D O W",
    " ===========================================",
    "",
-   " This is the output window for all commands executed by TXTst.",
+   " This is the output window for all commands executed by TXTest.",
    " It can contain many lines of output, of which normally only the",
    " last screenfull is displayed.",
    "",
@@ -232,7 +256,8 @@ static  char       *mainwinhelp[] =
    " the end just before executing any command using the <Enter> key",
    "",
    "",
-   " The following keys can be used:",
+   "                     TXTest output window keyboard usage",
+   "                     ===================================",
    "",
    "    Ctrl + PgUp/PgDn Scroll output window up/down by one page",
    "    Ctrl + Home      Scroll up to first non-empty line in the buffer",
@@ -250,11 +275,126 @@ static  char       *mainwinhelp[] =
    "    Left / Right  Scroll output window left/right to view long lines",
    "    Up   / Down   Scroll output window up  / down line by line",
    "    Home / End    Scroll output window to left/right margin",
-   "    Ctrl + -      Scroll up to first line of the buffer (usualy empty)",
+   "    Ctrl + -      Scroll up to first line of the buffer (usually empty)",
    "    Alt  + Arrows Move and/or resize the text output window",
    "    F12           Collapse scroll-window to just the title-bar",
-   "    Alt  + F12    Cycle SCROLLBUFFER colors: NORMAL - BRIGHT - INVERT",
+   #ifndef UNIX
+   "    Ctrl+INSERT",
+   #endif
+   "    Ctrl + C",
+   "    Alt  + C      Copy visible part of output-window to the clipboard",
    "",
+   #ifndef UNIX
+   "    Shift+INSERT",
+   #endif
+   "    Ctrl + V",
+   "    Alt  + V      Copy clipboard to output-window, multiple lines",
+   "",
+   "",
+   "                  TXTest output window mouse usage",
+   "                  ================================",
+   "",
+   " Similar to 'scroll-bars' in other windows, the output-text-window ",
+   " has an invisible mouse-scroll area at the right side of the window,",
+   " of about 4 columns wide, that will perform the same scroll-actions,",
+   " going up or down one line when near the top/bottom of the window,",
+   " and up or down a whole page when near the middle.",
+   "",
+   " Note: If you have a wheel-mouse, you can also click somewhere",
+   "       in the middle of the window, then use the scroll-wheel",
+   "",
+   " Button1 drag     On the output-window will create a square MARKED",
+   "                  area that can be copied to the clipboard using a",
+   "                  mouse Alt-Click or the Ctrl-C/Alt+C key)",
+   "",
+   "",
+   "#130 Output text Search",
+   "",
+   " The contents of the text output window, with output from previously",
+   " executed commands, can be searched for one or more words (phrase).",
+   "",
+   " It can either be a direct search, where a search hit will be highlighted,",
+   " or you can collect all search hits into a list, and use the <F8> key to",
+   " toggle back and forth between that list and the actual text as found.",
+   "",
+   "",
+   "                  TXTest output searching, keyboard usage",
+   "                  =======================================",
+   "",
+   "    F7            Search dialog, search current or all loaded sections",
+   "",
+   "    F8            Toggle between search-result list (aka GREP result) and",
+   "                  actual text showing the search-hit in full context, OR",
+   "                  start search with 'search-results in list' option set.",
+   "",
+   "",
+   "    Alt + F7      Remove search-result highlight (unmark)",
+   "    Alt + U       Unmark",
+   "",
+   "    Ctrl + B      Search again, BACKWARD, when search argument is known,",
+   "    'b', 'p'      or start search-dialog with 'backward' option set.",
+   "    Alt + 2       (Alt-1/2 is a very comfortable combo for most keyboards)",
+   "",
+   "    Ctrl + N",
+   "    Ctrl + F      Search again, FORWARD, when search argument is known,",
+   "    'f', 'n'      or start search-dialog with 'backward' option cleared.",
+   "    Alt + 1       (Alt-1/2 is a very comfortable combo for most keyboards)",
+   "",
+   "    Ctrl + G      Search FORWARD, ALL SECTIONS if search argument known,",
+   "    'g'           or search-dialog with 'current section' option cleared.",
+   "",
+   "    Ctrl + L      Search BACKWARD, CURRENT SECTION if search argument known,",
+   "    'l'           or search-dialog with 'current section' option set.",
+   "",
+   "",
+   "", "", "", "", "", "", "", "", "", "", "", "",
+   "",
+   "#120 TXTest main menu usage",
+   "",
+   " The main menu for the application consists of a menu-bar with",
+   " several menu pull-downs. Some of the pull-down menus are created",
+   " and removed dynamically, based on the current analysis mode",
+   "",
+   " Each item in the menu has its own help-item attached that can be",
+   " called up easily by highlighting the item and pressing <F1>",
+   "",
+   " The bottom line of the screen will show a short descriptions of the",
+   " current menu-item, or of the menu-heading if no pulldown is opened.",
+   "",
+   " You can move from one pull-down menu to the other using the <LEFT>",
+   " and <RIGHT> arrow keys. A pull-down can be closed using <Esc>.",
+   " A selection is made with the <Enter> key, or with the highlighted",
+   " quick-selection letter for the item.",
+   "",
+   " The whole menu can be closed using the <F10> key, resulting in the",
+   " menu dissapearing completely and the regular TXTest commandline",
+   " being active again so you can type and execute commands there.",
+   " From the commandline, another <F10> will reactivate the menu.",
+   "",
+   " Items that result in a request for more info with a dialog, will",
+   " be recognizable by an ellipsis (...)",
+   "",
+   " Items that result in a submenu with additional selections, will",
+   " be recognizable by a stylished right-arrow. ( ฏ )",
+   " Using the <LEFT> arrow key on a submenu, will first close that",
+   " submenu, and reactivate the menu it was called from.",
+   "",
+   " Some items in the menu may be disabled if the function performed",
+   " by the menu is not possible or advisable in at that point in time.",
+   " Disabled menu-items will be presented in a different color (black)",
+   "",
+   " The highlighted menu-item can be executed by using the <Enter> key.",
+   " After completion of the command, the menu will be activated again,",
+   " unless the '-menu-' switch was used at startup of TXTest.",
+   ""
+   " On automatic activation of the menu, only the menu-headers will be",
+   " visible, no pulldown will be displayed until the next key.",
+   " This allows reading all screen output from the previous command.",
+   "",
+   " At this point, with only the gray menu-bar and headings visible, you",
+   " can move-to and pulldown any of the menu-headings by using the first",
+   " capitalized letter of that heading.",
+   " Any other key except <F10> or <Esc> will open the current pulldown.",
    "",
    NULL
 };
@@ -336,7 +476,64 @@ static  char       *menusyshelp[] =
    " will be appended to this file as well.",
    "",
    "", "", "", "", "", "", "", "", "", "", "", "",
+   ""
+   "#120 Save screen to disk",
+   " This will present a 'file-save-as' dialog with a suggested",
+   " filename in the current directory.  You can change the name",
+   " and navigate to other volumes, directories and even create",
+   " a new directory for the logfile.",
    "",
+   "", "", "", "", "", "", "", "", "", "", "", "",
+   "",
+   "#130 Run a TXTest script",
+   " On selection this will open a 'file-open' dialog listing the",
+   " TXTest script files present in the current directory.",
+   "",
+   " The file-dialog has controls to let you change the volume,",
+   " directory and selection-wildcard to allow easy selection",
+   " of any file accessible through a drive-letter.",
+   "",
+   " Selecting one of these will run the selected script.",
+   "",
+   "", "", "", "", "", "", "", "", "", "", "", "",
+   "",
+   "#140 Exit the TXTest program",
+   " On selection this will exit the program, and return to the",
+   " evironment that started it. This may be the operating system",
+   " commandline, desktop or even another program.",
+   "",
+   "", "", "", "", "", "", "", "", "", "", "", "",
+   "",
+   "#470 Automatic menu dropdown",
+   " This toggles the automatic opening of pull-downs from the main menu.",
+   "",
+   " When ON, each menu-heading selected on the menubar will automatically",
+   " be opened, expanding to a list of menu-choices.",
+   "",
+   " When OFF, the menu-heading selected will be highlighted but requires",
+   " another <Enter> or <Down> key to open.",
+   "",
+   "", "", "", "", "", "", "", "", "", "", "", "",
+   "",
+   "#480 Automatic logfile numbering",
+   "",
+   " This will toggle the 'logAuto' setting, that controls the way the",
+   " name for the logfile specified in the LOG dialog screen is handled.",
+   "",
+   " When 'checked' logAuto is ON, and a sequence number from 001 to 999",
+   " will be appended to the specified filename, incrementing it each time",
+   " a log is started (typically at DFSee startup).",
+   "",
+   " When 'unchecked', logAuto is OFF, and the filename is unchnaged.",
+   "",
+   " The startup default (logAuto OFF) can be changed using the",
+   " startup '-logauto' switch, and can be modified on-the-fly",
+   " using the 'SET LOGAUTO on/off' command, as this menu does.",
+   "",
+   " You can put a command like 'set logauto ON' in your profile.dfs to",
+   " enable this feature without a startup-switch when starting DFSee.",
+   "",
+
    NULL
 };
 
@@ -633,45 +830,75 @@ TXSlist(tstlist3,7,4,tst);
 
 TXSitem(mmsp,0            ,0,TXSF_DISABLED | TXSF_SEPARATOR,     0,""    ,"");
 
-TXSitem(mm11,TXTC_OPEN    ,0,0             , 1,"Open logfile"              ,"Open a logfile for screen output");
-TXSitem(mm12,TXTC_SAVE    ,0,0             , 1,"Save screen   F4"          ,"Save screenbuffer to a file");
-TXSitem(mm13,TXTC_RUNS    ,0,0             , 1,"Run script"                ,"Run a TXTest script");
-TXSitem(mm14,TXTC_EXIT    ,0,0             , 2,"Exit      Alt-F4"          ,"Exit the TXTest program");
+TXSitem(mm11,TXTC_OPEN    ,0,0             , 1,"Open logfile"                  ,"Open a logfile for screen output");
+TXSitem(mm12,TXTC_SAVE    ,0,0             , 1,"Save screen   F4"              ,"Save screenbuffer to a file");
+TXSitem(mm13,TXTC_RUNS    ,0,0             , 1,"Run script"                    ,"Run a TXTest script");
+TXSitem(mm14,TXTC_EXIT    ,0,0             , 2,"Exit      Alt-F4"              ,"Exit the TXTest program");
 static TXS_ITEM *mm1[] = {&mm11, &mm12, &mm13, &mmsp, &mm14};
 TXSlist(tstmm1,5,5,mm1);
 
-TXSitem(mm31,TXTC_DISPLAY ,0,0             , 1,"Display size"              ,"Show size of display screen");
-TXSitem(mm32,TXTC_VOLUMES ,0,0             , 1,"Volume list"               ,"Show list of disk volumes");
-TXSitem(mm33,TXTC_DIRALL  ,0,0             , 1,"Current directory"         ,"Show files and sub-directories in current directory");
-TXSitem(mm34,TXTC_DIRFILE ,0,0             , 1,"Files in current DIR"      ,"Show files-only in current directory");
-TXSitem(mm35,TXTC_DIRSUBS ,0,0             , 1,"Subdirs in current DIR"    ,"Show sub-directories only in current directory");
-TXSitem(mm36,TXTC_DIRTREE ,0,0             ,11,"Show all, recursive"       ,"Show all, including subdirectory contents (tree)");
-TXSitem(mm3a,TXTC_UICTEST ,0,0             , 0,"UI test, Color, Char, Box" ,"Test UI, displaying ANSI color-set, character-set and Box-drawing characters");
-TXSitem(mm3c,TXTC_COLORR  ,0,0             , 1,"RAW colors display"        ,"Show 256 color combinations FG and BG, direct to screen");
+// BASIC version of the above pull-down menu
+static TXS_ITEM *mb1[] = {&mm11, &mmsp, &mm14};
+TXSlist(tstmb1,3,3,mb1);
+
+
+
+
+
+TXSitem(mm31,TXTC_DISPLAY ,0,0             , 1,"Display size"                  ,"Show size of display screen");
+TXSitem(mm32,TXTC_VOLUMES ,0,0             , 1,"Volume list"                   ,"Show list of disk volumes");
+TXSitem(mm33,TXTC_DIRALL  ,0,0             , 1,"Current directory"             ,"Show files and sub-directories in current directory");
+TXSitem(mm34,TXTC_DIRFILE ,0,0             , 1,"Files in current DIR"          ,"Show files-only in current directory");
+TXSitem(mm35,TXTC_DIRSUBS ,0,0             , 1,"Subdirs in current DIR"        ,"Show sub-directories only in current directory");
+TXSitem(mm36,TXTC_DIRTREE ,0,0             ,11,"Show all, recursive"           ,"Show all, including subdirectory contents (tree)");
+TXSitem(mm3a,TXTC_UICTEST ,0,0             , 0,"UI test, Color, Char, Box"     ,"Test UI, displaying ANSI color-set, character-set and Box-drawing characters");
+TXSitem(mm3c,TXTC_COLORR  ,0,0             , 1,"RAW colors display"            ,"Show 256 color combinations FG and BG, direct to screen");
 static TXS_ITEM *mm3[] = {&mm31, &mm32, &mmsp,
                           &mm33, &mm34, &mm35, &mm36, &mmsp,
                           &mm3a, &mm3c};
 TXSlist(tstmm3,10,10,mm3);
 
-TXSsubm(s26s,TXTC_SCHEME  ,0,TXTB_SCHEME,0 , 1,"Select window color scheme ฏ" ,"Select and activate any of the available window-color schemes              ");
-TXSitem(mm41,TXTC_INVSCR  ,0,0             , 1,"Inverted output-screen"       ,"Use inverted colors (black-on-white text) on the scrollable output screen  ");
-TXSitem(mm42,TXTC_BRTSCR  ,0,0             , 8,"Bright foreground-text"       ,"Use bright foreground colors only on the scrollable output screen          ");
-TXSitem(mm43,TXTC_B2BSCR  ,0,0             , 1,"Blue/Brown background"        ,"Use blue (or brown, inverted) background instead of classic black or white ");
-TXSitem(mm44,TXTC_ASCII7  ,0,0             , 5,"Use 7-bit ASCII only"         ,"Use 7-bit ASCII character only, avoid non-standard 'drawing chars'         ");
-TXSitem(mm45,TXTC_COLTXT  ,0,0             , 1,"ANSI colored texts"           ,"Use ANSI-like colored text string on the scrollable output screen          ");
-TXSitem(mm46,TXTC_AUTOMB  ,0,0             ,11,"Automatic menu activation"    ,"Automatically activate MenuBar after each menu-selection (F10 to exit menu)");
-TXSitem(mm47,TXTC_AUTODR  ,0,0             ,16,"Automatic menu Dropdown"      ,"Automatically open menu pulldown on selecting menu-heading in the MenuBar  ");
-static TXS_ITEM *mm4[] = {&s26s, &mmsp,
+
+// BASIC version of the above pull-down menu
+static TXS_ITEM *mb3[] = {&mm31, &mmsp,
+                          &mm33, &mmsp,
+                          &mm3a};
+TXSlist(tstmb3,5,5,mb3);
+
+
+
+TXSitem(mm4e,TXTC_EXPERT  ,0,0             , 0,"UI, switch to Expert mode"     ,"Activate the EXPERT user interface, giving access to ALL functionality      ");
+TXSitem(mm4b,TXTC_EXPERT  ,0,0             , 0,"UI, switch to Basic mode"      ,"Activate the BASIC user interface, limited to the most used functions only  ");
+TXSsubm(s26s,TXTC_SCHEME  ,0,TXTB_SCHEME,0 , 1,"Select window color scheme ฏ"  ,"Select and activate any of the available window-color schemes              ");
+TXSitem(mm41,TXTC_INVSCR  ,0,0             , 1,"Inverted output-screen"        ,"Use inverted colors (black-on-white text) on the scrollable output screen  ");
+TXSitem(mm42,TXTC_BRTSCR  ,0,0             , 8,"Bright foreground-text"        ,"Use bright foreground colors only on the scrollable output screen          ");
+TXSitem(mm43,TXTC_B2BSCR  ,0,0             , 1,"Blue/Brown background"         ,"Use blue (or brown, inverted) background instead of classic black or white ");
+TXSitem(mm44,TXTC_ASCII7  ,0,0             , 5,"Use 7-bit ASCII only"          ,"Use 7-bit ASCII character only, avoid non-standard 'drawing chars'         ");
+TXSitem(mm45,TXTC_COLTXT  ,0,0             , 1,"ANSI colored texts"            ,"Use ANSI-like colored text string on the scrollable output screen          ");
+TXSitem(mm46,TXTC_AUTOMB  ,0,0             ,11,"Automatic menu activation"     ,"Automatically activate MenuBar after each menu-selection (F10 to exit menu)");
+TXSitem(mm47,TXTC_AUTODR  ,0,0             ,16,"Automatic menu Dropdown"       ,"Automatically open menu pulldown on selecting menu-heading in the MenuBar  ");
+TXSitem(mm48,TXTC_LOGAUTO ,0,0             ,19,"Automatic logfile Numbering"   ,"Automatically number logfiles as name001..999, added to filename from dialog");
+static TXS_ITEM *mm4[] = {&mm4b, &mmsp,
+                          &s26s, &mmsp,
                           &mm41, &mm42, &mm43, &mmsp,
                           &mm44, &mm45, &mmsp,
-                          &mm46, &mm47};
-TXSlist(tstmm4,11,11,mm4);
+                          &mm46, &mm47, &mmsp,
+                          &mm48};
+TXSlist(tstmm4,15,15,mm4);
+
+// BASIC version of the above pull-down menu
+static TXS_ITEM *mb4[] = {&mm4e, &mmsp,
+                          &s26s, &mmsp,
+                          &mm47, &mmsp,
+                          &mm48};
+TXSlist(tstmb4,7,7,mb4);
+
 
 TXSitem(mm21,TXTC_DIALOG  ,0,0             , 6,"Test dialog 1  ...  F5"    ,"Test dialog with fields and button                      ");
 TXSitem(mm22,TXTC_MSGBOX  ,0,0             , 1,"Message Box    ...  F6"    ,"Test a simple message popup                             ");
-TXSitem(mm23,TXTC_PROMPT  ,0,0             , 1,"Prompt box     ...  F7"    ,"Test prompting for a string value                       ");
+TXSitem(mm23,TXTC_PROMPT  ,0,0             , 1,"Prompt box     ...    "    ,"Test prompting for a string value                       ");
 TXSitem(mm24,TXTC_HEXED   ,0,0             , 1,"HexEdit dialog ...  F2"    ,"Test Hex editor dialog with fixed dummy data            ");
-TXSitem(mm25,TXTC_LIST    ,0,0             , 1,"ListBox Dialog ...  F8"    ,"Test several ListBoxes in a dialog                      ");
+TXSitem(mm25,TXTC_LIST    ,0,0             , 1,"ListBox Dialog ...    "    ,"Test several ListBoxes in a dialog                      ");
 TXSitem(mm26,TXTC_WIDGET  ,0,0             , 1,"Widget Dialog  ...  F9"    ,"Test dialog driven by generic widget data and functions.");
 TXSitem(mm27,TXTC_PRWIDG  ,0,0             , 1,"Widget Prompt  ... "       ,"Prompt for a string and provide additional widgets ...  ");
 TXSitem(mm28,TXTC_DISABL  ,0,TXSF_DISABLED , 1,"Disabled menu-entry"       ,"Entry is disabled, should NOT act on Enter ...          ");
@@ -680,15 +907,70 @@ static TXS_ITEM *mm2[] = {&mm21, &mm22, &mm23, &mm24, &mmsp,
                           &mm25, &mm26, &mm27, &mm28, &mm29};
 TXSlist(tstmm2, 10, 10,mm2);
 
+// BASIC version of the above pull-down menu
+static TXS_ITEM *mb2[] = {&mm21, &mm22, &mm23, &mm24, &mmsp,
+                          &mm25, &mm26, &mm27};
+TXSlist(tstmb2,8,8,mb2);
 
-TXSitem(mm91,TXTC_CMDHELP ,0,0             , 1,"Application commands"      ,"One line descriptions for each TXT commands");
-TXSitem(mm92,TXTC_SW_HELP ,0,TXSF_MARK_STD , 1,"Exe startup switches"      ,"One line descriptions for each executable switch");
-TXSitem(mm93,TXTC_UIHELP  ,0,0             , 1,"User interface"            ,"Help on the application and TxWin user interface");
-TXSitem(mm94,TXTC_ABOUT   ,0,0             , 1,"About ...         F11"     ,"Show version details and copyright");
-TXSsubm(mm95,TXTC_SUBMEN  ,&tstmm2,0,0     , 1,"Test submenu         ฏ"    ,"Call up the test-menu as a submenu popup");
-static TXS_ITEM *mm9[] = {&mm91, &mm92, &mm93, &mm94, &mmsp, &mm95};
-TXSlist(tstmm9,6,6,mm9);
 
+
+TXSitem(m9g1,TXTC_H_KEYBD ,0,0             , 1,"Keyboard usage, overviews"     ,"Select an item from the list to get Keyboard usage help for that module     ");
+TXSitem(m9g2,TXTC_H_MOUSE ,0,0             , 1,"Mouse    usage, overviews"     ,"Select an item from the list to get Mouse    usage help for that module     ");
+TXSitem(m9g3,TXTC_H_CLIPB ,0,0             , 1,"Clipboard, all references"     ,"Select an item from the list to get Clipboard infomation from any help file ");
+TXSitem(m9g4,TXTC_H_MENUS ,0,0             , 6,"Menu Pull-down references"     ,"Select an item from the list to get Menu pull-down info  from any help file ");
+static TXS_ITEM *m9g[] =
+{
+   &m9g1, &m9g2, &m9g3, &m9g4
+};
+TXSlist(tstm9g,4,4,m9g);
+
+TXSitem(m9c1,TXTC_UIHELP  ,0,0             , 1,"Command entry and text output" ,"Help on the TXTest application use of the commandline and text output window ");
+TXSitem(m9c2,TXTC_OPTHELP ,0,0             ,19,"TXTest   command   Options"     ,"Descriptions for the generic command options that work for ANY command      ");
+TXSitem(m9c3,TXTC_CMDHELP ,0,0             , 1,"TXTest   generic   commands"    ,"Descriptions for the generic TXTest commands that work for every FS (mode=..)");
+TXSitem(m9c4,TXTC_TXCHELP ,0,0             , 1,"TXlib   generic   commands"    ,"Descriptions for the standard TX library commands, mainly user interface    ");
+TXSitem(m9c7,TXTC_SW_HELP ,0,0             ,19,"Startup switches, Application" ,"Descriptions for executable startup switches, TXTest application specific    ");
+TXSitem(m9c8,TXTC_TXSHELP ,0,0             ,19,"Startup switches, UI library"  ,"Descriptions for executable startup switches, TxWin UI library specific     ");
+static TXS_ITEM *m9c[] =
+{
+   &m9c1, &mmsp,
+   &m9c2, &m9c3, &m9c4, &mmsp,
+   &m9c7, &m9c8
+};
+TXSlist(tstm9c,8,8,m9c);
+
+TXSitem(m9s1,TXTC_HS_RUNU ,0,0             , 1,"Usage on script RUN command"   ,"Shows the details on the 'run' command with parameters and option switches  ");
+TXSitem(m9s2,TXTC_HSYNTAX ,0,0             , 8,"Script Syntax and parameters"  ,"Help on script Syntax, control structures, operators, pragmas and functions ");
+TXSitem(m9s3,TXTC_HS_VARS ,0,0             , 8,"Script Variables/constants"    ,"Help on script variables and constants, incl. TXTest specific host variables ");
+static TXS_ITEM *m9s[] =
+{
+   &m9s1, &m9s2, &m9s3
+};
+TXSlist(tstm9s,3,3,m9s);
+
+
+TXSsubm(mm9g,TXTC_PREGREP ,&tstm9g,0,0     , 1,"User Interface, kbd, mouse  ฏ" ,"Present HELP item-list for one of several user-interface aspects            ");
+TXSsubm(mm9c,TXTC_CMDLINE ,&tstm9c,0,0     , 1,"Command overviews and usage ฏ" ,"Overviews of most commands, and usage for the commandline and output window ");
+TXSsubm(mm9s,TXTC_HSCRIPT ,&tstm9s,0,0     , 1,"Script language information ฏ" ,"Infomation on the TXScript language syntax and the TXTest specific variables ");
+TXSitem(mm97,TXTC_H_SECTS ,0,0             , 1,"Select from all help sections" ,"Present list of builtin or loaded help-sections to select from, for reading.");
+TXSitem(mm98,TXTC_H_GREP  ,0,0             ,17,"Find a phrase  (Grep) in help" ,"Present help 'find' dialog to specify a phrase to search the help texts for.");
+TXSitem(mm96,TXTC_ABOUT   ,0,0             , 1,"About ...               s-F11" ,"Show TXTest program version details and copyright notices for used components");
+static TXS_ITEM *mm9[] =
+{
+   &mm9g, &mm9c, &mmsp,
+   &mm9s, &mmsp,
+   &mm97, &mm98, &mmsp,
+   &mm96
+};
+TXSlist(tstmm9, 9, 9,mm9);
+
+// BASIC version of the above pull-down menu
+static TXS_ITEM *mb9[] =
+{
+   &mm9g, &mm9c, &mmsp,
+   &mm97, &mm98, &mmsp,
+   &mm96
+};
+TXSlist(tstmb9, 7, 7,mb9);
 
 
 TXSmenu(tmenu1,&tstmm1,TXTM_FILE   ,0    , 1,'f'," File "                ,"Menu with file items");
@@ -696,11 +978,34 @@ TXSmenu(tmenu2,&tstmm2,TXTM_TEST   ,0    , 1,'t'," Test "                ,"Menu 
 TXSmenu(tmenu3,&tstmm3,TXTM_SHOW   ,0    , 1,'d'," Display "             ,"Menu with display items");
 TXSmenu(tmenu4,&tstmm4,TXTM_SETT   ,0    , 1,'s'," Settings "            ,"Modify some TXT program settings and properties");
 TXSmenu(tmenu9,&tstmm9,TXTM_HELP   ,0    , 1,'h'," Help "                ,"Menu with help items");
-static TXS_MENUBAR mainmenu =
+
+TXSmenu(bmenu1,&tstmb1,TXTM_FILE   ,0    , 1,'f'," File "                ,"Menu with file items");
+TXSmenu(bmenu2,&tstmb2,TXTM_TEST   ,0    , 1,'t'," Test "                ,"Menu with test items");
+TXSmenu(bmenu3,&tstmb3,TXTM_SHOW   ,0    , 1,'d'," Display "             ,"Menu with display items");
+TXSmenu(bmenu4,&tstmb4,TXTM_SETT   ,0    , 1,'s'," Settings "            ,"Modify some TXT program settings and properties");
+TXSmenu(bmenu9,&tstmb9,TXTM_HELP   ,0    , 1,'h'," Help "                ,"Menu with help items");
+
+
+//============================  Menu-Bars  =========================================================================
+
+static TXS_MENUBAR basic_menu =
 {
    5,                                           // number of menus presnt
    0,                                           // index of 1st default menu
-   {&tmenu1, &tmenu2, &tmenu3, &tmenu4, &tmenu9} // menu pointers
+   {&bmenu1, &bmenu2, &bmenu3,
+    &bmenu4, &bmenu9},                          // menu pointers
+    TXT_N " " TXT_V "; " TXT_C,                 // application description
+    "Basic"                                     // menu indicator/toggle-button name
+};
+
+static TXS_MENUBAR expertmenu =
+{
+   5,                                           // max number of menus present
+   0,                                           // index of 1st default menu
+   {&tmenu1, &tmenu2, &tmenu3,
+    &tmenu4, &tmenu9},                          // menu pointers
+    TXT_N " " TXT_V "; " TXT_C,                 // application description
+    "Expert"                                    // menu indicator/toggle-button name
 };
 
 
@@ -752,7 +1057,7 @@ TXWIDGET  group1_widgets[9] =
       TXWS_OUTPUT | TXWS_HCHILD2MOVE,
       0, "",                                    // style, helpid and title
       TXW_STLINE, 0, NULL,                      // class, hwnd and winproc
-      TXWgStline( "ฦออออออออออออออออออออต")
+      TXWgStline( "|ออออออออออออออออออออ|")
    },
    {
       4,  0,  5, 49, 0, 0, 0,                   // rel position, size & group
@@ -831,8 +1136,8 @@ static ULONG txtStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 // TXTst window procedure, for entry-field, includes automatic value-echo
@@ -840,8 +1145,8 @@ static ULONG txtEntryWindowProc                 // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -850,8 +1155,8 @@ static ULONG txwColorViewWinProc                // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -860,8 +1165,8 @@ static ULONG txtDialogWindowProc                // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -1039,12 +1344,8 @@ ULONG txtWindowed
          txwSetAccelerator( entrwin, TXk_F4,     TXTC_SAVE);
          txwSetAccelerator( entrwin, TXk_F5,     TXTC_DIALOG);
          txwSetAccelerator( entrwin, TXk_F6,     TXTC_MSGBOX);
-         txwSetAccelerator( entrwin, TXk_F7,     TXTC_PROMPT);
          txwSetAccelerator( entrwin, TXk_F2,     TXTC_HEXED);
-         txwSetAccelerator( entrwin, TXk_F8,     TXTC_LIST);
          txwSetAccelerator( entrwin, TXk_F9,     TXTC_WIDGET);
-         txwSetAccelerator( entrwin, TXk_F11,    TXTC_ABOUT);
-         txwSetAccelerator( entrwin, TXa_F11,    TXTC_ABOUT);
          txwSetAccelerator( entrwin, TXs_F11,    TXTC_ABOUT);
          txwSetAccelerator( entrwin, TXk_MENU,   TXTM_DEFAULT);
          txwSetAccelerator( entrwin, TXk_F10,    TXTM_DEFAULT);
@@ -1082,6 +1383,21 @@ ULONG txtWindowed
 /*---------------------------------------------------------------------------*/
 
 
+
+/*****************************************************************************/
+// Return pointer to current main-menu (can be BASIC or EXPERT or ...)
+/*****************************************************************************/
+TXS_MENUBAR *txtGetMainMenu
+(
+   void
+)
+{
+   TXS_MENUBAR *txtmenu = (txta->expertui) ? &expertmenu : &basic_menu;
+
+   return txtmenu;
+}                                               // end 'txtGetMainMenu'
+/*---------------------------------------------------------------------------*/
+
 /*****************************************************************************/
 // TXTst standard window procedure, for any window-class
 /*****************************************************************************/
@@ -1089,8 +1405,8 @@ static ULONG txtStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc = NO_ERROR;
@@ -1106,7 +1422,7 @@ static ULONG txtStdWindowProc                   // RET   result
       switch (msg)
       {
          case TXWM_COMMAND:
-            switch (mp1)                        // unique command code
+            switch ((ULONG) mp1)                // unique command code
             {
                case TXTM_FILE:
                case TXTM_TEST:
@@ -1121,20 +1437,20 @@ static ULONG txtStdWindowProc                   // RET   result
                      txSelDestroy(          &(txta->slSchemes)); // remove scheme list
                      TxSelistColorSchemes(  &(txta->slSchemes)); // and refresh it
 
-                     s26s.userdata = (ULONG) (txta->slSchemes ); // TXTA_SCHEME
+                     s26s.userdata =          txta->slSchemes;   // TXTA_SCHEME
 
                      //- set dynamic marks and disable flags ...
 
-                     txtMiMarked( TXTC_INVSCR, txwSbColorStyle(TXSB_COLOR_INVERT), NULL);
+                     txtMiMarked( TXTC_INVSCR, txwSbColorStyle(TXSB_COLOR_INVERT));
                      txtMiMarked( TXTC_BRTSCR, txwSbColorStyle(TXSB_COLOR_BRIGHT) ^
-                                               txwSbColorStyle(TXSB_COLOR_INVERT), NULL);
-                     txtMiMarked( TXTC_B2BSCR, txwSbColorStyle(TXSB_COLOR_B2BLUE), NULL);
-                     txtMiMarked( TXTC_ASCII7, TxGetAscii7Mode()                 , NULL);
-                     txtMiMarked( TXTC_COLTXT, TxGetAnsiMode() == A_ON           , NULL);
-                     txtMiMarked( TXTC_AUTOMB, txta->automenu  == TRUE           , NULL);
-                     txtMiMarked( TXTC_AUTODR, txta->autodrop  == TRUE           , NULL);
+                                               txwSbColorStyle(TXSB_COLOR_INVERT));
+                     txtMiMarked( TXTC_B2BSCR, txwSbColorStyle(TXSB_COLOR_B2BLUE));
+                     txtMiMarked( TXTC_ASCII7, TxGetAscii7Mode()                 );
+                     txtMiMarked( TXTC_COLTXT, TxGetAnsiMode() == A_ON           );
+                     txtMiMarked( TXTC_AUTOMB, txta->automenu  == TRUE           );
+                     txtMiMarked( TXTC_AUTODR, txta->autodrop  == TRUE           );
 
-                     switch (mp1)
+                     switch ((ULONG) mp1)
                      {
                         case TXTM_FILE: menuopen = 'f';  break;
                         case TXTM_TEST: menuopen = 't';  break;
@@ -1148,9 +1464,9 @@ static ULONG txtStdWindowProc                   // RET   result
                      txta->automenu = TRUE;     // make menu sticky
                      txta->menuOwner = hwnd;
 
-                     flag = TXMN_MAIN_MENU;     // signal main-menu will be up
-                     if (mp1 == TXTM_AUTOMENU)  // automatic menu after command
-                     {                          // completion, do not drop yet!
+                     flag = TXMN_MAIN_MENU;             //- signal main-menu will be up
+                     if ((ULONG) mp1 == TXTM_AUTOMENU)  //- automatic menu after command
+                     {                                  //- completion, do not drop yet!
                         flag |= TXMN_DELAY_AUTODROP;
                         TRACES(("MenuBar - delayed autodrop\n"));
                      }
@@ -1160,11 +1476,11 @@ static ULONG txtStdWindowProc                   // RET   result
                         flag |= TXMN_NO_AUTODROP;
                      }
 
-                     txwSendMsg( txta->sbwindow, TXWM_STATUS, 0, cSchemeColor);
+                     txwSendMsg( txta->sbwindow, TXWM_STATUS, 0, (TXWMPARAM) cSchemeColor);
 
                      if (txwMenuBar( TXHWND_DESKTOP, hwnd, NULL,
                                      menuopen, TXTM_BAR,
-                                     flag, &mainmenu) == TXDID_CANCEL)
+                                     flag, txtGetMainMenu()) == TXDID_CANCEL)
                      {
                         txta->menuOwner = 0;    // quit automatic menuBar
                      }
@@ -1175,7 +1491,7 @@ static ULONG txtStdWindowProc                   // RET   result
                   txtBEGINWORK();               // signal work starting
 
                   strcpy( s1, "txtlog");
-                  if (txwSaveAsFileDialog( s1, NULL, NULL, 0, NULL,
+                  if (txwSaveAsFileDialog( s1, NULL, NULL, 0, NULL, NULL,
                       " Specify file for logging (append) ", s1))
                   {
                      TxAppendToLogFile( s1, TRUE);
@@ -1189,12 +1505,12 @@ static ULONG txtStdWindowProc                   // RET   result
 
                case TXTC_RUNS:
                   txtBEGINWORK();               // signal work starting
-                  strcpy( s1, "*.dfs");
+                  strcpy( s1, "*.txs");
                   #if defined (DEV32)
                      strcat( s1, ";*.cmd");     // add REXX scripts for OS/2
                   #endif
 
-                  if (txwOpenFileDialog( s1, NULL, NULL, 0, NULL,
+                  if (txwOpenFileDialog( s1, NULL, NULL, 0, NULL, NULL,
                       " Select a TxTest script file ", s1))
                   {
                      TXLN               descr;
@@ -1240,6 +1556,25 @@ static ULONG txtStdWindowProc                   // RET   result
                      txwInvalidateAll();        // avoid VIO64K bug
                   #endif
                   break;
+
+               case TXTC_LOGAUTO:
+                  sprintf( s2, "set logauto %s", (txta->logAuto) ? "off" : "on");
+                  txtExecEnd( s2);
+                  break;
+
+               case TXCMD_MENU_CYCLE:           // click on menu-bar menu-name
+               case TXTC_EXPERT:
+                  {
+                     TXS_MENUBAR *txtmenu = txtGetMainMenu();
+
+                     txtBEGINWORK();
+                     txtExecEnd( "set expert toggle");
+                     txta->menuOwner = entrwin;         //- Reopen the Edit menu
+                     txta->menuopen  = txtmenu->menu[ txtmenu->defopen]->ident;
+                     txtENDWORK();
+                  }
+                  break;
+
 
                case TXTC_DIALOG:
                   txtBEGINWORK();               // signal work starting
@@ -1417,22 +1752,70 @@ static ULONG txtStdWindowProc                   // RET   result
                case TXTC_CMDHELP:
                   txtBEGINWORK();               // signal work starting
                   txwViewText( TXHWND_DESKTOP, 0, 0,
-                              "TXTst application command summary",
-                               cmdhelptxt);
+                              "TXTest application command summary",
+                               txtGenericHelp);
                   txtENDWORK();                 // signal work done
                   break;
+
+               case TXTC_TXCHELP:
+                  txtBEGINWORK();
+                  txwViewText( TXHWND_DESKTOP, 0, 0,
+                              "TX library standard command summary",
+                               TxGetStdCmdHelp());
+                  txtENDWORK();
+                  break;
+
 
                case TXTC_SW_HELP:
                   txtBEGINWORK();               // signal work starting
                   txwViewText( TXHWND_DESKTOP, 0, 0,
-                              "TXTst executable switches summary",
-                               switchhelp);
+                              "TXTest executable switches summary",
+                               txtSwitchhelp);
                   txtENDWORK();                 // signal work done
+                  break;
+
+               case TXTC_TXSHELP:
+                  txtBEGINWORK();
+                  txwViewText( TXHWND_DESKTOP, 0, 0,
+                              "TX library user-interface startup switches summary",
+                               TxGetSwitchhelp());
+                  txtENDWORK();
+                  break;
+
+               case TXTC_HS_RUNU:
+                  txtBEGINWORK();
+                  txwViewText( TXHWND_DESKTOP, 0, 0,
+                              "TXTest TXScript RUN command usage",
+                               txScriptRunHelp);
+                  txtENDWORK();
+                  break;
+
+               case TXTC_HSYNTAX:
+                  txtBEGINWORK();
+                  txwViewText( TXHWND_DESKTOP, 0, 0,
+                              "TXTest TXScript syntax and layout",
+                               txScriptSyntaxHelp);
+                  txtENDWORK();
+                  break;
+
+               case TXTC_HS_VARS:
+                  txtBEGINWORK();
+                  txwViewText( TXHWND_DESKTOP, 0, 0,
+                              "TXTest TXScript host-variable definitions",
+                               hostvarhelp);
+                  txtENDWORK();
                   break;
 
                case TXTC_UIHELP:
                   txwPostMsg( entrwin, TXWM_HELP, 0, 0);
                   break;
+
+               case TXTC_H_SECTS:   txtExecSilent( "help s");                   break;
+               case TXTC_H_GREP:    txtExecSilent( "help");                     break;
+               case TXTC_H_KEYBD:   txtExecSilent( "help keyboard usage");      break;
+               case TXTC_H_MOUSE:   txtExecSilent( "help mouse usage");         break;
+               case TXTC_H_CLIPB:   txtExecSilent( "help clipboard");           break;
+               case TXTC_H_MENUS:   txtExecSilent( "help pull-down");           break;
 
                case TXTC_ABOUT:
                   txtExecCmd( "about -r");
@@ -1460,8 +1843,8 @@ static ULONG txtStdWindowProc                   // RET   result
             break;
 
          case TXWM_CHAR:
-            if (txwIsAccelCandidate(mp2))       // menu will be closed, allow
-            {                                   // automenu to restart it.
+            if (txwIsAccelCandidate((ULONG) mp2))  //- menu will be closed, allow
+            {                                      //- automenu to restart it.
                txtBEGINWORK();
                txtENDWORK();                    // signal work done
             }                                   // fall through to default!
@@ -1486,8 +1869,8 @@ static ULONG txtEntryWindowProc                 // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
@@ -1504,12 +1887,12 @@ static ULONG txtEntryWindowProc                 // RET   result
       switch (msg)
       {
          case TXWM_CHAR:
-            switch (mp2)
+            switch ((ULONG) mp2)
             {
                case TXk_ENTER:                  // execute as TXTst command
-                  txwSendMsg( txta->sbwindow, TXWM_CHAR, 0, TXc_END);
+                  txwSendMsg( txta->sbwindow, TXWM_CHAR, 0, (TXWMPARAM) TXc_END);
                case TXc_ENTER:                  // execute, no auto-scroll
-                  txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, FALSE, 0);
+                  txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, (TXWMPARAM) FALSE, 0);
 
                   TxPrint("\n");
                   TxCancelAbort();              // reset pending abort status
@@ -1522,7 +1905,7 @@ static ULONG txtEntryWindowProc                 // RET   result
                   {
                      rc = txwDefWindowProc( hwnd, msg, mp1, mp2);
 
-                     txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, TRUE, 0);
+                     txwSendMsg( hwnd,  TXWM_CURSORVISIBLE, (TXWMPARAM) TRUE, 0);
 
                      #if defined (DEV32)
                         txwInvalidateAll();     // avoid VIO64K bug
@@ -1542,13 +1925,23 @@ static ULONG txtEntryWindowProc                 // RET   result
                case TXc_END   :
                case TXa_COMMA :
                case TXa_DOT   :
-                  switch (mp2)                  // translate some Ctrl-xxx
+               case TXk_F7    :
+               case TXk_F8    :
+               case TXk_F12:
+               case TXa_1:
+               case TXa_2:
+               case TXa_3:
+               case TXa_4:
+               case TXc_R:                      // Reverse search (again)
+               case TXc_F:                      // Find (again)
+               case TXc_N:
+                  switch ((ULONG) mp2)          // translate some Ctrl-xxx
                   {                             // to normal movement keys
-                     case TXc_UP    : key = TXk_UP;     break;
-                     case TXc_DOWN  : key = TXk_DOWN;   break;
-                     default:         key = mp2;        break;
+                     case TXc_UP    : key = TXk_UP;      break;
+                     case TXc_DOWN  : key = TXk_DOWN;    break;
+                     default:         key = (ULONG) mp2; break;
                   }
-                  txwSendMsg( txta->sbwindow, msg, mp1, key);
+                  txwSendMsg( txta->sbwindow, msg, mp1, (TXWMPARAM) key);
                   break;
 
                case TXa_LEFT:                   // avoid left/right movemement
@@ -1564,13 +1957,11 @@ static ULONG txtEntryWindowProc                 // RET   result
          case TXWM_SETFOCUS:
             if ((BOOL) mp1 == TRUE)             // Entryfield got focus ?
             {
-               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER,
-                   (ULONG) stattxt, 0);         // Fkey help
+               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (TXWMPARAM) stattxt, 0); // Fkey help
             }
             else
             {
-               txwPostMsg( TXHWND_DESKTOP,
-                           TXWM_SETFOOTER, 0, 0); // reset Fkey help
+               txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, 0, 0); // reset Fkey help
             }
             break;
 
@@ -1595,8 +1986,8 @@ static ULONG txwColorViewWinProc                // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc  = NO_ERROR;
@@ -1611,13 +2002,13 @@ static ULONG txwColorViewWinProc                // RET   result
       switch (msg)
       {
          case TXWM_CHAR:
-            switch (mp2)
+            switch ((ULONG) mp2)
             {
                case TXc_UP:
                case TXc_DOWN:
                case TXc_LEFT:
                case TXc_RIGHT:
-                  switch (mp2)
+                  switch ((ULONG) mp2)
                   {
                      case TXc_UP:    win->clientclear.at +=  1; break;
                      case TXc_DOWN:  win->clientclear.at -=  1; break;
@@ -1628,7 +2019,7 @@ static ULONG txwColorViewWinProc                // RET   result
                   sprintf( color, "Foreground: %hx  on  background: %hx",
                            (USHORT) (win->clientclear.at & 0x0f),
                            (USHORT) (win->clientclear.at & 0xf0));
-                  txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (ULONG) color, 0);
+                  txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (TXWMPARAM) color, 0);
                   break;
 
                default:
@@ -1853,7 +2244,7 @@ ULONG txtTestDialog                             // RET   result
                    txwDefWindowProc);           // window procedure
 
       txwSetWindowUShort(  d1buttn1, TXQWS_ID, TXDID_OK);
-//    txwPostMsg(          d1buttn1, TXWM_SELECTED, TRUE, 0);
+//    txwPostMsg(          d1buttn1, TXWM_SELECTED, (TXWMPARAM) TRUE, 0);
 
       txwSetupWindowData(
          2,  21,                                // upper left corner
@@ -2016,7 +2407,7 @@ ULONG txtTestDialog                             // RET   result
                                   txwDefWindowProc);
       txwSetWindowUShort(d1check3, TXQWS_ID, TXT_WID_D1CHECK3);
 
-      txwPostMsg(  d1frame1, TXWM_ACTIVATE, TRUE, 0);
+      txwPostMsg(  d1frame1, TXWM_ACTIVATE, (TXWMPARAM) TRUE, 0);
       rc = txwDlgBox( TXHWND_DESKTOP, TXHWND_DESKTOP,
                       txtDialogWindowProc, d1frame1, NULL);
    }
@@ -2036,8 +2427,8 @@ static ULONG txtDialogWindowProc                // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc    = NO_ERROR;
@@ -2049,22 +2440,22 @@ static ULONG txtDialogWindowProc                // RET   result
       switch (msg)
       {
          case TXWM_CHAR:
-            switch (mp2)
+            switch ((ULONG) mp2)
             {
                case TXc_A:                      // set 'active' flag
-                  txwPostMsg( hwnd, TXWM_ACTIVATE, TRUE, 0);
+                  txwPostMsg( hwnd, TXWM_ACTIVATE, (TXWMPARAM) TRUE, 0);
                   break;
 
                case TXa_A:                      // reset 'active' flag
-                  txwPostMsg( hwnd, TXWM_ACTIVATE, FALSE, 0);
+                  txwPostMsg( hwnd, TXWM_ACTIVATE, (TXWMPARAM) FALSE, 0);
                   break;
 
                case TXc_S:                      // set 'selected' flag
-                  txwPostMsg( hwnd, TXWM_SELECTED, TRUE, 0);
+                  txwPostMsg( hwnd, TXWM_SELECTED, (TXWMPARAM) TRUE, 0);
                   break;
 
                case TXa_S:                      // reset 'selected' flag
-                  txwPostMsg( hwnd, TXWM_SELECTED, FALSE, 0);
+                  txwPostMsg( hwnd, TXWM_SELECTED, (TXWMPARAM) FALSE, 0);
                   break;
 
                case TXc_V:                      // set visible
@@ -2076,7 +2467,7 @@ static ULONG txtDialogWindowProc                // RET   result
                   break;
 
                case TXk_F10:
-                  txwMenuBar( hwnd, hwnd, NULL, 0, TXTM_BAR, 0, &mainmenu);
+                  txwMenuBar( hwnd, hwnd, NULL, 0, TXTM_BAR, 0, txtGetMainMenu());
                   break;
 
                default:
@@ -2097,7 +2488,7 @@ static ULONG txtDialogWindowProc                // RET   result
                switch (notify = TXSH2FROMMP(mp1))
                {
                   case TXLN_SELECT:
-                     txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (ULONG) item->desc, 0);
+                     txwPostMsg( TXHWND_DESKTOP, TXWM_SETFOOTER, (TXWMPARAM) item->desc, 0);
                      break;
 
                   case TXLN_ENTER:
@@ -2255,7 +2646,7 @@ ULONG txtListBoxDialog                          // RET   result
                                   txwDefWindowProc);
       txwSetWindowUShort(d2tlist7, TXQWS_ID, TXT_WID_D2LIST7);
 
-      txwPostMsg(  d2frame1, TXWM_ACTIVATE, TRUE, 0);
+      txwPostMsg(  d2frame1, TXWM_ACTIVATE, (TXWMPARAM) TRUE, 0);
       rc = txwDlgBox( TXHWND_DESKTOP, TXHWND_DESKTOP,
                       txtDialogWindowProc, d2frame1, NULL);
    }
@@ -2266,4 +2657,232 @@ ULONG txtListBoxDialog                          // RET   result
    RETURN( rc);
 }                                               // end 'txtListBoxDialog'
 /*---------------------------------------------------------------------------*/
+
+
+
+
+
+/*========================== LOGFILE DIALOG =====================================================*/
+// Implements a logfile dialog based on standard file-open plus some extra widgets
+static TXTM        descr1;                      // Description line 1
+static TXTM        descr2;                      // Description line 2
+static TXLN        logo1;                       // Output field user message
+static BOOL        logc1;                       // Log-reopen at each line
+
+/*
+  Specify a filename on a WRITABLE volume/driveletter for logging
+  All new screen output will be APPENDED to the specified file.")
+
+  Create logfile for the session, or use Cancel/Esc for no logging
+
+[ ] Close and re-open the logfile after writing each line (slow!)
+*/
+#define   LOGDIALOGWIDGETS 4
+static TXWIDGET  txtLogFileWidgets[LOGDIALOGWIDGETS] = // order determines TAB-order!
+{
+   {0,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( descr1)},
+   {1,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( descr2)},
+   {3,  2, 1, 65, 0, 0, 1, TXWS_OUTPUT  | TXWS_HCHILD_SIZE,  0, TXStdStline( logo1)},
+
+   {5,  0, 1, 65, 0, 7, 0, TXWS_AUTOCHK, 0, TXStdButton( &logc1,
+   "Close and reopen file after writing each line (slow!)")},
+};
+
+static TXGW_DATA txtLogFileDlg =
+{
+   LOGDIALOGWIDGETS,                            // number of widgets
+   TXTC_OPEN,                                   // help, widget overrules
+   810,                                         // base window ID
+   NULL,                                        // widget window procedure
+   NULL,                                        // persistent position TXRECT
+   txtLogFileWidgets                            // array of widgets
+};
+
+
+/*************************************************************************************************/
+// Present LOG/TRACE options dialog and execute resulting command
+/*************************************************************************************************/
+ULONG txtLogDialog
+(
+   char               *logname,                 // IN    default name or NULL
+   ULONG               helpid,                  // IN    specific help-id
+   BOOL                reopen,                  // IN    reopen logfile
+   char               *message                  // IN    extra message or NULL
+)
+{
+   ULONG               rc = NO_ERROR;           // function return
+   TXLN                command;
+   TXLN                fspec;
+
+   ENTER();
+
+   txtBEGINWORK();                              // signal work starting
+
+   txtLogFileDlg.helpid = helpid;
+   logc1 = reopen;
+
+   strcpy( descr1, "Specify a filename on a WRITABLE volume/driveletter for logging");
+   strcpy( descr2, "All new screen output will be APPENDED to the specified file.");
+
+   if (message && strlen( message))
+   {
+      strcpy( logo1, message);
+   }
+   else
+   {
+      strcpy( logo1, "Start logfile for the session, or use Cancel/Esc for no logging");
+   }
+
+   strcpy( fspec, "*.log");
+   while (txwSaveAsFileDialog( fspec, NULL, logname, helpid, NULL, &txtLogFileDlg,
+      " Specify filename for logging this session to ", fspec))
+   {
+      TxRepl( fspec, FS_PALT_SEP, FS_PATH_SEP); // fixup ALT separators
+      if ((fspec[strlen(fspec)-1] != FS_PATH_SEP) && // not a directory ?
+                (strlen(fspec) == TxStrWcnt(fspec))) // and no wildcard ?
+      {
+         if (helpid == TXTC_OPEN)               // regular LOG
+         {
+            sprintf( command, "log \"%s\"", fspec); // allow space/single-quote
+         }
+         else
+         {
+            sprintf( command, "trace \"%s\" -m:999,k -f:9 -t", fspec); // trace
+         }
+         if (logc1)
+         {
+            strcat( command, " -r");            // reopen option
+         }
+         txtExecCmd( command);
+         break;
+      }
+      else
+      {
+         TxNamedMessage( TRUE, helpid, " ERROR: Invalid filename ",
+                         "You must specify a filename, not a wildcard or directory ...");
+         strcpy(  fspec, "*.log");
+      }
+   }
+   txtENDWORK();                                // signal work done
+   RETURN (rc);
+}                                               // end 'txtLogDialog'
+/*-----------------------------------------------------------------------------------------------*/
+
+
+/*========================== RUN SCRIPT =========================================================*/
+static BOOL rsVerbose = FALSE;                  // Verbose
+static BOOL rsStep    = FALSE;                  // SingleStep
+
+/*
+[ ] Verbose, display each script line when executed
+[ ] Single step, confirm before executing each line
+*/
+#define   RUNDIALOGWIDGETS 2
+static TXWIDGET  txtRunScriptWidgets[RUNDIALOGWIDGETS] = // order determines TAB-order!
+{
+   {0,  0, 1, 58, 0, 0, 0, TXWS_AUTOCHK, 0, TXStdButton( &rsVerbose,
+                          "Verbose, display each script line when executed")},
+   {1,  0, 1, 58, 0, 0, 0, TXWS_AUTOCHK, 0, TXStdButton( &rsStep,
+                          "Single step, confirm before executing each line")}
+};
+
+static TXGW_DATA txtRunScriptDlg =
+{
+   RUNDIALOGWIDGETS,                            // number of widgets
+   TXTC_RUNS,                                   // help, widget overrules
+   810,                                         // base window ID
+   NULL,                                        // widget window procedure
+   NULL,                                        // persistent position TXRECT
+   txtRunScriptWidgets                          // array of widgets
+};
+
+/*************************************************************************************************/
+// Present Run-script file-dialog with options and execute resulting command
+/*************************************************************************************************/
+ULONG txtRunScriptDialog
+(
+   char               *firstParam,              // IN    path/scriptname, or empty
+   char               *scriptInfo               // OUT   scriptname + parameters
+)
+{
+   ULONG               rc = NO_ERROR;           // function return
+   TXLN                params;
+   TXLN                fspec;
+   TXTM                wildcard;
+   TX1K                dlgText;
+
+   ENTER();
+
+   txtBEGINWORK();                              // signal work starting
+
+   // Handle input options when specified
+   if (TxaOptSet('s'))                          // single-step option used
+   {
+      rsStep = TxaOption('s');
+   }
+   if (TxaOptSet('v'))                          // verbose option used
+   {
+      rsVerbose = TxaOption('v');
+   }
+
+   strcpy( wildcard, firstParam);               // Specified (partial) name
+   if (strchr( wildcard, '.') == NULL)          // no extension
+   {
+      strcat( wildcard, "*");                   // add wildcard
+   }
+   TxFnameExtension( wildcard, "txs");          // add default extension
+
+   strcpy( fspec, wildcard);
+   while (txwOpenFileDialog( fspec, NULL, NULL, TXTC_RUNS, NULL,
+         (txta->expertui) ? &txtRunScriptDlg : NULL,
+          " Select TXTEST script file to RUN ", fspec))
+   {
+      TxRepl( fspec, FS_PALT_SEP, FS_PATH_SEP); // fixup ALT separators
+      if ((fspec[strlen(fspec)-1] != FS_PATH_SEP) && // not a directory ?
+                (strlen(fspec) == TxStrWcnt(fspec))) // and no wildcard ?
+      {
+         sprintf(scriptInfo, "%s%s'%s'", (rsVerbose) ? "-v " : "",
+                                         (rsStep)    ? "-s " : "", fspec);
+
+         TxsValidateScript( fspec, NULL, params, NULL); // get description in params
+         if (strstr( params, "no-parameters") == NULL)
+         {
+            if (strlen( params) != 0)
+            {
+               sprintf( dlgText, "%s\n\nParameters enclosed in [] are "
+                        "optional, others are mandatory.\n%s", fspec, params);
+            }
+            else
+            {
+               sprintf( dlgText, "%s\n\nSpecify additional parameters for "
+                        "the script or just leave as is ...", fspec);
+            }
+            // Get the parameters specified on the commandline, for editing
+            TxaGetArgString( TXA_CUR, 2, TXA_ALL, TXMAXLN, params);
+            if (txwPromptBox( TXHWND_DESKTOP, TXHWND_DESKTOP, NULL,
+                  dlgText, " Specify parameter(s) for the script ", TXTC_RUNS,
+                  TXPB_MOVEABLE | TXPB_HCENTER | TXPB_VCENTER,
+                  50, params) != TXDID_CANCEL)
+            {
+               strcat( scriptInfo, " ");
+               strcat( scriptInfo, params);
+            }
+            else                                // ESC on parameter prompt
+            {                                   // cancel script execution
+               strcpy( scriptInfo, "");
+            }
+         }
+         break;
+      }
+      else
+      {
+         TxNamedMessage( TRUE, TXTC_RUNS, " ERROR: Invalid filename ",
+                         "You must specify a script filename, not a wildcard or directory ...");
+         strcpy( fspec, wildcard);
+      }
+   }
+   txtENDWORK();                                // signal work done
+   RETURN (rc);
+}                                               // end 'txtRunScriptDialog'
+/*-----------------------------------------------------------------------------------------------*/
 

@@ -32,7 +32,6 @@ txinc   = ..\..\..\txlib\include
 cflags += -bt=$(target_os) -ef -wx -zc -zp1 -zq
 lnkopt += option map option stack=128K libpath $(txdir)
 postfix =
-comprs  = rem
 
 !ifeq  target_env debug
 cflags += -d2
@@ -58,20 +57,17 @@ cflags += -ormile
 cflags += -bm -ei
 lnkopt += libpath $(%wintklib)
 bintype = win
-comprs  = upx --best
 !endif
 
 !ifeq target_os os2
 cflags += -bm
 lnkopt += libpath $(%os2tklib)
 bintype = os2
-comprs  = lxlite
 !endif
 
 !ifeq target_os linux
 lnkopt += libpath $(%lintklib)
 bintype = lin
-comprs  = upx --best
 !endif
 
 !ifeq target_os dos
@@ -80,7 +76,6 @@ bintype = dos
 !else
 bintype = dcw
 !endif
-comprs  = upx --best
 !endif
 
 gendep = makefile ..\..\makefile.mif
@@ -116,13 +111,8 @@ $(exename)   : $(exedeps) $(gendep) $(txdir)\tx$(bintype)$(postfix).lib
       @%append $(compo).lnk system $(target_sys) $(lnkopt)
       @%append $(compo).lnk $(lnkspec)
       wlink $(lnkopt) @$(compo).lnk
-!ifeq  target_env debug
-!else
-      - $(comprs)  $^@
-!endif
 
 clean : .SYMBOLIC
-        @if exist $(exename) del $(exename)
         @if exist *.obj del *.obj
         @if exist *.lnk del *.lnk
         @if exist *.err del *.err

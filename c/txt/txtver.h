@@ -1,7 +1,7 @@
 //
 //                     TxWin, Textmode Windowing Library
 //
-//   Original code Copyright (c) 1995-2017 Fsys Software and Jan van Wijk
+//   Original code Copyright (c) 1995-2018 Fsys Software and Jan van Wijk
 //
 // ==========================================================================
 //
@@ -37,11 +37,8 @@
 #ifndef    TXTVER_H
    #define TXTVER_H
 
-#define TXT_INTROD     20030707L  // introduction date
-#define TXT_EXPIRE           33L  // 33 days until expiration for unregistred
-#define TXT_COMPILE    __DATE__   // compile date, as base for _EXPIRE
-
-#define TXT_V   "6.00 03-08-2017" // Minor update for TXLib 5.0
+#define TXT_V   "5.15 10-10-2018" // Update for TXLib 5.15, adding new features
+//efine TXT_V   "5.01 03-08-2017" // Minor update for TXLib 5.01
 //efine TXT_V   "5.00 13-06-2014" // Minor update for TXLib 2.0
 //efine TXT_V   "4.00 01-06-2007" // Added MAC OS X (Darwin) naming and fixes
 //efine TXT_V   "3.09 20-06-2006" // Completed Hex-Editor test dialog
@@ -60,31 +57,21 @@
 //efine TXT_V   "2.00 08-07-2003" // Initial TXTest specific version
 
 #if   defined (WIN32)
-   #if defined (__WATCOMC__)
-      #define TXT_N "TXTst wNT"
-      #define TXT_X "TXTWIN"
-   #else
-      #define TXT_N "TXTst-wNT"
-      #define TXT_X "TXTNT"
-   #endif
+   #define TXT_N "TXT Win32"
+   #define TXT_X "TXTWIN"
 #elif defined (DOS32)
-   #define TXT_N "TXTst Dos"
+   #define TXT_N "TXT DOS32"
    #define TXT_X "TXTDOS"
 #elif defined (LINUX)
    #define TXT_N "TXT Linux"
    #define TXT_X "TXTLIN"
 #elif defined (DARWIN)
-   #define TXT_N "TxtDarwin"
+   #define TXT_N "Txt macOS"
    #define TXT_X "TXTMAC"
 #else
-   #if defined (__WATCOMC__)
-      #define TXT_N "TXTst OS2"
-      #define TXT_X "TXTOS2"
-   #else
-      #define TXT_N "TXTst-OS2"
-      #define TXT_X "TXT"
-   #endif
+   #define TXT_N "TXT  OS/2"
+   #define TXT_X "TXTOS2"
 #endif
-#define TXT_C "(c) 2000-2014: Jan van Wijk"
+#define TXT_C "(c) 2000-2018: Jan van Wijk"
 
 #endif

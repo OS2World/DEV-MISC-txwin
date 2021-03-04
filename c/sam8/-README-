@@ -1,6 +1,9 @@
 This is a cross-platform sample program
 and including a scrollbuffer for output
-and a menu with some "hello world" actions
-to be built using OpenWatcom and TxWindows
+and entryfiled for command input and a
+with some "hello world" actions.
+
+To be built using OpenWatcom and TxWindows
+or on macOS with GCC or LLVM/Clang
 
 Build using'build.cmd' ...

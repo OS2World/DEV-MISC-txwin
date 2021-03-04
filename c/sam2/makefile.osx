@@ -1,0 +1,75 @@
+#
+# DFSee master makefile for MAC OS X (DARWIN), using standard make and gcc
+#
+# JvW 27-08-2017 Initial version, derived from DFS OSX makefile, added lib dependency
+# JvW 28-08-2017 Updated for sam2, and adding 64-bit variants for debugging in Xcode
+#
+# Usage: Include this from 2nd level subdirectory with a 'makefile' that set the
+#	 various environmental variables like 'target_env'
+
+# define main component name
+compo   = sam2
+
+cc      = gcc
+cflags  = -Wall -Wno-invalid-source-encoding -funsigned-char
+
+ifndef tx_version
+tx_version = _txall_
+endif
+ifeq ($(tx_version), _txmin_)
+cflags += -DTXMIN -DOEMSV
+endif
+
+txdir   = ../../../txlib/$(tx_version)/lib
+txinc   = ../../../txlib/include
+
+cflags += -I $(txinc) -I ../..
+lnkopt  = -L$(txdir)
+postfix =
+
+
+ifeq ($(target_env), debug)
+cflags += -g
+#activate next line to remove trace from debug EXE (update dfsee makefile too)
+#cflags += -DNOTRACE
+postfix = d
+else
+postfix = r
+#select optimization for the non-debug (t and r) versions
+cflags += -O2
+endif
+
+
+ifeq ($(target_arch), 64bit)
+bintype = m64
+cflags += -m64
+lnkopt += -arch x86_64
+else
+bintype = mac
+cflags += -m32
+lnkopt += -arch i386
+endif
+
+
+gendep = makefile ../../makefile.osx			    \
+	 $(txinc)/txlib.h $(txinc)/txcon.h $(txinc)/txwin.h \
+	 $(txdir)/libtx$(bintype)$(postfix).a
+
+%.o : ../../%.c  $(gendep)
+	$(cc) -c $(cflags) $< -o $@
+
+exename = ../$(compo)$(bintype)$(postfix)
+
+all : $(exename)
+
+#list all object files for the exe
+exeobjs  = $(compo).o
+
+
+$(exename) : $(gendep) $(exeobjs) $(txdir)/libtx$(bintype)$(postfix).a
+	$(cc) $(lnkopt) -o $(exename) $(exeobjs) -ltx$(bintype)$(postfix)
+
+
+clean :
+	rm -f *.o b.log
+

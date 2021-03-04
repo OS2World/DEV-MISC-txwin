@@ -1,4 +1,6 @@
-This is a minimal cross-platform sample program
-like 'Hello World' to be built using OpenWatcom
+This is a minimal cross-platform sample program like 'Hello World'
+to be built using OpenWatcom for OS/2, Windows, DOS(32) and Linux
+or with either GCC or LLVM/Clang for macOS
 
-Build using'build.cmd' ...
+Build using'build.cmd', or through 'b.cmd' like 'b all'
+or on macOS, 'make' or 'make all'

@@ -1,0 +1,58 @@
+;;error ignore
+;
+loadhelp $0.sam  "confirmed/cancel function test script"  -H:12 -S
+;;HELP
+;#000 This is the help for the confirmed/cancel functions
+;
+;It demonstrates how to use these two functions to discriminate
+;between each of the three possible outcomes of the confirmation
+;
+;#001
+; The confirmed() function will return 1 (TRUE) ONLY when the [OK]
+; button is selected
+;
+; It will return 0 (FALSE) for the other two buttons.
+;
+; In that case, the canceled() function will return 1 (TRUE)
+; if the [CANCEL] button, or the <ESCAPE> key was used
+;
+;#002 More help on the big question
+;
+;This help chapter will tell you a bit more about
+;what it is all about in this test script
+;
+;It is really meant to show you how to incorporate
+;a compact section of help-texts into a DFSee script
+;that can be called up with the F1 function key
+;by the user
+;
+;Multiple numbered sections can exist, that can be used
+;with different messages of confirmations in the script
+;
+;#003 Last piece of help
+;
+;Last piece of help text that can be displayed from this section
+;
+;#999 end of help section
+;;ENDHELP
+
+
+say test confirmation/canceled functions
+
+if confirmed("Do you want this test to be OK ? [Y/N] ", 12001)
+  say "So you thought it would be OK ..."
+
+  confirm -y -H:12002 You can use the F1 key to get help on this message~~Are you done reading that
+
+elsif canceled()
+  say "Want to Cancel the whole thing ..."
+  $_rc = 77
+
+else
+  say "So it is not OK ..."
+  $_rc = 55
+
+endif
+
+say end test confirmation/canceled, RC = $_rc
+return

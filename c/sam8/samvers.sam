@@ -1,0 +1,8 @@
+;Test for required version, works acceptably with older versions :-)
+$required_version =  200
+if $_version < $required_version
+   confirm "This script requires version 200 or later, this is" $_program $_version
+else
+   confirm "Script can run just fine!"
+   ;rest of script here
+endif

@@ -66,81 +66,64 @@ TXTINF      txt_anchor =
    0,                                           // actual sb linelength
    0,                                           // scroll-buffer window handle
    0,                                           // command handling window
+   FALSE,                                       // BASIC menu/dialog active (not EXPERT)
    FALSE,                                       // no automatic menu at start
    TRUE,                                        // automatic pulldown drop
    0,                                           // default drop-down menu
    0,                                           // worklevel
    NULL,                                        // selection list, Color schemes
-   #if defined (DOS32)
-      FALSE,                                    // Windows-9x DosBox detected
-   #endif
+   FALSE                                        // logAuto default OFF
 };
 
 TXTINF       *txta  = &txt_anchor;              // TXT anchor block
 
 static  char *separator;
 
-char *switchhelp[] =
+static char *usagehelp[] =
 {
-   "  [global-txtst-switches]  [TXTst-multi-command]",
+   "  [global-switches]  [multi-command]",
    "",
-#if defined (DUMP)
-   " -123[t][s][n] = set trace level to 123, TXTst internal function trace;",
-   "                 [t]imestamp lines; trace to [s]creen too; [n]o tracefile",
-#endif
-   "",
-   " -?            = help on TXTst commandline switches (this text)",
-   " -7            = Use 7-bit ASCII only (no 'graphic' characters)",
-   " -a            = switch off usage of ANSI escape characters for color",
-   " -b            = batch option, automatic 'batch on' command at startup",
-   " -e   or  -e-  = Include or surpress (-e-) command echo before each cmd",
-   " -E:[c|i|q]    = default error strategy Confirm, Ignore or Quit",
-   " -f            = frame, use a border-frame on scroll-buffer and desktop",
-   " -f-           = do not use border-frames. (default NO on 80x25 screen)",
-   " -l:logfile    = start logging immediately to 'logfile.log'",
-   " -menu         = automatic menu at startup and after each menu-selection",
-   " -O:[n|v|q|m]  = default output verbosity Normal, Verbose, Quiet, Maximum",
-   " -P-           = don't use prompting and input dialog windows by default",
-   " -q            = quiet option, automatic 'screen off' command at startup",
-   " -Q            = quit automatically after executing specified command",
-   " -Q-           = do NOT quit automatically on normally autoquiting commands",
-   " -S            = Shell mode, do not allow quit from TXTst (use as shell)",
-   " -s:separator  = specify a command-separator character, default is '#'",
-   " -t   or  -t-  = Include or surpress (-t-) timestamp before each command",
-   " -scheme:name  = Window scheme: grey|3d|nobl|cmdr|half|full|white|black|dfsee",
-   " -color:value  = Output colors, 0..7 add any: 0=std 1=invert 2=bright 4=blue",
-   " -style:value  = Line style, 0..3: 0=std-double 1=3d 2=halfblock 3=fullblock",
-   " -w   or  -w+  = use windowing, even if command would surpress that",
-   " -w-           = do NOT use windowing, default is -w+ (windowing)",
-   " -W:[sl]       = Screen resize dialog if screen is more than [sl] lines",
-#if defined (WIN32)
-   " -W:0 or  -W   = Screen resize dialog if scrollbars are present on window",
-#else
-   " -W:0 or  -W   = Screen resize dialog if scrollbars are likely (lines > 40)",
-#endif
-   "",
-   " For help on TXTst commands, use the '?' command and use the <F1>",
-   " key when shown at bottom line",
+   "  Switch character for switches is '-' or '/'. All single letter",
+   "  switches are case-sensitive, long switchnames like 'query' are not.",
    "",
    NULL
 };
 
 
-char               *cmdhelptxt[] =
+char *txtSwitchhelp[] =
 {
-   " ?            [*] = Show list of generic commands with short description",
+   "",
+   "Sample program specific switches:",
+   "================================",
+   "",
+   " -?            = help on TXTest commandline switches (this text)",
+   " -b            = batch option, automatic 'batch on' command at startup",
+   " -E:[c|i|q]    = default error strategy Confirm, Ignore or Quit",
+   " -echo         = Echo each command to output-window and logfile     (default)",
+   " -echo-        = Suppress command echo before each command being executed",
+   " -expert       = Set UI menus and dialogs to EXPERT mode on startup",
+   " -expert-      = Set UI menus and dialogs to BASIC  mode on startup (default)",
+   " -menu         = automatic menu at startup and after each menu-selection",
+   " -Q            = quit automatically after executing specified command",
+   " -Q-           = do NOT quit automatically on normally autoquiting commands",
+   " -q            = quiet option, automatic 'screen off' command at startup",
+   " -S            = shell mode, do not allow quit from TXTest (use as OS shell)",
+   "",
+   " For help use the '?' or 'help' commands",
+   "",
+   NULL
+};
+
+
+char               *txtGenericHelp[] =
+{
    " alloc     [size] = Allocate memory, default is in Mib, -k is Kib",
    " boot      [cold] = Reboot the system, warm or cold",
-   " cd        [path] = Change current directory an current drive",
    " conf      [text] = Display confirmation dialog window with 'text'",
    " cursor [col,row] = Show, and optionally set the cursor position",
    " dlg              = pop-up a test dialog from windowed mode",
-   " display          = Show display size, rows and columns",
-   " help         [*] = Show list of generic commands with short description",
-   " log       [file] = Log (append) to 'file' (.log); (No file => stop logging)",
    " lines   [number] = Write lines of text, for display performance tests",
    " listbox          = Start listbox test dialog window",
-   " mode [x,y] [-w-] = Set screen size and windowing mode, -w- is non-windowed",
    " msgbox    [text] = Show a MessageBox with the supplied text",
    " opt  option-char = Show value for option-char as set by last 'parse'",
    " pack   in [o][m] = Compress file 'in' to [o], using method [m]",
@@ -150,26 +133,92 @@ char               *cmdhelptxt[] =
    " prompt   [quest] = Prompt for a value using the 'quest' text as question",
    " pbuf [$]s/f  [m] = Compress+Decompress string/file using method [m]",
    " prep [$]s [c][s] = Measure compress string/file [cnt] times, size [s] Kib",
-   " screen  [on|off] = Switch output to the screen on or off",
-   " setansi [on|off] = Set use of ANSI escape-sequences (colors) on or off",
    " sbnum            = Number lines in scroll-buffer for testing",
-   " scrfile [fn] [l] = Save screen-buffer to file [fn], last [l] lines",
-   " txdir fn [o] [a] = List files for wildcard selection 'fn' and several options",
    " unpack in [o][m] = De-compress file 'in' to [o], using method [m]",
-   " uictest          = Test UI display Colors, Character-set, drawing-Characters",
-   " uikeys           = Test user-interface interpretation of keyboard and mouse",
    " vol     [floppy] = Show all volumes, optional including floppies",
    " vols    [floppy] = Show all volumes, as a single string",
-#if defined (DUMP)
-   " trace [lvl]      = Set trace level for TXT internal function tracing",
-#endif
-#if defined (DEV32)
-   " run macro        = Run a TXT macro in a .TXT file",
-#else
-#endif
+   " run macro        = Run a TXT macro in a .TXS file",
    " q                = Quit",
    NULL
 };
+
+
+char *hostvarhelp[] =
+{
+   "",
+   "All variable names start with the '$' character. To embed a variable or",
+   "expression in a command, enclose it in DOUBLE curly braces: {{expr}}",
+   "",
+   "Naming of user variables is free, except for names with the '$_' prefix",
+   "which are reserved for system variables (like DFSee host variables) and:",
+   "",
+   "  $0 .. $9 which are reserved for argument passing into scripts.",
+   "",
+   "  $_rc     special host-variable, set automatically after every command,",
+   "           when executed from a script, but can also be set manually with",
+   "           a regular assignment like '$_rc = 500'",
+   "",
+   "           The return value from a script, either running to the end, or",
+   "           with a RETURN statement will be the value of this $_rc variable.",
+   "",
+   "  $_retc   Always set by app itself after executing a command, so it can",
+   "           be used from the commandline too (outside a script).",
+   "",
+   "           Displaying these variables from a script is best done using",
+   "           a 'PRINT' statement since a 'say' command resets them to 0.",
+   "",
+   "           For reserved rc values (constant definitions), see further below.",
+   "",
+   "",
+   " Constant values defined with TXwin:",
+   "",
+   " true                    1          Logical values",
+   " false                   0",
+   "",
+   " rc_ok                   0          $_rc and $_retc 'OK'",
+   "",
+   " rc_file_not_found       2          Generic OS RC values",
+   " rc_path_not_found       3",
+   " rc_too_many_files       4",
+   " rc_access_denied        5",
+   " rc_invalid_handle       6",
+   " rc_no_more_files       18",
+   " rc_write_protect       19",
+   " rc_not_ready           21",
+   " rc_crc                 23",
+   " rc_seek                25",
+   " rc_sector_not_found    27",
+   " rc_write_fault         29",
+   " rc_read_fault          30",
+   " rc_gen_failure         31",
+   " rc_file_sharing        32",
+   " rc_lock_violation      33",
+   " rc_wrong_disk          34",
+   "",
+   " rc_error              200          TXwin specific RC values",
+   " rc_invalid_file       202",
+   " rc_invalid_path       203",
+   " rc_access_denied      205",
+   " rc_invalid_handle     206",
+   " rc_invalid_data       207",
+   " rc_alloc_error        208",
+   " rc_syntax_error       210",
+   " rc_invalid_drive      215",
+   " rc_pending            217",
+   " rc_failed             218",
+   " rc_write_protect      219",
+   " rc_cmd_unknown        222",
+   " rc_no_compress        223",
+   " rc_no_initialize      224",
+   " rc_aborted            225",
+   " rc_bad_option_char    226",
+   " rc_too_many_args      227",
+   " rc_display_change     228",
+   " rc_app_quit           229",
+   NULL
+};
+
+
 
 
 static  char       txtMsgTitle[] = " Test Message box ";
@@ -183,6 +232,11 @@ static  char       txtPromptText[]  =
   "This is message text to test the txwPromptBox. Fill in any value ...";
 
 
+// Set extra long names usable as switch or command option
+static void txtSetLongSwitchNames
+(
+   void
+);
 
 // Interactive TXT mode
 static ULONG txtInteractive
@@ -218,7 +272,7 @@ static TXHEBUF   txtHexEditBuf0 =
    0x03f79a00,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0xffffffff = PSN:0x0181fbcd = Cyl: 1672 H:254 S:62  Fsys boot sector"
+   "LSN:0x00000000 = PSN:0x0181f000 = Cyl: 1672 H:  0 S: 1  Fsys boot sector"
 };
 
 static BYTE      txtHexDataBuf1[TXT_HEX_ITEMSIZE] =
@@ -231,7 +285,7 @@ static TXHEBUF   txtHexEditBuf1 =
    0x03f79c00,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0xffffffff = PSN:0x0181fbce = Cyl: 1672 H:254 S:63  Fsys boot sector"
+   "LSN:0x00000001 = PSN:0x0181f001 = Cyl: 1672 H:  0 S: 2  Fsys boot sector"
 };
 
 static BYTE      txtHexDataBuf2[TXT_HEX_ITEMSIZE] =
@@ -245,43 +299,39 @@ static TXHEBUF   txtHexEditBuf2 =
    0x03f79e00,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0x00000000 = PSN:0x0181fbcf = Cyl: 1673 H:1   S:1   Fsys boot sector"
+   "LSN:0x00000002 = PSN:0x0181f002 = Cyl: 1672 H: 0  S: 3  Fsys boot sector"
 };
 
 static BYTE      txtHexDataBuf3[TXT_HEX_ITEMSIZE] =
-   "Buffer-3, the current buffer when starting the test             "
-   "                                                                "
-   "with some more ASCII stuff and followed by a remainder of ZERO bytes";
+   "Buffer-3 for the HEX-Editor test, just some lines of text, "
+   "then some more and "
+   "followed by a remainder of ZERO bytes";
 
 static TXHEBUF   txtHexEditBuf3 =
 {
    txtHexDataBuf3,                              // start of data buffer
-   0x03f7a000,                                  // abs start position (ref)
+   0x03f79e00,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0x00000001 = PSN:0x0181fbd0 = Cyl: 1673 H:1   S:2   Unidentified data"
+   "LSN:0x00000003 = PSN:0x0181f003 = Cyl: 1672 H: 0  S: 4  Fsys boot sector"
 };
 
 static BYTE      txtHexDataBuf4[TXT_HEX_ITEMSIZE] =
-   "Buffer-4, The next buffer (NEXT) when starting the test         "
+   "Buffer-4, the current buffer when starting the test             "
    "                                                                "
-   "                                                                "
-   "Some stuff in the middle                                        "
-   "                                                                "
-   "                                                                "
-   "followed by a remainder of ZERO bytes";
+   "with some more ASCII stuff and followed by a remainder of ZERO bytes";
 
 static TXHEBUF   txtHexEditBuf4 =
 {
    txtHexDataBuf4,                              // start of data buffer
-   0x03f7a200,                                  // abs start position (ref)
+   0x03f7a000,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0x00000002 = PSN:0x0181fbd1 = Cyl: 1673 H:1   S:3   Unidentified data"
+   "LSN:0x00000004 = PSN:0x0181f004 = Cyl: 1672 H: 0  S: 5  Unidentified data"
 };
 
 static BYTE      txtHexDataBuf5[TXT_HEX_ITEMSIZE] =
-   "Buffer-5, The next next  buffer (NEXT +1) when starting the test"
+   "Buffer-5, The next buffer (NEXT) when starting the test         "
    "                                                                "
    "                                                                "
    "Some stuff in the middle                                        "
@@ -292,14 +342,14 @@ static BYTE      txtHexDataBuf5[TXT_HEX_ITEMSIZE] =
 static TXHEBUF   txtHexEditBuf5 =
 {
    txtHexDataBuf5,                              // start of data buffer
-   0x03f7a400,                                  // abs start position (ref)
+   0x03f7a200,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0x00000003 = PSN:0x0181fbd2 = Cyl: 1673 H:1   S:4   Unidentified data"
+   "LSN:0x00000005 = PSN:0x0181f005 = Cyl: 1672 H: 0  S: 6  Unidentified data"
 };
 
 static BYTE      txtHexDataBuf6[TXT_HEX_ITEMSIZE] =
-   "Buffer-6, The last buffer (NEXT +2) when starting the test      "
+   "Buffer-6, The next next  buffer (NEXT +1) when starting the test"
    "                                                                "
    "                                                                "
    "Some stuff in the middle                                        "
@@ -310,10 +360,47 @@ static BYTE      txtHexDataBuf6[TXT_HEX_ITEMSIZE] =
 static TXHEBUF   txtHexEditBuf6 =
 {
    txtHexDataBuf6,                              // start of data buffer
+   0x03f7a400,                                  // abs start position (ref)
+   TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
+   512,                                         // bps
+   "LSN:0x00000006 = PSN:0x0181f006 = Cyl: 1672 H: 0  S: 7  Unidentified data"
+};
+
+static BYTE      txtHexDataBuf7[TXT_HEX_ITEMSIZE] =
+   "Buffer-7, Intermediate    (NEXT +2) when starting the test      "
+   "                                                                "
+   "                                                                "
+   "Some stuff in the middle with some spaces                       "
+   "Some more stuff with some spaces                                "
+   "                                                                "
+   "                                                                "
+   "followed by a remainder of ZERO bytes";
+
+static TXHEBUF   txtHexEditBuf7 =
+{
+   txtHexDataBuf7,                              // start of data buffer
    0x03f7a600,                                  // abs start position (ref)
    TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
    512,                                         // bps
-   "LSN:0x00000004 = PSN:0x0181fbd3 = Cyl: 1673 H:1   S:5   Unidentified data"
+   "LSN:0x00000007 = PSN:0x0181f007 = Cyl: 1672 H: 0  S: 8  Unidentified data"
+};
+
+static BYTE      txtHexDataBuf8[TXT_HEX_ITEMSIZE] =
+   "Buffer-8, The last buffer (NEXT +3) when starting the test      "
+   "                                                                "
+   "                                                                "
+   "Some stuff in the middle                                        "
+   "                                                                "
+   "                                                                "
+   "followed by a remainder of ZERO bytes";
+
+static TXHEBUF   txtHexEditBuf8 =
+{
+   txtHexDataBuf8,                              // start of data buffer
+   0x03f7a600,                                  // abs start position (ref)
+   TXT_HEX_ITEMSIZE,                            // size of buffer    (item)
+   512,                                         // bps
+   "LSN:0x00000008 = PSN:0x0181f008 = Cyl: 1672 H: 0  S: 9  Unidentified data"
 };
 
 static TXHEXEDIT txtHexEditData =
@@ -335,14 +422,16 @@ static TXHEXEDIT txtHexEditData =
    &txtHexEditBuf4,                             // buffer AFTER  current one
    &txtHexEditBuf5,                             // buffer AFTER  next    one
    &txtHexEditBuf6,                             // buffer AFTER  AFTER next
+   &txtHexEditBuf7,                             // buffer AFTER  AFTER next
+   &txtHexEditBuf8,                             // buffer AFTER  AFTER next
    NULL,                                        // difference buf (original)
    0,                                           // size of difference buff
    0,                                           // 32-bit buf CRC (original)
-   0,0,0,                                       // mark start, size and base
+   0,0,0,FALSE,                                 // mark start, size, base, DUMP
    NULL,                                        // application user data
    txtHexEditAppCallback,                       // application action handler
    0,                                           // TXHE_ edit control flags
-   FALSE, ""                                    // Alternate display format info
+   0, ""                                        // Alternate display format info
 };
 
 
@@ -364,46 +453,54 @@ static ULONG txtHexEditAppCallback
    switch (cmd)
    {
       case TXHE_CB_NEXT_BUF:
-         tmp = dat->pre3;
+         tmp = dat->pre4;
+         dat->pre4 = dat->pre3;
          dat->pre3 = dat->pre2;
          dat->pre2 = dat->prev;
          dat->prev = dat->curr;
          dat->curr = dat->next;
          dat->next = dat->nex2;
          dat->nex2 = dat->nex3;
-         dat->nex3 = tmp;
+         dat->nex3 = dat->nex4;
+         dat->nex4 = tmp;
          break;
 
       case TXHE_CB_PREV_BUF:
-         tmp = dat->nex3;
+         tmp = dat->nex4;
+         dat->nex4 = dat->nex3;
          dat->nex3 = dat->nex2;
          dat->nex2 = dat->next;
          dat->next = dat->curr;
          dat->curr = dat->prev;
          dat->prev = dat->pre2;
          dat->pre2 = dat->pre3;
-         dat->pre3 = tmp;
+         dat->pre3 = dat->pre4;
+         dat->pre4 = tmp;
          break;
 
       case TXHE_CB_TO_START:
-         dat->pre3 = &txtHexEditBuf4;
-         dat->pre2 = &txtHexEditBuf5;
-         dat->prev = &txtHexEditBuf6;
+         dat->pre4 = &txtHexEditBuf5;
+         dat->pre3 = &txtHexEditBuf6;
+         dat->pre2 = &txtHexEditBuf7;
+         dat->prev = &txtHexEditBuf8;
          dat->curr = &txtHexEditBuf0;
          dat->next = &txtHexEditBuf1;
          dat->nex2 = &txtHexEditBuf2;
          dat->nex3 = &txtHexEditBuf3;
+         dat->nex4 = &txtHexEditBuf4;
          dat->curr->start = 0;
          break;
 
       case TXHE_CB_TO_FINAL:
-         dat->pre3 = &txtHexEditBuf0;
-         dat->pre2 = &txtHexEditBuf1;
-         dat->prev = &txtHexEditBuf2;
-         dat->curr = &txtHexEditBuf3;
-         dat->next = &txtHexEditBuf4;
-         dat->nex2 = &txtHexEditBuf5;
-         dat->nex3 = &txtHexEditBuf6;
+         dat->pre4 = &txtHexEditBuf0;
+         dat->pre3 = &txtHexEditBuf1;
+         dat->pre2 = &txtHexEditBuf2;
+         dat->prev = &txtHexEditBuf3;
+         dat->curr = &txtHexEditBuf4;
+         dat->next = &txtHexEditBuf5;
+         dat->nex2 = &txtHexEditBuf6;
+         dat->nex3 = &txtHexEditBuf7;
+         dat->nex4 = &txtHexEditBuf8;
          dat->curr->start = 0x03f7a200;
          break;
 
@@ -424,19 +521,32 @@ int main (int argc, char *argv[]);
 int main (int argc, char *argv[])
 {
    ULONG               rc = NO_ERROR;           // function return
-   char               *exename = argv[0];       // save before INITmain
+   TXA_OPTION         *opt;
+   TXLN                fileName;
 
-   TxINITmain( TXT_TRACE, "TXT", FALSE, FALSE, 0); // TX Init code, incl tracing
+   TxINITmain( TXT_TRACE, "TXT", FALSE, FALSE, txtSetLongSwitchNames); // TX Init code, incl tracing
                                                 // argv/argc modified if TRACE
 
-   if (TxaExeSwitch('l'))                       // start logfile now ?
+   if (((opt = TxaOptValue('l')) != NULL) && (opt->type == TXA_STRING)) // start named logfile now ?
    {
-      TxAppendToLogFile( TxaExeSwitchStr( 'l', "txt Logfile", "TXTest"), TRUE);
+      TxaExeSwAsString( 'l', TXMAXLN, fileName);
+      TxRepl( fileName, FS_PALT_SEP, FS_PATH_SEP); // fixup ALT separators
+      TxAppendToLogFile( fileName, TRUE);
+   }
+   if (TxaExeSwitchSet( TXT_O_LOGAUTO))         // when default overruled
+   {
+      txta->logAuto = TxaExeSwitch( TXT_O_LOGAUTO);
+   }
+   if (TxaExeSwitchSet( TXT_O_EXPERT))          // when default overruled
+   {
+      txta->expertui = TxaExeSwitch( TXT_O_EXPERT);
    }
    if (TxaExeSwitch('?'))                       // switch help requested
    {
-      TxPrint( "\nUsage: %s ", exename);
-      TxShowTxt( switchhelp);
+      TxPrint( "\nUsage: %s ", TxaExeArgv(0));
+      TxShowTxt( usagehelp);                    // program usage, generic
+      TxShowTxt( TxGetSwitchhelp());            // Library specific switches
+      TxShowTxt( txtSwitchhelp);                // Sample specific switches
    }
    else
    {
@@ -523,6 +633,20 @@ int main (int argc, char *argv[])
 
 
 /*****************************************************************************/
+// Set extra long names usable as switch or command option
+/*****************************************************************************/
+static void txtSetLongSwitchNames
+(
+   void
+)
+{
+   TxaOptionLongName( TXT_O_LOGAUTO, "logauto"); // Automatic logfile numbering
+   TxaOptionLongName( TXT_O_EXPERT,  "expert"); // Expert menu mode
+}                                               // end 'txtSetLongSwitchNames'
+/*---------------------------------------------------------------------------*/
+
+
+/*****************************************************************************/
 // Print TXTst logo+status, do startup checks, run startup commands + profile
 /*****************************************************************************/
 ULONG txtStartupLogo                            // RET   Checks and firstcmd RC
@@ -541,6 +665,10 @@ ULONG txtStartupLogo                            // RET   Checks and firstcmd RC
    TxPrint(  "\n  TxWindows Test program; version %s  %s\n", TXT_V, TXT_C);
    TxPrint(  " อออออออออออออออออออออออออออ[ www.dfsee.com"
              " ]ออออออออออออออออออออออออออออออออออ\n\n");
+
+   //- Set title in operating-system window/console/window-list
+   sprintf( msg, "%s %s %s", TXT_N, TXT_V, TXT_C);
+   TxSetAppWindowTitle( msg);                   // could be made program-state specific
 
    if (TxaExeSwitch('S'))
    {
@@ -562,8 +690,6 @@ ULONG txtStartupLogo                            // RET   Checks and firstcmd RC
       {
          if (strstr( osd, "Windows-9") != NULL) // Win-9x detected
          {
-            txta->win9x = TRUE;
-
             strcpy( msg, "Running TXTDOS.EXE in a Win9x DosBox might "
                          "give unpredictable results!  Use TXTDOS.EXE after "
                          "'Restart in MS-DOS mode' or use a DOS bootdisk.");
@@ -817,7 +943,8 @@ static ULONG txtSingleCommand
    if ((echo == TRUE) && (strcasecmp(c0, "screen" ) != 0)
                       && (strcasecmp(c0, "say"    ) != 0))
    {
-      if (!TxaExeSwitchUnSet('e'))              // no surpress echo ?
+      if ((!TxaExeSwitchUnSet( TXA_O_ECHO)) &&  // no suppress echo EXE switch ?
+          (!TxaOptUnSet(       TXA_O_ECHO))  )  // and no suppress echo option ?
       {
          TxPrint("%s%s version : %4.4s executing: %s%s%s\n",
                   (quiet)   ? "" : "\n",  TXT_N, TXT_V, CBG,
@@ -887,8 +1014,13 @@ static ULONG txtSingleCommand
          if (!TxaOptUnSet('c'))                 // show program copyright ?
          {
             sprintf( about, "%s               Details on this "
-                            "Fsys Software program\n\n%s   %s : %s %s\n",
-                             alead, alead, TXT_N, TXT_V, TXT_C);
+                            "Fsys Software program\n\n%s   %s : %s %s   (%2d-bit)\n",
+                             alead, alead, TXT_N, TXT_V, TXT_C,
+            #if defined (__LP64__)
+               64);
+            #else
+               32);
+            #endif
          }
          else
          {
@@ -899,44 +1031,54 @@ static ULONG txtSingleCommand
          sprintf( text,  "%s'C' compiler : ",     alead);
          strcat( about, text);
          #if defined (__WATCOMC__)
-            if (__WATCOMC__ > 1100)             // must be OpenWatcom
-            {
-               sprintf( text, "OpenWatcom %4.2lf (c) 1988-2004: "
-                               "Sybase & openwatcom.org\n",
-                              ((double) ( __WATCOMC__ - 1100)) / 100);
-            }
-            else
-            {
-               sprintf( text, "Watcom C/C++ version : %4.2lf\n",
-                              ((double) ( __WATCOMC__ )) / 100);
-            }
+            #if      (__WATCOMC__ > 1900)
+               //- must be OpenWatcom 2.0 or later (changed version convention)
+               sprintf( text, "OpenWatcom %4.2lf (c) 1988-2018: Sybase and OpenWatcom\n",
+                              ((double) (( __WATCOMC__ )) / 1000));
+            #elif    (__WATCOMC__ > 1100)
+               //- must be OpenWatcom before 2.0 (official builds)
+               sprintf( text, "OpenWatcom %4.2lf (c) 1988-2010: Sybase and OpenWatcom\n",
+                              ((double) (( __WATCOMC__ - 1100)) / 100));
+            #else
+               sprintf( text, "Watcom C++ %4.2lf (c) 1988-1999: Sybase, Inc. and Watcom\n",
+                              ((double) (( __WATCOMC__ )) / 100));
+            #endif
          #elif defined (DARWIN)
-               sprintf( text, "GNU  gcc  4.0.1 for MAC OS X : Apple computer, inc\n");
+            #if defined (__LP64__)
+               sprintf( text, "LLVM-gcc 10.0.0 and Clang-1000.10.44.2: (c) 2018 Apple\n");
+            #else
+               sprintf( text, "GNU  gcc  4.0.1  on OSX 10.6.8 (c) 2007 Apple computer\n");
+            #endif
          #else
             #if defined (DEV32)
                sprintf( text, "VisualAge  3.65 (c) 1991-1997: IBM Corporation\n");
             #else
-               sprintf( text, "Visual C++ 5.0  (c) 1986-1997: Microsoft Corporation\n");
+               sprintf( text, "Visual C++  5.0 (c) 1986-1997: Microsoft Corporation\n");
             #endif
          #endif
          strcat( about, text);
-         #if !defined (DARWIN)
-            sprintf( text, "%sEXE compress : ", alead);
+         #if defined (DEV32)
+            sprintf( text, "%sEXE compress : lxLite     1.33 (c) 1996-2003: Max Alekseyev\n", alead);
             strcat( about, text);
-            #if defined (DEV32)
-               sprintf( text,    "lxLite     1.33 (c) 1996-2003: Max Alekseyev\n");
-            #else
-               sprintf( text,    "UPX        1.20 (c) 1996-2002: Markus Oberhumer\n");
-            #endif
+         #elif !defined (DARWIN) || defined (__LP64__)
+            sprintf( text, "%sEXE compress : UPX        3.94 (c) 1996-2017: Oberhumer/Molnar/Reiser\n", alead);
             strcat( about, text);
          #endif
          #if defined (DOS32)
             sprintf( text,  "%sDOS extender : %s\n", alead, txDosExtVersion());
             strcat(  about, text);
          #endif
+
+         strcpy( s0, "Initial version description string");
          (void) TxOsVersion( s0);               // Get operating system version
          sprintf( text,  "%sOS   version : %s\n", alead, s0);
          strcat( about, text);
+         TRACES(("about length:%d s0:'%s' text:'%s' about:'%s'\n", strlen(about), s0, text, about));
+
+         if (TxOsAdditionalInfo( alead, text) == NO_ERROR) // additional info for OS
+         {
+            strcat( about, text);
+         }
          #if defined (DOS32)
             sprintf( text,  "%sDPMI version : %s\n", alead, txDosExtDpmiInfo());
             strcat(  about, text);
@@ -1036,14 +1178,6 @@ static ULONG txtSingleCommand
          count = TxMakePath( s1);
          TxPrint( "MakePath RC %3.3lu : '%s'\n", count, s1);
       }
-      else if (strcasecmp(c0, "set"    ) == 0)
-      {
-         TxPrint( "TXTest   SET cmds : none\n");
-      }
-      else if (strcasecmp(c0, "vol"    ) == 0)
-      {
-         TxFsDrivemap( "Free on volume:  ", (cc > 1));
-      }
       else if (strcasecmp(c0, "hexdump"  ) == 0)
       {
          if (cc > 1)
@@ -1054,7 +1188,7 @@ static ULONG txtSingleCommand
          {
             size = 256;
          }
-         TxDisplHexDump( (BYTE *) cmdhelptxt, size);
+         TxDisplHexDump( (BYTE *) txtGenericHelp, size);
       }
       else if (strcasecmp(c0, "alloc"  ) == 0)
       {
@@ -1114,7 +1248,7 @@ static ULONG txtSingleCommand
             size = txta->sbsize;
             for (count = 0; count < size; count++)
             {
-               sprintf( s0, "%4.4lu", count);
+               sprintf( s0, "%4.4u", count);
 
                txta->sbbuf[count * txta->sblwidth + 66].ch = s0[0];
                txta->sbbuf[count * txta->sblwidth + 67].ch = s0[1];
@@ -1330,7 +1464,7 @@ static ULONG txtSingleCommand
                #endif
 
                strcpy( s0, "");
-               if (txwOpenFileDialog( s1, path, NULL, 0, NULL,
+               if (txwOpenFileDialog( s1, path, NULL, 0, NULL, NULL,
                     " Select TX script file to RUN ", s1))
                {
                   TXLN               descr;
@@ -1439,12 +1573,201 @@ static ULONG txtSingleCommand
       else if ((strcasecmp(c0, "help"     ) == 0) ||
                (strcasecmp(c0, "?"        ) == 0) )
       {
-         TxShowTxt( cmdhelptxt);
-         TxPrint(  " %s; %s  %s\n", TXT_N, txVersionString(), TXT_C);
+         TxShowTxt( TxGetStdCmdHelp());
+         TxShowTxt( txtGenericHelp);
+         TxPrint(  " %s %s %s\n", TXT_N, TXT_V, TXT_C);
       }
       else if (strstr( c0, "htst") != NULL)     // history test
       {
          TxPrint( "History test command: '%s' params: '%s'\n", c0, pp);
+      }
+      else if (strcasecmp(c0, "logfile" ) == 0)
+      {
+         #if defined (USEWINDOWING)
+         if (txwIsWindow( TXHWND_DESKTOP))
+         {
+            txtLogDialog( (cc > 1) ? c1 : (txta->logAuto) ? "txt-^" : "txtest",
+                          TXTC_OPEN, TxaOption('r'), TxaOptStr( 'm', "Message", ""));
+         }
+         else
+         #endif
+         {
+            sprintf( dc, "log %s %s", (cc > 1) ? c1 : (txta->logAuto) ? "txt-^" : "txtest",
+                         (TxaOption('r')) ? " -r" : "");
+            rc = txtMultiCommand( dc, 0, TRUE, FALSE, TRUE);
+         }
+      }
+      else if (strcasecmp(c0, "run"   ) == 0)   // RUN frontend, prompt for
+      {                                         // name & params if needed
+         if (TxaOption('?') ||
+             (c1[0] == '?') ||                  // explicit RUN help request
+             TxaOption('h'))                    // script help
+         {
+            if (TxaOption('?') || (c1[0] == '?'))
+            {
+               rc = TxsNativeRun( NULL, NULL);  // get usage for RUN
+            }
+            else
+            {
+               TxShowTxt( hostvarhelp);
+            }
+         }
+         else
+         {
+            #if defined (USEWINDOWING)
+            if (((cc == 1) || TxaOption('P')) && // filedialog based
+                (txwIsWindow( TXHWND_DESKTOP) )) // only when windowed ...
+            {
+                                               // Get combined scriptname + parameters from dialogs
+               txtRunScriptDialog( c1, s0);
+            }
+            else                                // parameter scriptname ?
+            #endif                              // USEWINDOWING
+            {
+                                                // No file dialog, scriptname possibly specified
+               strcpy( s0, c1);
+               strcpy( s1, "");
+               if ((cc == 1) || TxaOption('P')) // prompt for script + params
+               {
+                  TxPrompt( TXTC_RUNS, 40, s0, "Specify script to run plus parameters ...");
+               }
+               else
+               {
+                  if (strlen(s0) > 0)           // rebuild with name & params
+                  {
+                     TxaGetArgString( TXA_CUR, 2, TXA_OPT, TXMAXLN, s1);
+                     strcat( s0, " ");
+                     strcat( s0, s1);
+                  }
+               }
+            }
+            if (strlen(s0) > 0)                 // rebuild with name & params
+            {
+               sprintf( dc,   "runscript %s", s0);
+               rc = txtMultiCommand( dc, 0, TRUE, FALSE, TRUE);
+               if (TxaOption('q'))
+               {
+                  rc |= TXT_QUIT;               // add QUIT flag to the RC
+               }
+            }
+         }
+      }
+      else if ((strcasecmp(c0, "runscript") == 0)) // RUN, stage 2, reparsed
+      {
+         TXLN       scriptname;
+         BOOL       isRexxScript;
+
+         strcpy( s0, c1);                       // scriptname mandatory here!
+         TxFnameExtension( s0, "dfs");
+         if (TxsValidateScript( s0, &isRexxScript, NULL, scriptname))
+         {
+            DEVICE_STATE screen = TxScreenState( DEVICE_TEST);
+
+            //- Takes options and parameters from the Txa structures!
+            rc = TxsNativeRun( scriptname, txtMultiCommand);
+            TxScreenState( screen);             // restore initial state
+         }
+         else
+         {
+            TxPrint( "TXTest script file : '%s' not found\n", s0);
+            rc = TX_INVALID_DATA;
+         }
+      }
+      else if ((strcasecmp(c0, "set"      ) == 0))
+      {
+         if (cc > 1)
+         {
+            if (strncasecmp(c1, "error", 5) == 0)
+            {
+               if (cc > 2)
+               {
+                  switch (c2[0])
+                  {
+                     case 'c':
+                     case 'C':
+                        txta->eStrategy = TXAE_CONFIRM;
+                        break;
+
+                     case 'i':
+                     case 'I':
+                        txta->eStrategy = TXAE_IGNORE;
+                        break;
+
+                     default:
+                        txta->eStrategy = TXAE_QUIT;
+                        break;
+                  }
+               }
+               else
+               {
+                  TxPrint("\nSet error handling to specified strategy\n\n"
+                          " Usage: %s %s confirm | ignore | quit\n\n"
+                          "    CONFIRM = Ask user confirmation to quit, or ignore the error\n"
+                          "    IGNORE  = Ignore the error, set returncode ($_rc) to zero (0)\n"
+                          "    QUIT    = Quit current operation, keep non-zero returncode\n\n", c0, c1);
+               }
+               TxPrint( "Error Strategy now: '%s'\n", (txta->eStrategy == TXAE_CONFIRM) ? "CONFIRM" :
+                                                      (txta->eStrategy == TXAE_IGNORE ) ? "IGNORE"  :
+                                                                                          "QUIT");
+            }
+            else if (strncasecmp(c1, "exp", 3) == 0)
+            {
+               if (cc > 2)
+               {
+                  if ((strcasecmp(c2, "toggle") == 0)  || (c2[0] == 'T'))
+                  {
+                     txta->expertui = !(txta->expertui);
+                  }
+                  else if ((strcasecmp(c2, "on") == 0) || (c2[0] == '1'))
+                  {
+                     txta->expertui = TRUE;
+                  }
+                  else
+                  {
+                     txta->expertui = FALSE;
+                  }
+               }
+               else
+               {
+                  TxPrint("\nSet EXPERT UI-mode (versus BASIC mode)\n\n"
+                          " Usage: %s %s on | off | toggle\n\n", c0, c1);
+               }
+               TxPrint( "Expert UImode now : '%s'\n", (txta->expertui) ? "ON   (expert)" : "OFF (basic)");
+            }
+            else if (strncasecmp(c1, "log", 3) == 0)
+            {
+               if (cc > 2)
+               {
+                  if ((strcasecmp(c2, "on") == 0) || (c2[0] == '1'))
+                  {
+                     txta->logAuto = TRUE;
+                  }
+                  else
+                  {
+                     txta->logAuto = FALSE;
+                  }
+               }
+               else
+               {
+                  TxPrint("\nSet LOG auto numbering\n\n"
+                          " Usage: %s %s on | off\n\n"
+                          "        ON  = Use automatic log numbering 001..999 from dialog\n"
+                          "        OFF = Use logfilename 'as is', append if existing\n\n", c0, c1);
+               }
+               TxPrint( "LOG auto numbering now : '%s'\n", (txta->logAuto) ? "ON" : "OFF");
+            }
+            else
+            {
+               TxPrint("SET property name : '%s' unknown\n", c1);
+            }
+         }
+         else
+         {
+            TxPrint(          "%s   SET properties :  (capital part required as keyword only)\n", TXT_N);
+            TxPrint( "  EXPert UI mode  : on     |   off\n");
+            TxPrint( "  ERROR strategy  : quit   |   ignore  |  confirm\n");
+            TxPrint( "  LOG numbering   : on     |   off\n");
+         }
       }
       else
       {
@@ -1492,7 +1815,7 @@ static ULONG txtSingleCommand
    }
    if (txta->sbwindow)                          // remove status text
    {
-      txwSendMsg( txta->sbwindow, TXWM_STATUS, 0, TX_Yellow_on_Cyan);
+      txwSendMsg( txta->sbwindow, TXWM_STATUS, 0, (TXWMPARAM) TX_Yellow_on_Cyan);
    }
    RETURN (rc);
 }                                               // end 'txtSingleCommand'

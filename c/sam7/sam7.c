@@ -1,20 +1,21 @@
-#define SAM_D "Text-viewer sample for JvW-Fsys TXW OpenWatcom build environment."
+#define SAM_D "Text-viewer sample with File-Open-Dialog and Menu for TXwin build environment."
 
-#define SAM_C "(c) 2014: Jan van Wijk"
+#define SAM_C "(c) 2005-2018: Jan van Wijk"
 
-#define SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
+#define SAM_V "3.01 06-10-2018" // Minor updates for TXwin 5.x
+//efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.00 26-09-2005" // Initial version
 
 #include <txlib.h>                              // TX library interface
 
 #if   defined (WIN32)
-   #define SAM_N "SAM7 winNT"
+   #define SAM_N "SAM7 win32"
 #elif defined (DOS32)
    #define SAM_N "SAM7 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM7 Linux"
 #elif defined (DARWIN)
-   #define SAM_N "SAM5 macOS"
+   #define SAM_N "SAM7 macOS"
 #else
    #define SAM_N "SAM7  OS/2"
 #endif
@@ -23,6 +24,8 @@
 
 char *switchhelp[] =
 {
+   "",
+   "  filename = name of file to be viewed, with optional drive/path",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -140,8 +143,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 // Present the about 'SAM7' info dialog
@@ -161,12 +164,6 @@ static char **samvReadText                      // RET   ptr to text-array
 (
    FILE               *file,                    // IN    file opened for read
    ULONG              *size                     // OUT   size in lines
-);
-
-// SAMView free memory for view-text
-static void  samvDiscardText
-(
-   char              **text                     // IN    ptr to text-array
 );
 
 
@@ -244,7 +241,7 @@ int main (int argc, char *argv[])
          }
          else                                   // start with the main-menu
          {
-            txwPostMsg( view, TXWM_COMMAND, SAM7M_MENUBAR, 0);
+            txwPostMsg( view, TXWM_COMMAND, (TXWMPARAM) SAM7M_MENUBAR, 0);
          }
 
          while (txwGetMsg(  &qmsg))
@@ -257,7 +254,7 @@ int main (int argc, char *argv[])
       {
          TxPrint("Failed to intialize desktop\n");
       }
-      samvDiscardText( viewtext);
+      txFreeText( viewtext);
    }
    TxEXITmain(rc);                              // TX Exit code, incl tracing
 }                                               // end 'main'
@@ -271,8 +268,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
@@ -288,7 +285,7 @@ static ULONG samStdWindowProc                   // RET   result
       switch (msg)
       {
          case TXWM_COMMAND:                     // from menu or accelerator
-            switch (mp1)
+            switch ((ULONG) mp1)
             {
                case SAM7M_MENUBAR:              // activate the menu
                   txwMenuBar( TXHWND_DESKTOP, hwnd, NULL,
@@ -326,7 +323,7 @@ static ULONG samStdWindowProc                   // RET   result
 
          case SAM_FILEDIALOG:
             strcpy( text, "*.?;*.log;*.txt");     // default extensions
-            if (txwOpenFileDialog( text, NULL, NULL, 0, NULL,
+            if (txwOpenFileDialog( text, NULL, NULL, 0, NULL, NULL,
                 " Select a (text) file for viewing ", text))
             {
                strcpy( sam_filename, text);
@@ -427,7 +424,7 @@ static BOOL samLoadNewFile
 
    if ((vf = fopen( name, "r")) != NULL)
    {
-      samvDiscardText( viewtext);               // Discard old text, if any
+      txFreeText( viewtext);
       if ((viewtext = samvReadText( vf, &nr)) != NULL)
       {
          sprintf( sam_title, "%s - %lu lines", name, nr); // updated title
@@ -507,30 +504,5 @@ static char **samvReadText                      // RET   ptr to text-array
    }
    RETURN( data);
 }                                               // end 'samvReadText'
-/*---------------------------------------------------------------------------*/
-
-
-/*****************************************************************************/
-// SAMView free memory for view-text
-/*****************************************************************************/
-static void  samvDiscardText
-(
-   char              **text                     // IN    ptr to text-array
-)
-{
-   char              **line  = NULL;
-
-   ENTER();
-
-   if ((text != NULL) && (text != sam_about))   // only free dynamic text
-   {
-      for (line = text; *line != NULL; line++)
-      {
-         TxFreeMem( *line);
-      }
-      TxFreeMem( text);
-   }
-   VRETURN();
-}                                               // end 'samvDiscardText'
 /*---------------------------------------------------------------------------*/
 

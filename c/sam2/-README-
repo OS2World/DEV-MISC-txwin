@@ -1,4 +1,4 @@
 This is a minimal cross-platform sample program
-like 'Hello World' with minimal Txlib usage.
+like 'Hello World' with minimal TXlib usage.
 Can be built on macOS using gcc (Xcode CLANG/LLDB)
 or on any of the other platforms using OpenWatcom

@@ -1,0 +1,9 @@
+; Display a message in the regular output text window
+; ~ param1 = [any-word]~ param2 = [any-word]~ param3 = [any-word]~ param4 = [command]~
+;;defaultparam 2 THIS IS PARAMETER TWO
+;;defaultparam 4 ;
+say line 1
+say line 2
+say $1 $2 $3
+$4
+say last line

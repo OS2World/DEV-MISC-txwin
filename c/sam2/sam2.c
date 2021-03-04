@@ -1,14 +1,15 @@
-#define SAM_D "Hello world sample for JvW-Fsys TXW non-windowing build environment."
+#define SAM_D "Hello world sample for JvW-Fsys TXwin build environment."
 
-#define SAM_C "(c) 2005 - 2017: Jan van Wijk"
+#define SAM_C "(c) 2005 - 2018: Jan van Wijk"
 
-#define SAM_V "3.00 28-08-2017" // Textual update for macOS target, and Xcode debugging (64bit)
+#define SAM_V "3.01 06-10-2018" // Textual update for Win32 target (was called winNT)
+//efine SAM_V "3.00 28-08-2017" // Textual update for macOS target, and Xcode debugging (64bit)
 //efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.00 20-09-2005" // Initial version
 
 #include <txlib.h>                              // TX library interface
 #if   defined (WIN32)
-   #define SAM_N "SAM2 winNT"
+   #define SAM_N "SAM2 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM2 Dos32"
 #elif defined (LINUX)
@@ -25,6 +26,9 @@
 char *usagetext[] =
 {
    " mandatory-params   [optional-params]",
+   "",
+   "  mandatory-params  = parameters that MUST be present (here just 1)",
+   "  optional-params   = parameters that MAY  be present",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -61,13 +65,19 @@ int main (int argc, char *argv[])
    if ((TxaExeSwitch('?')) ||                   // switch help requested
        (TxaExeArgc() <= SAM_MANDATORY_PARAMS))  // or not enough params
    {
-      TxPrint( "\n%s %s %s\n%s\n\nUsage: %s",
-                  SAM_N, SAM_V, SAM_C, SAM_D, TxaExeArgv(0));
+      TxPrint( "\n%s %s %s\n%s\n\nUsage: %s", SAM_N, SAM_V, SAM_C, SAM_D, TxaExeArgv(0));
       TxShowTxt( usagetext);
    }
    else
    {
-      TxPrint( "\nHello from SAMPLE-2, parameter = '%s'\n\n", TxaExeArgv(1));
+      int              i;
+
+      TxPrint( "\nHello from SAMPLE-2 %s\n\n", SAM_C);
+      for (i = 0; i < TxaExeArgc(); i++)
+      {
+         TxPrint( "  parameter %2d = '%s'\n", i, TxaExeArgv( i));
+      }
+      TxPrint( "\n");
    }
    TxEXITmain(rc);                              // TX Exit code, incl tracing
 }                                               // end 'main'

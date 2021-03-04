@@ -12,7 +12,8 @@
 compo   = txt
 
 cc      = gcc
-cflags  = -Wall -Wno-invalid-source-encoding -funsigned-char
+cflags  = -Wall -funsigned-char
+cflags += -Wno-invalid-source-encoding -Wno-int-to-void-pointer-cast -Wno-pragma-pack
 
 ifndef tx_version
 tx_version = _txall_

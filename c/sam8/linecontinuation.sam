@@ -1,0 +1,9 @@
+;Test line continuation
+      say  Hello from a script that \
+           uses line continuations
+
+
+      say  "Hello from a script that has a string \
+            over three seperate lines\
+            , and space-less concatenation"
+

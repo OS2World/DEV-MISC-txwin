@@ -43,8 +43,10 @@
 #define TXTH_CONFIRM   5000
 
 //- enable or mark menu-items by ID
-#define txtMiEnable(i,c,r) txwMiEnable(&mainmenu,(i),(c),(r))
-#define txtMiMarked(i,c,r) txwMiMarked(&mainmenu,(i),(c),(r))
+//- enable or mark menu-items by ID
+#define txtMiEnable(i,c,r) txwMiEnable(txtGetMainMenu(),(i),(c),(r))
+#define txtMiMarked(i,c)   txwMiMarked(txtGetMainMenu(),(i),(c),NULL)
+
 
 //- menu (equal to help) and accelerator codes
 #define TXTH_MENUS     3000                     // menu help base
@@ -80,6 +82,7 @@
 #define TXTC_UICTEST   3396
 
 #define TXTM_SETT      3400
+#define TXTC_EXPERT    3402
 #define TXTC_SCHEME    3405
 #define TXTC_INVSCR    3410
 #define TXTC_BRTSCR    3420
@@ -88,12 +91,28 @@
 #define TXTC_COLTXT    3450
 #define TXTC_AUTOMB    3460
 #define TXTC_AUTODR    3470
+#define TXTC_LOGAUTO   3480
 
 #define TXTM_HELP      3900
-#define TXTC_CMDHELP   3910
-#define TXTC_SW_HELP   3920
 #define TXTC_UIHELP    3930
 #define TXTC_ABOUT     3940
+#define TXTC_PREGREP   3960
+#define TXTC_H_KEYBD   3961
+#define TXTC_H_MOUSE   3962
+#define TXTC_H_CLIPB   3963
+#define TXTC_H_MENUS   3964
+#define TXTC_HSCRIPT   3970
+#define TXTC_HS_RUNU   3972
+#define TXTC_HSYNTAX   3973
+#define TXTC_HS_VARS   3975
+#define TXTC_CMDLINE   3979
+#define TXTC_OPTHELP   3980
+#define TXTC_CMDHELP   3981
+#define TXTC_SW_HELP   3984
+#define TXTC_TXCHELP   3993
+#define TXTC_TXSHELP   3994
+#define TXTC_H_SECTS   3997
+#define TXTC_H_GREP    3998
 
 //- allow enough space here for all color schemes!
 #define TXTB_SCHEME    4480
@@ -104,6 +123,12 @@
 ULONG txtWindowed
 (
    char               *initial                  // IN    initial TXTest cmd
+);
+
+// Return pointer to current main-menu (can be BASIC or EXPERT or ...)
+TXS_MENUBAR *txtGetMainMenu
+(
+   void
 );
 
 // Check if dialog is wanted and possible, message otherwise
@@ -125,5 +150,20 @@ ULONG txtListBoxDialog                          // RET   result
    void
 );
 
+// Present LOG/TRACE options dialog and execute resulting command
+ULONG txtLogDialog
+(
+   char               *logname,                 // IN    default name or NULL
+   ULONG               helpid,                  // IN    specific help-id
+   BOOL                reopen,                  // IN    reopen logfile
+   char               *message                  // IN    extra message or NULL
+);
+
+// Present Run-script file-dialog with options and execute resulting command
+ULONG txtRunScriptDialog
+(
+   char               *firstParam,              // IN    path/scriptname, or empty
+   char               *scriptInfo               // OUT   scriptname + parameters
+);
 
 #endif

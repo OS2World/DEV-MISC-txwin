@@ -1,16 +1,19 @@
-#define SAM_D "Expression evaluator sample for JvW-Fsys TXW OpenWatcom build environment."
+#define SAM_D "Expression evaluator sample for TXWin build environment."
 
-#define SAM_C "(c) 2007: Jan van Wijk"
+#define SAM_C "(c) 2007-2018: Jan van Wijk"
 
-#define SAM_V "1.00 11-10-2007"                 // Initial version
+#define SAM_V "1.01 06-10-2018"                 // Minor updates for TXwin 5.x
+//efine SAM_V "1.00 11-10-2007"                 // Initial version
 
 #include <txlib.h>                              // TX library interface
 #if   defined (WIN32)
-   #define SAM_N "SAM9 winNT"
+   #define SAM_N "SAM9 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM9 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM9 Linux"
+#elif defined (DARWIN)
+   #define SAM_N "SAM9 macOS"
 #else
    #define SAM_N "SAM9  OS/2"
 #endif
@@ -22,7 +25,12 @@ char *usagetext[] =
 {
    " expression",
    "",
-   "  Evaluates strings like '$a = 77' and 'Var a is $a' or '{3+5*7}'",
+   "  Evaluates strings like '$a = 77' and 'Var a is $a' or '{{3+5*7}}'",
+   "",
+   "  The actual expressions must either start with a variable ($var),",
+   "  OR be enclosed in double brackets as in '{{expr}}'",
+   "",
+   "  All other text in the string is considered to be LITTERAL text.",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -70,8 +78,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -156,13 +164,14 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
    TXWINDOW           *win;
-   static TXLN         expression;
+   static TXLN         expression;              // input expression
+   TXLN                evaluatedX;              // evaluated expression
    TXLN                text;
    TXLN                errmsg;
 
@@ -194,16 +203,17 @@ static ULONG samStdWindowProc                   // RET   result
          case TXWM_PGM_EXEC:
             TRACES(( "about to eval: '%s'\n", expression));
 
-            rc = txsResolveExpressions( expression, 0, FALSE, expression,
-                                        TXMAXLN, errmsg);
+            //- sprintf( evaluatedX, "{{%s}}", expression);
+            strcpy( evaluatedX, expression);    // modifyable version of input string
+            rc = txsResolveExpressions( evaluatedX, 0, FALSE, evaluatedX, TXMAXLN, errmsg);
 
-            sprintf( text, "RC: %lu, String : '%s'", rc, expression);
+            sprintf( text, "Evaluated string : '%s'", evaluatedX);
             if (strlen( errmsg))
             {
-               strcat( text, "\n\n");
+               strcat( text, "\n");
                strcat( text, errmsg);
             }
-            TxPrint( "\n%s\n", text);
+            TxPrint( "\nRaw input string : '%s'\n%s\n", expression, text);
 
             strcat( text, "\n\nEvaluate another string ? [Y/N] ");
             if (TxConfirm( 0, text))           // confirmation popup

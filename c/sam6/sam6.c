@@ -1,19 +1,20 @@
-#define SAM_D "Text-viewer sample for JvW-Fsys TXW OpenWatcom build environment."
+#define SAM_D "Text-viewer sample with File-Open-Dialog for TXwin build environment."
 
-#define SAM_C "(c) 2014: Jan van Wijk"
+#define SAM_C "(c) 2005-2018: Jan van Wijk"
 
-#define SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
+#define SAM_V "3.01 06-10-2018" // Minor updates for TXwin 5.x
+//efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.00 26-09-2005" // Initial version
 
 #include <txlib.h>                              // TX library interface
 #if   defined (WIN32)
-   #define SAM_N "SAM6 winNT"
+   #define SAM_N "SAM6 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM6 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM6 Linux"
 #elif defined (DARWIN)
-   #define SAM_N "SAM6 OS-X "
+   #define SAM_N "SAM6 macOS"
 #else
    #define SAM_N "SAM6  OS/2"
 #endif
@@ -22,6 +23,8 @@
 char *usagetext[] =
 {
    "  filename",
+   "",
+   "  filename = name of file to be viewed, with optional drive/path",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -39,6 +42,28 @@ char *usagetext[] =
    NULL
 };
 
+
+#define SAM_HELP      1000
+static char           *viewerHelpText[] =
+{
+   "#000 Sample text viewer HELP",
+   "",
+   " This program uses the standard TXwin 'textview' control to view",
+   " an ASCII text file specified as a parameter.",
+   "",
+   " You can use the keyboard and mouse to navigate/scroll through the text",
+   " and use mouse-dragging to mark part of the text, then copy it to the",
+   " clipboard using Ctrl-C or Alt-C",
+   "",
+   "",
+   " New files can be loaded (discarding the current one) using either the",
+   " <F8> or the <Ctrl>+o key, which will bring up the standard File-Open",
+   " dialog that comes with TXwin",
+   "",
+   NULL
+};
+
+
 static char        sam_footer[]    = " F1=Help F3=Quit F8=OpenFile ";
 static TXLN        sam_title       = {0};
 static TXLN        sam_filename    = {0};
@@ -55,8 +80,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 // read specified file, and attach to global anchor; update title
@@ -70,12 +95,6 @@ static char **samvReadText                      // RET   ptr to text-array
 (
    FILE               *file,                    // IN    file opened for read
    ULONG              *size                     // OUT   size in lines
-);
-
-// SAMView free memory for view-text
-static void  samvDiscardText
-(
-   char              **text                     // IN    ptr to text-array
 );
 
 
@@ -107,6 +126,8 @@ int main (int argc, char *argv[])
    {
       if (txwInitializeDesktop( NULL, NULL) != 0)
       {
+         txwRegisterHelpText( SAM_HELP, "sam6view", "Sample-6 file-viewer help", viewerHelpText);
+
          strcpy( sam_title, SAM_N " " SAM_V "; " SAM_C); // initial title
          txwSetupWindowData(
             0, 0,                               // upper left corner
@@ -116,7 +137,7 @@ int main (int argc, char *argv[])
             TXWS_SAVEBITS      |                // save underlying screen
             TXWS_MOVEABLE      |                // allow window movement
             TXCS_CLOSE_BUTTON,                  // include a close button [X]
-            0,                                  // no help for now
+            SAM_HELP,                           // minimal help for now
             ' ', ' ', TXWSCHEME_COLORS,         // default colors
             sam_title,                          // variable title line
             sam_footer,                         // footer, function-key help
@@ -160,7 +181,7 @@ int main (int argc, char *argv[])
       {
          TxPrint("Failed to intialize desktop\n");
       }
-      samvDiscardText( viewtext);
+      txFreeText( viewtext);
    }
    TxEXITmain(rc);                              // TX Exit code, incl tracing
 }                                               // end 'main'
@@ -174,8 +195,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
@@ -191,7 +212,7 @@ static ULONG samStdWindowProc                   // RET   result
       switch (msg)
       {
          case TXWM_CHAR:
-            switch (mp2)
+            switch ((ULONG) mp2)
             {
                case TXc_O:
                case TXk_F8:                     // open new file
@@ -210,7 +231,7 @@ static ULONG samStdWindowProc                   // RET   result
 
          case SAM_FILEDIALOG:
             strcpy( text, "*.?;*.log;*.txt");     // default extensions
-            if (txwOpenFileDialog( text, NULL, NULL, 0, NULL,
+            if (txwOpenFileDialog( text, NULL, NULL, 0, NULL, NULL,
                 " Select a (text) file for viewing ", text))
             {
                strcpy( sam_filename, text);
@@ -256,7 +277,7 @@ static BOOL samLoadNewFile
 
    if ((vf = fopen( name, "r")) != NULL)
    {
-      samvDiscardText( viewtext);               // Discard old text, if any
+      txFreeText( viewtext);
       if ((viewtext = samvReadText( vf, &nr)) != NULL)
       {
          sprintf( sam_title, "%s - %lu lines", name, nr); // updated title
@@ -334,30 +355,5 @@ static char **samvReadText                      // RET   ptr to text-array
    }
    RETURN( data);
 }                                               // end 'samvReadText'
-/*---------------------------------------------------------------------------*/
-
-
-/*****************************************************************************/
-// SAMView free memory for view-text
-/*****************************************************************************/
-static void  samvDiscardText
-(
-   char              **text                     // IN    ptr to text-array
-)
-{
-   char              **line  = NULL;
-
-   ENTER();
-
-   if (text != NULL)
-   {
-      for (line = text; *line != NULL; line++)
-      {
-         TxFreeMem( *line);
-      }
-      TxFreeMem( text);
-   }
-   VRETURN();
-}                                               // end 'samvDiscardText'
 /*---------------------------------------------------------------------------*/
 

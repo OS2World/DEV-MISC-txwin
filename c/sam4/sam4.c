@@ -1,20 +1,21 @@
-#define SAM_D "Popup and scrollbuffer sample for JvW-Fsys TXW OpenWatcom build environment."
+#define SAM_D "Popup with checkbox widget and scrollbuffer sample for TXwin environment."
 
-#define SAM_C "(c) 2014: Jan van Wijk"
+#define SAM_C "(c) 2005-2018: Jan van Wijk"
 
-#define SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
+#define SAM_V "3.00 06-10-2018" // Minor update for TXLib 5.x
+//efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.01 23-09-2005" // Added scroll-buffer for better trace demo
 //efine SAM_V "1.00 21-09-2005" // Initial version
 
 #include <txlib.h>                              // TX library interface
 #if   defined (WIN32)
-   #define SAM_N "SAM4 winNT"
+   #define SAM_N "SAM4 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM4 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM4 Linux"
 #elif defined (DARWIN)
-   #define SAM_N "SAM4 OS-X "
+   #define SAM_N "SAM4 macOS"
 #else
    #define SAM_N "SAM4  OS/2"
 #endif
@@ -25,6 +26,9 @@
 char *usagetext[] =
 {
    " mandatory-params   [optional-params]",
+   "",
+   "  mandatory-params  = parameters that MUST be present (here just 1)",
+   "  optional-params   = parameters that MAY  be present",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -43,9 +47,30 @@ char *usagetext[] =
 };
 
 
+// checkbox widget, to be used with popup, as static variable
+static BOOL delay5 = FALSE;                     // Use extra delay of 5 seconds y/n
+
+#define SAM4WIDGETS 1                           // just one widget here
+static TXWIDGET sam4WidgetArray[SAM4WIDGETS] =  // order determines TAB-order!
+{
+   {0,  0, 1, 40, 0, 0, 0, TXWS_AUTOCHK, 0, TXStdButton( &delay5, "Sleep for another 5 seconds on OK")}
+};
+
+static TXGW_DATA sam4Widgets =
+{
+   SAM4WIDGETS,                                 // number of widgets
+   0,                                           // help ID, widget overrules   (none)
+   800,                                         // base window ID
+   NULL,                                        // widget window procedure     (none)
+   NULL,                                        // persistent position TXRECT  (none)
+   sam4WidgetArray                              // array of widgets
+};
+
+
+
+// scrollbuffer definition, as static variable
 #define SAM_SCROLL_L   1000                     // lines in scroll-buffer
 #define SAM_SCROLL_W    132                     // columns in scroll-buffer
-
 static TXSBDATA    scrollBufData =
 {
    20,
@@ -69,8 +94,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 );
 
 
@@ -92,8 +117,7 @@ int main (int argc, char *argv[])
    if ((TxaExeSwitch('?')) ||                   // switch help requested
        (TxaExeArgc() <= SAM_MANDATORY_PARAMS))  // or not enough params
    {
-      TxPrint( "\n%s %s %s\n%s\n\nUsage: %s",
-                  SAM_N, SAM_V, SAM_C, SAM_D, TxaExeArgv(0));
+      TxPrint( "\n%s %s %s\n%s\n\nUsage: %s", SAM_N, SAM_V, SAM_C, SAM_D, TxaExeArgv(0));
       TxShowTxt( usagetext);
    }
    else
@@ -151,8 +175,8 @@ static ULONG samStdWindowProc                   // RET   result
 (
    TXWHANDLE           hwnd,                    // IN    current window
    ULONG               msg,                     // IN    message id
-   ULONG               mp1,                     // IN    msg param 1
-   ULONG               mp2                      // IN    msg param 2
+   TXWMPARAM           mp1,                     // IN    msg param 1
+   TXWMPARAM           mp2                      // IN    msg param 2
 )
 {
    ULONG               rc   = NO_ERROR;
@@ -169,6 +193,7 @@ static ULONG samStdWindowProc                   // RET   result
       switch (msg)
       {
          case TXWM_CREATE:
+            TxPrint( "\n%s %s %s\n%s\n\nStarted fom executable: %s\n", SAM_N, SAM_V, SAM_C, SAM_D, TxaExeArgv(0));
             txwPostMsg( hwnd, TXWM_USER, 0, 0); // start the action ...
             break;
 
@@ -178,14 +203,18 @@ static ULONG samStdWindowProc                   // RET   result
                            "Want to quit this game ? [Y/N] ",
                             TxaExeArgv(1),    TxaExeArgv(2),    TxaExeArgv(3));
 
-            if (TxConfirm( 0, text))            // confirmation popup
+            if (TxConfirmWidgets( 0, &sam4Widgets, text)) // confirmation popup, with extra widgets
             {
                txwPostMsg( hwnd, TXWM_CLOSE, 0, 0); // quit the application
             }
             else
             {
-               TxPrint( "\n\nOK, there we go again ...\n");
-               TxSleep( 500);
+               TxPrint( "\nOK, there we go again ...\n");
+               if (delay5)
+               {
+                  TxPrint( "Waiting for 5 seconds now!\n");
+                  TxSleep( 5000);               // sleep 5000 milliseconds
+               }
                txwPostMsg( hwnd, TXWM_USER, 0, 0); // restart the action ...
             }
             break;

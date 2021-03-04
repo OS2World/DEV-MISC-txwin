@@ -1,19 +1,20 @@
-#define SAM_D "Popup-window sample for JvW-Fsys TXW OpenWatcom build environment."
+#define SAM_D "Popup-window sample for TXwin windowed build environment."
 
-#define SAM_C "(c) 2014: Jan van Wijk"
+#define SAM_C "(c) 2005-2018: Jan van Wijk"
 
-#define SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
+#define SAM_V "3.00 06-10-2018" // Minor update for TXLib 5.x
+//efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.00 21-09-2005" // Initial version
 
 #include <txlib.h>                              // TX library interface
 #if   defined (WIN32)
-   #define SAM_N "SAM3 winNT"
+   #define SAM_N "SAM3 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM3 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM3 Linux"
 #elif defined (DARWIN)
-   #define SAM_N "SAM3 OS-X "
+   #define SAM_N "SAM3 macOS"
 #else
    #define SAM_N "SAM3  OS/2"
 #endif
@@ -24,6 +25,9 @@
 char *usagetext[] =
 {
    " mandatory-params   [optional-params]",
+   "",
+   "  mandatory-params  = parameters that MUST be present (here just 1)",
+   "  optional-params   = parameters that MAY  be present",
    "",
    "  Switch character for EXE switches is '-' or '/'. All single letter",
    "  switches are case-sensitive, long switchnames like 'query' are not.",
@@ -70,7 +74,7 @@ int main (int argc, char *argv[])
       if (txwInitializeDesktop( NULL, NULL) != 0)
       {
 
-         sprintf( text, "Hello from SAMPLE-3, parameter = '%s'", TxaExeArgv(1));
+         sprintf( text, "Hello from SAMPLE-3, first, mandatory parameter = '%s'", TxaExeArgv(1));
 
          TxMessage( TRUE, 0, text);             // present message in a popup
 

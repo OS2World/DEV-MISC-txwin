@@ -1,20 +1,21 @@
 #define SAM_D "Scrollbuffer output, entryfield and menu sample."
 
-#define SAM_C "(c) 2014: Jan van Wijk"
+#define SAM_C "(c) 2008-2018: Jan van Wijk"
 
-#define SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
+#define SAM_V "2.01 07-10-2018" // Minor update for TXLib 5.x
+//efine SAM_V "2.00 13-06-2014" // Minor update for TXLib 2.0
 //efine SAM_V "1.00 14-02-2008" // Initial version
 
 #include <txlib.h>                              // TX library interface
 
 #if   defined (WIN32)
-   #define SAM_N "SAM8 winNT"
+   #define SAM_N "SAM8 Win32"
 #elif defined (DOS32)
    #define SAM_N "SAM8 Dos32"
 #elif defined (LINUX)
    #define SAM_N "SAM8 Linux"
 #elif defined (DARWIN)
-   #define SAM_N "SAM5 OS-X "
+   #define SAM_N "SAM5 macOS"
 #else
    #define SAM_N "SAM8  OS/2"
 #endif
@@ -22,6 +23,10 @@
 
 #ifndef    SAM8_H
    #define SAM8_H
+
+// Long option name constants
+#define SAM_O_LOGAUTO     TXA_O_APP0            // Automatic logfile numbering ON
+#define SAM_O_EXPERT      TXA_O_APP1            // Expert UI mode
 
 #define SAM_CMD_FAILED    ((USHORT) 901)        // Generic cmd failure code
 #define SAM_ALLOC_ERROR   ((USHORT) 906)        // memory allocation error
@@ -46,25 +51,24 @@ typedef struct saminf                           // information anchor block
    ULONG               sblwidth;                // actual sb linelength
    TXWHANDLE           sbwindow;                // scroll-buffer window
    TXWHANDLE           menuOwner;               // menu handling window
+   BOOL                expertui;                // EXPERT menu/dialog UI (not BASIC)
    BOOL                automenu;                // automatic menu activation
    BOOL                autodrop;                // automatic pulldown drop
    ULONG               menuopen;                // default drop-down menu
    ULONG               worklevel;               // when 0, activate menu
+   BOOL                logAuto;                 // Automatic logfile numbering from DLG
    TXSELIST           *slSchemes;               // selection list, Color schemes
-   #if defined (DOS32)
-      BOOL             win9x;                   // Windows-9x DosBox detected
-   #endif
 } SAMINF;                                       // end of struct "txtinf"
 
 extern  SAMINF     *sama;                       // SAM anchor block
 
-extern  char       *switchhelp[];
-extern  char       *cmdhelptxt[];
+extern  char       *SamSwitchhelp[];
+extern  char       *samGenericHelp[];
 
 #define SAM_PROFILE     "profile.txt"
 
 // scroll to end (output), cancel-abort and execute a new command
-#define samExecEnd(c) txwSendMsg( hwnd, TXWM_CHAR, 0, TXc_END),              \
+#define samExecEnd(c) txwSendMsg( hwnd, TXWM_CHAR, 0, (TXWMPARAM) TXc_END),  \
                       TxCancelAbort(),                                       \
                       txtMultiCommand((c), 0, TRUE, TRUE, FALSE)
 
@@ -89,7 +93,7 @@ extern  char       *cmdhelptxt[];
                                     (sama->menuOwner  != 0)  )               \
                              {                                               \
                                 txwPostMsg( sama->menuOwner,                 \
-                                            TXWM_COMMAND, SAMM_DEFAULT, 0);  \
+                                 TXWM_COMMAND, (TXWMPARAM) SAMM_DEFAULT, 0); \
                              }                                               \
                           }                                                  \
                        }

@@ -1,0 +1,11 @@
+;;error ignore
+say test q and exit commands from script
+if confirmed("Do you want to quit ? [Y/N] ")
+  say "So you thought it would be OK ..."
+elsif canceled()
+  say "Want to Cancel the whole thing ..."
+  q
+else
+  say "So it is not OK ..."
+  exit
+endif
